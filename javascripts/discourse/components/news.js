@@ -11,7 +11,7 @@ export default Component.extend({
         method: 'GET'
       }).then((data) => {
         const news = data.data;
-        news.sort((a, b) => new Date(b.attributes.date) - new Date(a.attributes.date));
+        news.sort((a, b) => new Date(b.date) - new Date(a.date));
         news.splice(3);
         this.set('news', news);
       }).catch((error) => {
