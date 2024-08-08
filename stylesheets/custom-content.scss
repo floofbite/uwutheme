@@ -79,6 +79,7 @@ ul.cards-content {
   li {
     @media screen and (max-width: 1000px) {
       width: 100%;
+      margin-bottom: 1rem;
     }
     width: 32%;
   }
@@ -105,6 +106,7 @@ ul#category-content {
   li {
     @media screen and (max-width: 1000px) {
       width: 100%;
+      margin-bottom: 1rem;
     }
     width: 49%;
     figure {
@@ -139,6 +141,12 @@ ul.news-content {
   li {
     @media screen and (max-width: 1000px) {
       width: 100%;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      .new{
+        max-width: 300px;
+      }
     }
     width: 32%;
     .new {
