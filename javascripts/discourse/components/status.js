@@ -8,7 +8,7 @@ export default Component.extend({
         ajax(dailyUserCountApiUrl, {
             method: 'GET'
         }).then((data) => {
-            const dailyUserCount = data.mete.total_rows_directory_items;
+            const dailyUserCount = data.directory_items.length;
             this.set('dailyUserCount', dailyUserCount);
         }).catch((error) => {
             console.error('Error fetching users:', error);
