@@ -1,3 +1,13 @@
+body .discourse-root{
+    display: flex;
+    flex-direction: column;
+    .drop-down-mode.d-header-wrap{
+        order: 0;
+    }
+    .below-site-header-outlet.search-banner{
+        order: 1;
+    }
+}
 @import "custom-search-banner-customizations";
-@import "custom";
+@import "custom-content";
 @import "custom-footer";
