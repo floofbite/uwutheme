@@ -80,7 +80,7 @@ ul.cards-content {
     @media screen and (max-width: 1000px) {
       width: 100%;
     }
-    flex: 1;
+    width: 32%;
   }
   a {
     color: #3c4043;
@@ -106,9 +106,13 @@ ul#category-content {
     @media screen and (max-width: 1000px) {
       width: 100%;
     }
-    width: 50%;
+    width: 49%;
     figure {
       margin: 0;
+    }
+    > div > div {
+      height: calc(100% - 3rem);
+      text-align: left;
     }
     a {
       display: flex;
@@ -119,6 +123,12 @@ ul#category-content {
       div {
         padding: 1rem;
       }
+      p {
+        max-height: 2rem;
+        max-height: 4rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
   }
 }
@@ -127,7 +137,7 @@ ul.news-content {
     @media screen and (max-width: 1000px) {
       width: 100%;
     }
-    flex: 1;
+    width: 32%;
     .new {
       padding: 0;
     }
@@ -156,7 +166,7 @@ ul.news-content {
     margin: 0;
     img {
       height: 150px;
-      width: 300px;
+      width: 320px;
       object-fit: cover;
       object-position: center;
     }
