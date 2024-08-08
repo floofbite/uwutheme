@@ -26,14 +26,14 @@ $desc: #626262;
 @import "custom-content";
 @import "custom-footer";
 .custom-header-links {
-  display: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  .headerLink {
+    font-size: 0.75rem;
+  }
   @media screen and (max-width: 1000px) {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 1rem;
-    .headerLink {
-      font-size: 0.75rem;
-    }
+    display: none;
   }
 }
 .custom-header-links .headerLink {
