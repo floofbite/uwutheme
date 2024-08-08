@@ -2,7 +2,9 @@
 
 <PluginOutlet @name="discourse-search-banner" />
 {{status}}
-{{adduser}}
+{{#if !this.isUserLoggedIn}}
+  {{adduser}}
+{{/if}}
 {{cards}}
 {{category-list}}
 
