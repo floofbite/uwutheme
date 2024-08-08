@@ -1,0 +1,38 @@
+.custom-footer {
+  .first-box {
+    width: 20%;
+  }
+
+  .second-box {
+    .links {
+      justify-content: flex-start;
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      li {
+        margin: 0.5em 0.5em 0.5em 0;
+        &:not(:last-child) {
+          &::after {
+            content: "|";
+            margin-left: 0.5em;
+            color: silver;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-section-link-wrapper {
+    a {
+      color: silver;
+
+      &:hover {
+        color: #9ff;
+        text-decoration: underline;
+      }
+    }
+  }
+}
