@@ -1,3 +1,35 @@
+.wrap {
+    max-width: inherit;
+    padding: 0 6%;
+}
+#main-outlet-wrapper {
+    max-width: inherit;
+    padding: 0 6%;
+}
+.custom-footer .wrap {
+    max-width: inherit;
+    padding: 0 6%;
+    margin: inherit;
+    width: 100%;
+}
+.home-logo-wrap {
+    display: flex;
+    align-items: flex-end;
+    #site-logo{
+        padding-right:4px;
+        margin-right:4px;
+    }
+    .header-text {
+        display: none;
+    }
+    @media (min-width: 1000px) {
+        .header-text {
+            display: block;
+            margin-bottom:4px;
+            font-size:24px;
+        }
+    }
+}
 .card-type {
   display: flex;
   flex-wrap: wrap;
