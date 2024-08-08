@@ -1,13 +1,10 @@
 {{#if this.isHomepage}}
-
+  <PluginOutlet @name="discourse-search-banner" />
+  {{status}}
   {{#if this.isUserLoggedIn}}
-    <PluginOutlet @name="discourse-search-banner" />
-    {{status}}
     {{cards}}
     {{category-list}}
   {{else}}
-    <PluginOutlet @name="discourse-search-banner" />
-    {{status}}
     {{adduser}}
     {{cards}}
     {{category-list}}
