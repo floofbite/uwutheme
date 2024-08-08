@@ -18,8 +18,7 @@ body {
   .below-footer-outlet.custom-footer {
     order: 4;
   }
-
-  @import "custom-search-banner-customizations";
-  @import "custom-content";
-  @import "custom-footer";
 }
+@import "custom-search-banner-customizations";
+@import "custom-content";
+@import "custom-footer";
