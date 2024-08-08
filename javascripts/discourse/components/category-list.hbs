@@ -5,18 +5,20 @@
       {{#each categories as |category|}}
         <li>
           <div>
-            <a
-              href="https://testing-community.qnap.com.tw/c/{{category.slug}}/{{category.id}}"
-            >
-              <figure><img
-                  src="{{category.uploaded_logo.url}}"
-                  alt="{{category.name}}"
-                /></figure>
-              <div>
-                <h3>{{category.name}}</h3>
-                <p>{{category.description}}</p>
-              </div>
-            </a>
+            <div>
+              <a
+                href="https://testing-community.qnap.com.tw/c/{{category.slug}}/{{category.id}}"
+              >
+                <figure><img
+                    src="{{category.uploaded_logo.url}}"
+                    alt="{{category.name}}"
+                  /></figure>
+                <div>
+                  <h3>{{category.name}}</h3>
+                  <p>{{category.description}}</p>
+                </div>
+              </a>
+            </div>
           </div>
         </li>
       {{/each}}

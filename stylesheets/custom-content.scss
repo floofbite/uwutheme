@@ -1,4 +1,4 @@
-$custom-primary:#3877e5;
+$custom-primary: #3877e5;
 .card-type {
   display: flex;
   flex-wrap: wrap;
@@ -6,7 +6,7 @@ $custom-primary:#3877e5;
   list-style: none;
   margin: 0;
   li {
-    > div {
+    > div > div {
       border-radius: 1rem;
       overflow: hidden;
       box-shadow: 0 24px 40px rgba(0, 0, 0, 0.07),
@@ -16,6 +16,7 @@ $custom-primary:#3877e5;
       text-align: center;
       padding: 1rem;
       background: white;
+      height: 100%;
     }
   }
 }
@@ -72,6 +73,12 @@ div.adduser-content {
   }
 }
 ul.cards-content {
+  li {
+    @media screen and (max-width: 1000px) {
+      width: 100%;
+    }
+    flex: 1;
+  }
   a {
     color: #3c4043;
     &:hover {
@@ -92,7 +99,11 @@ ul#category-content {
   justify-content: space-between;
   list-style: none;
   margin: 0;
-  li > div {
+  li {
+    @media screen and (max-width: 1000px) {
+      width: 100%;
+    }
+    width: 50%;
     figure {
       margin: 0;
     }
@@ -109,11 +120,18 @@ ul#category-content {
   }
 }
 ul.news-content {
-  gap: 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-  list-style: none;
-  margin: 0;
+  li {
+    @media screen and (max-width: 1000px) {
+      width: 100%;
+    }
+    flex: 1;
+    .new {
+      padding: 0;
+    }
+    .texts {
+      padding: 1rem;
+    }
+  }
   a {
     color: $custom-primary;
     display: block;
@@ -123,8 +141,8 @@ ul.news-content {
     }
   }
   h3 {
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 600;
     color: #3c4043;
     text-align: left;
   }
@@ -138,11 +156,6 @@ ul.news-content {
       width: 300px;
       object-fit: cover;
       object-position: center;
-    }
-  }
-  li > div {
-    > div .texts {
-      padding: 1rem;
     }
   }
 }
