@@ -1,4 +1,8 @@
 body {
+    .discourse-root{
+        display: flex;
+        flex-direction: column;
+    }
     .drop-down-mode.d-header-wrap{
         order: 0;
     }
@@ -8,7 +12,7 @@ body {
     .below-site-header-outlet.custom-homepage-connector{
         order: 2;
     }
-    .main-outlet-wrapper{
+    #main-outlet-wrapper{
         order:3;
     }
     .below-footer-outlet.custom-footer{
