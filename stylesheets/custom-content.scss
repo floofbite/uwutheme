@@ -18,7 +18,7 @@ $custom-primary: #3877e5;
         text-align: center;
         padding: 1rem;
         background: white;
-        height: 100%;
+        height: calc(100% - 2rem)
       }
     }
   }
@@ -124,10 +124,13 @@ ul#category-content {
         padding: 1rem;
       }
       p {
-        max-height: 2rem;
-        max-height: 4rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        max-height: 4.5rem;
         overflow: hidden;
         text-overflow: ellipsis;
+        white-space: normal;
       }
     }
   }
@@ -144,11 +147,15 @@ ul.news-content {
     .texts {
       padding: 1rem;
     }
+    >div>div{
+        height: 100%;
+    }
   }
   a {
     color: $custom-primary;
     display: block;
     text-align: right;
+    margin-top:2rem;
     &:hover {
       color: #00d0ff;
     }
@@ -158,6 +165,13 @@ ul.news-content {
     font-weight: 600;
     color: #3c4043;
     text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-height: 4.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
   }
   p {
     font-size: 1rem;
