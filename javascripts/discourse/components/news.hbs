@@ -1,0 +1,19 @@
+<div class="q-container">
+  <div class="wrap">
+    <h2>What’s New</h2>
+    <ul class="cards-content">
+    {{#each news as |new|}}
+      <li>
+        <a href="{{new.desc}}" target="{{new.url}}">
+        <figure>
+            <img src="{{new.image_url}}" alt="{{new.title}}" />
+        </figure>
+        <h3>{{new.title}}</h3>
+        <p>{{new.desc}}</p>
+        </a>
+      </li>
+    {{/each}}
+      {{/each}}
+    </ul>
+  </div>
+</div>

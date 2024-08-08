@@ -1,4 +1,3 @@
-//api:https://testing-community.qnap.com.tw/categories.json
 import Component from '@ember/component';
 import { ajax } from 'discourse/lib/ajax';
 
