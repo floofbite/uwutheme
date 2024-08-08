@@ -21,6 +21,10 @@ body {
 }
 $custom-primary: #1b72e7;
 $search-primary:#3c4043;
+$desc:#626262;
+.full-width .contents .topic-list .topic-list-body .topic-list-item{
+    margin-bottom: 1rem;
+}
 @import "custom-search-banner-customizations";
 @import "custom-content";
 @import "custom-footer";
