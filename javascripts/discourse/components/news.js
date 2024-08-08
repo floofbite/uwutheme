@@ -10,10 +10,11 @@ export default Component.extend({
       ajax(apiUrl, {
         method: 'GET'
       }).then((data) => {
-        const news = data.data;
+        let news = data.data;
         news.sort((a, b) => new Date(b.date) - new Date(a.date));
         news.splice(3);
         this.set('news', news);
+        console.log(news);
       }).catch((error) => {
         console.error('Error fetching:', error);
       });
