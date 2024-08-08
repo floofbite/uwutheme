@@ -20,11 +20,7 @@ body {
   }
 }
 $custom-primary: #1b72e7;
-// html body div#main-outlet{
-//     padding: 0;
-//     background: none;
-//     box-shadow: none;
-// }
+$search-primary:#3c4043;
 @import "custom-search-banner-customizations";
 @import "custom-content";
 @import "custom-footer";
