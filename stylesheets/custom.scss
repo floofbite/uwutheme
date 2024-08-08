@@ -1,7 +1,7 @@
 $custom-primary: #1b72e7;
 .q-container {
   margin: 1rem 0 2rem 0;
-  h2{
+  h2 {
     text-align: center;
     font-size: 42px;
     margin-bottom: 40px;
@@ -99,15 +99,18 @@ ul#category-content {
     padding: 1rem;
     background: #fff;
     margin: 0 0 2rem 0;
-    a{
-        display: flex;
-        color: #3c4043;
-        &:hover{
-            color: $custom-primary;
-        }
-        div{
-            padding: 1rem;
-        }
+    figure {
+      margin: 0;
+    }
+    a {
+      display: flex;
+      color: #3c4043;
+      &:hover {
+        color: $custom-primary;
+      }
+      div {
+        padding: 1rem;
+      }
     }
   }
 }
