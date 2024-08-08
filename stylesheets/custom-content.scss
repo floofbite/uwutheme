@@ -1,37 +1,37 @@
 .wrap {
-    max-width: inherit;
-    padding: 0 6%;
+  max-width: inherit;
+  padding: 0 6%;
 }
 #main-outlet-wrapper {
-    max-width: inherit;
-    padding: 0 6%;
+  max-width: inherit;
+  padding: 0 6%;
 }
-html body #main-outlet{
-    max-width: inherit;
+html body #main-outlet {
+  max-width: inherit;
 }
 .custom-footer .wrap {
-    max-width: inherit;
-    padding: 0 6%;
-    margin: inherit;
-    width: 100%;
+  max-width: inherit;
+  padding: 0 6%;
+  margin: inherit;
+  width: 100%;
 }
 .home-logo-wrap {
-    display: flex;
-    align-items: flex-end;
-    #site-logo{
-        padding-right:4px;
-        margin-right:4px;
-    }
+  display: flex;
+  align-items: flex-end;
+  #site-logo {
+    padding-right: 4px;
+    margin-right: 4px;
+  }
+  .header-text {
+    display: none;
+  }
+  @media (min-width: 1000px) {
     .header-text {
-        display: none;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 24px;
     }
-    @media (min-width: 1000px) {
-        .header-text {
-            display: block;
-            margin-bottom:4px;
-            font-size:24px;
-        }
-    }
+  }
 }
 .card-type {
   display: flex;
@@ -59,7 +59,7 @@ html body #main-outlet{
 }
 .q-container {
   margin: 2rem 0 3rem 0;
-  &.margin-0{
+  &.margin-0 {
     margin: 0;
   }
   h2 {
@@ -79,8 +79,8 @@ ul.status-content {
     text-align: center;
     display: flex;
     align-items: center;
-    svg{
-        margin-right: .5rem;
+    svg {
+      margin-right: 0.5rem;
     }
   }
 }
@@ -131,8 +131,8 @@ ul.cards-content {
     color: #3c4043;
     &:hover {
       color: $custom-primary;
-      p{
-        color:$custom-primary;
+      p {
+        color: $custom-primary;
       }
     }
   }
@@ -142,7 +142,7 @@ ul.cards-content {
   }
   p {
     font-size: 1rem;
-    color:$desc;
+    color: $desc;
   }
 }
 ul#category-content {
@@ -169,8 +169,8 @@ ul#category-content {
       color: #3c4043;
       &:hover {
         color: $custom-primary;
-        p{
-          color:$custom-primary;
+        p {
+          color: $custom-primary;
         }
       }
       div {
@@ -184,7 +184,7 @@ ul#category-content {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: normal;
-        color:$desc;
+        color: $desc;
       }
     }
   }
@@ -239,10 +239,18 @@ ul.news-content {
   figure {
     margin: 0;
     img {
-      height: 150px;
-      width: 320px;
+      height: 17rem;
+      width: 100%;
       object-fit: cover;
       object-position: center;
+      @media screen and (max-width: 1680px) {
+        height: 12rem;
+        width: 320px;
+      }
+      @media screen and (max-width: 1000px) {
+        height: 12rem;
+        width: 320px;
+      }
     }
   }
 }
