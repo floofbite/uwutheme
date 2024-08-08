@@ -1,18 +1,20 @@
 <div class="q-container">
   <div class="wrap">
     <h2>What’s New</h2>
-    <ul class="cards-content">
-    {{#each news as |new|}}
-      <li>
-        <a href="{{new.url}}" target="{{new.target}}">
-        <figure>
-            <img src="{{new.image_url}}" alt="{{new.title}}" />
-        </figure>
-        <h3>{{new.title}}</h3>
-        <p>{{new.desc}}</p>
-        </a>
-      </li>
-    {{/each}}
+    <ul class="news-content">
+      {{#each news as |new|}}
+        <li>
+          <div>
+            <figure>
+              <img src="{{new.image_url}}" alt="{{new.title}}" />
+            </figure>
+            <div class="texts">
+              <h3>{{new.title}}</h3>
+              <a href="{{new.url}}" target="{{new.target}}">Learn More</a>
+            </div>
+          </div>
+        </li>
+      {{/each}}
     </ul>
   </div>
 </div>
