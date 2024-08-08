@@ -20,8 +20,26 @@ body {
   }
 }
 $custom-primary: #1b72e7;
-$search-primary:#3c4043;
-$desc:#626262;
+$search-primary: #3c4043;
+$desc: #626262;
 @import "custom-search-banner-customizations";
 @import "custom-content";
 @import "custom-footer";
+.custom-header-links {
+  display: none;
+  @media screen and (max-width: 1000px) {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    .headerLink {
+      font-size: 0.75rem;
+    }
+  }
+}
+.custom-header-links .headerLink {
+  font-size: 0.75rem;
+  color: $desc;
+  &:hover {
+    color: $custom-primary;
+  }
+}
