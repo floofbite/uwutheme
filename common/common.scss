@@ -7,13 +7,13 @@ body .discourse-root {
   .below-site-header-outlet.search-banner {
     order: 1;
   }
-  .ember-view.below-site-header-outlet.custom-homepage-connector {
+  div.below-site-header-outlet.custom-homepage-connector {
     order: 2;
   }
   .main-outlet-wrapper {
     order: 3;
   }
-  .ember-view.below-footer-outlet.custom-footer {
+  div.below-footer-outlet.custom-footer {
     order: 4;
   }
 }
