@@ -2,7 +2,8 @@
 
 <PluginOutlet @name="discourse-search-banner" />
 {{status}}
-{{#if !this.isUserLoggedIn}}
+{{#if this.isUserLoggedIn}}
+{{else}}
   {{adduser}}
 {{/if}}
 {{cards}}
