@@ -20,7 +20,8 @@ export default Component.extend({
         }).then((data) => {
             const categories = data.category_list.categories;
             const visibleCategories = categories.filter(category => !category.read_restricted);
-            const postsCount = visibleCategories.reduce((acc, category) => acc + category.post_count, 0);
+            const countPostsNumber = visibleCategories.map(category => category.post_count);
+            const postsCount = countPostsNumber.reduce((a, b) => a + b, 0);
 
             this.set('postsCount', postsCount);
         }).catch((error) => {
