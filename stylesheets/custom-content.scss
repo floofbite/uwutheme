@@ -17,7 +17,7 @@
         text-align: center;
         padding: 1rem;
         background: white;
-        height: calc(100% - 2rem)
+        height: calc(100% - 2rem);
       }
     }
   }
@@ -91,7 +91,7 @@ ul.cards-content {
     }
   }
   h3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
   }
   p {
@@ -145,7 +145,7 @@ ul.news-content {
       margin-bottom: 1rem;
       display: flex;
       justify-content: center;
-      .new{
+      .new {
         max-width: 300px;
       }
     }
@@ -156,28 +156,28 @@ ul.news-content {
     .texts {
       padding: 1rem;
     }
-    >div>div{
-        height: 100%;
+    > div > div {
+      height: 100%;
     }
   }
   a {
     color: $custom-primary;
     display: block;
     text-align: right;
-    margin-top:2rem;
+    margin-top: 2rem;
     &:hover {
       color: #00d0ff;
     }
   }
   h3 {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 500;
     color: #3c4043;
     text-align: left;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    max-height: 4.5rem;
+    max-height: 6.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
