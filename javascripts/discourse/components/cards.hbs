@@ -1,12 +1,14 @@
 <div class="q-container">
   <div class="wrap">
-    <ul class="cards-content">
+    <ul class="cards-content card-type">
       {{#each cards as |card|}}
         <li>
-          <a href="{{card.url}}" target="{{card.target}}">
-            <h3>{{card.title}}</h3>
-            <p>{{card.description}}</p>
-          </a>
+          <div>
+            <a href="{{card.url}}" target="{{card.target}}">
+              <h3>{{card.title}}</h3>
+              <p>{{card.description}}</p>
+            </a>
+          </div>
         </li>
       {{/each}}
     </ul>

@@ -1,3 +1,23 @@
+.card-type {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  li {
+    > div {
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 24px 40px rgba(0, 0, 0, 0.07),
+        0 10.8529px 24.1177px rgba(0, 0, 0, 0.0456112),
+        0 4.50776px 10.0172px rgba(0, 0, 0, 0.035),
+        0 1.63037px 3.62304px rgba(0, 0, 0, 0.0243888);
+      text-align: center;
+      padding: 1rem;
+      background: white;
+    }
+  }
+}
 .q-container {
   margin: 1rem 0 2rem 0;
   h2 {
@@ -34,28 +54,23 @@ div.adduser-content {
     list-style: none;
     li {
       display: contents;
-    }
-    a {
-      margin: 0 1rem;
-      padding: 12px 20px 12px 20px;
-      font-size: 1rem;
-      line-height: 1rem;
-      border-radius: 4px;
-      background-color: $custom-primary;
-      color: white;
-      &:hover {
-        background-color: #3c4043;
+      a {
+        margin: 0 1rem;
+        padding: 12px 20px 12px 20px;
+        font-size: 1rem;
+        line-height: 1rem;
+        border-radius: 4px;
+        background-color: $custom-primary;
         color: white;
+        &:hover {
+          background-color: #3c4043;
+          color: white;
+        }
       }
     }
   }
 }
 ul.cards-content {
-  gap: 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-  list-style: none;
-  margin: 0;
   a {
     color: #3c4043;
     &:hover {
@@ -69,17 +84,6 @@ ul.cards-content {
   p {
     font-size: 1rem;
   }
-  li {
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.07),
-      0 10.8529px 24.1177px rgba(0, 0, 0, 0.0456112),
-      0 4.50776px 10.0172px rgba(0, 0, 0, 0.035),
-      0 1.63037px 3.62304px rgba(0, 0, 0, 0.0243888);
-    text-align: center;
-    padding: 1rem;
-    background: white;
-  }
 }
 ul#category-content {
   display: flex;
@@ -87,17 +91,7 @@ ul#category-content {
   justify-content: space-between;
   list-style: none;
   margin: 0;
-  li {
-    width: calc(50% - 3rem);
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.07),
-      0 10.8529px 24.1177px rgba(0, 0, 0, 0.0456112),
-      0 4.50776px 10.0172px rgba(0, 0, 0, 0.035),
-      0 1.63037px 3.62304px rgba(0, 0, 0, 0.0243888);
-    padding: 1rem;
-    background: #fff;
-    margin: 0 0 2rem 0;
+  li > div {
     figure {
       margin: 0;
     }
@@ -114,48 +108,40 @@ ul#category-content {
   }
 }
 ul.news-content {
-    gap: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-    list-style: none;
-    margin: 0;
-    a {
-      color: $custom-primary;
-      display: block;
+  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  a {
+    color: $custom-primary;
+    display: block;
     text-align: right;
-      &:hover {
-        color: lightness($color: $custom-primary, $amount: 20%);
-      }
-    }
-    h3 {
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: #3c4043;
-      text-align: left;
-    }
-    p {
-      font-size: 1rem;
-    }
-    figure{
-        margin: 0;
-        img{
-            height: 150px;
-            width: 300px;
-            object-fit: cover;
-            object-position: center;
-        }
-    }
-    li {
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 24px 40px rgba(0, 0, 0, 0.07),
-        0 10.8529px 24.1177px rgba(0, 0, 0, 0.0456112),
-        0 4.50776px 10.0172px rgba(0, 0, 0, 0.035),
-        0 1.63037px 3.62304px rgba(0, 0, 0, 0.0243888);
-      text-align: center;
-      background: white;
-      >div .texts{
-        padding: 1rem;
-      }
+    &:hover {
+      color: lightness($color: $custom-primary, $amount: 20%);
     }
   }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #3c4043;
+    text-align: left;
+  }
+  p {
+    font-size: 1rem;
+  }
+  figure {
+    margin: 0;
+    img {
+      height: 150px;
+      width: 300px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  li > div {
+    > div .texts {
+      padding: 1rem;
+    }
+  }
+}
