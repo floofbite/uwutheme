@@ -270,7 +270,7 @@ html {
       var(--tertiary-hover) 0%,
       var(--tertiary) 100%
     );
-    clip-path: ellipse(148% 70% at 91% -14%);
+    // clip-path: ellipse(148% 70% at 91% -14%);
   }
   body.no-ember .background-container {
     display: none;
