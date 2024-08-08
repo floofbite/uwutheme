@@ -32,13 +32,13 @@ $desc: #626262;
   .headerLink {
     font-size: 0.75rem;
   }
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1280px) {
     display: none;
   }
 }
-.custom-header-links .headerLink {
-  font-size: 0.75rem;
-  color: $desc;
+.custom-header-links .headerLink a{
+  font-size: 1rem;
+  color: #bbbbbb;
   &:hover {
     color: $custom-primary;
   }
