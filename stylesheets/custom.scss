@@ -1,0 +1,113 @@
+$custom-primary: #1b72e7;
+.q-container {
+  margin: 1rem 0 2rem 0;
+  h2{
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 40px;
+  }
+}
+ul.status-content {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  li {
+    padding: 0 2rem;
+    text-align: center;
+  }
+}
+div.adduser-content {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.07),
+    0 10.8529px 24.1177px rgba(0, 0, 0, 0.0456112),
+    0 4.50776px 10.0172px rgba(0, 0, 0, 0.035),
+    0 1.63037px 3.62304px rgba(0, 0, 0, 0.0243888);
+  text-align: center;
+  padding: 1rem;
+  background: #fff;
+  p {
+    text-align: center;
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    li {
+      display: contents;
+    }
+    a {
+      margin: 0 1rem;
+      padding: 12px 20px 12px 20px;
+      font-size: 1rem;
+      line-height: 1rem;
+      border-radius: 4px;
+      background-color: $custom-primary;
+      color: white;
+      &:hover {
+        background-color: #3c4043;
+        color: white;
+      }
+    }
+  }
+}
+ul.cards-content {
+  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  a {
+    color: #3c4043;
+    &:hover {
+      color: $custom-primary;
+    }
+  }
+  h3 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  p {
+    font-size: 1rem;
+  }
+  li {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.07),
+      0 10.8529px 24.1177px rgba(0, 0, 0, 0.0456112),
+      0 4.50776px 10.0172px rgba(0, 0, 0, 0.035),
+      0 1.63037px 3.62304px rgba(0, 0, 0, 0.0243888);
+    text-align: center;
+    padding: 1rem;
+    background: white;
+  }
+}
+ul#category-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  li {
+    width: calc(50% - 3rem);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.07),
+      0 10.8529px 24.1177px rgba(0, 0, 0, 0.0456112),
+      0 4.50776px 10.0172px rgba(0, 0, 0, 0.035),
+      0 1.63037px 3.62304px rgba(0, 0, 0, 0.0243888);
+    padding: 1rem;
+    background: #fff;
+    margin: 0 0 2rem 0;
+    a{
+        display: flex;
+        color: #3c4043;
+        &:hover{
+            color: $custom-primary;
+        }
+        div{
+            padding: 1rem;
+        }
+    }
+  }
+}

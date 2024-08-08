@@ -1,0 +1,14 @@
+<div class="q-container">
+  <div class="wrap">
+    <ul class="cards-content">
+      {{#each cards as |card|}}
+        <li>
+          <a href="{{card.url}}" target="{{card.target}}">
+            <h3>{{card.title}}</h3>
+            <p>{{card.description}}</p>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

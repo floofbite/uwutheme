@@ -1,0 +1,18 @@
+<div class="q-container">
+  <div class="wrap">
+    <h2>Categories</h2>
+    <ul id="category-content">
+      {{#each categories as |category|}}
+        <li>
+          <a href="https://testing-community.qnap.com.tw/c/{{category.slug}}/{{category.id}}">
+            <img src="{{category.uploaded_logo.url}}" alt="{{category.name}}" />
+            <div>
+              <h3>{{category.name}}</h3>
+              <p>{{category.description}}</p>
+            </div>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
