@@ -120,14 +120,17 @@ ul.news-content {
     list-style: none;
     margin: 0;
     a {
-      color: #3c4043;
+      color: $custom-primary;
+      display: block;
+    text-align: right;
       &:hover {
-        color: $custom-primary;
+        color: lightness($color: $custom-primary, $amount: 20%);
       }
     }
     h3 {
-      font-size: 2rem;
-      font-weight: 600;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #3c4043;
       text-align: left;
     }
     p {
@@ -135,8 +138,11 @@ ul.news-content {
     }
     figure{
         margin: 0;
-        image{
-            max-height: 200px;
+        img{
+            height: 150px;
+            width: 300px;
+            object-fit: cover;
+            object-position: center;
         }
     }
     li {
