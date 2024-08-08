@@ -1,21 +1,21 @@
-body .discourse-root {
-  display: flex;
-  flex-direction: column;
-  .drop-down-mode.d-header-wrap {
-    order: 0;
-  }
-  .below-site-header-outlet.search-banner {
-    order: 1;
-  }
-  div.below-site-header-outlet.custom-homepage-connector {
-    order: 2;
-  }
-  .main-outlet-wrapper {
-    order: 3;
-  }
-  div.below-footer-outlet.custom-footer {
-    order: 4;
-  }
+body div.discourse-root {
+    display: flex;
+    flex-direction: column;
+    .drop-down-mode.d-header-wrap{
+        order: 0;
+    }
+    .below-site-header-outlet.search-banner{
+        order: 1;
+    }
+    .below-site-header-outlet.custom-homepage-connector{
+        order: 2;
+    }
+    .main-outlet-wrapper{
+        order:3;
+    }
+    .below-footer-outlet.custom-footer{
+        order:4;
+    }
 }
 @import "custom-search-banner-customizations";
 @import "custom-content";
