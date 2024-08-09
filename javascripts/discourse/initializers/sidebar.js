@@ -21,7 +21,7 @@ export default {
                             searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
                             statusContent.remove();
                         }
-                    }, 100);
+                    }, 1000);
                 } else {
                     applicationController.set("showSidebar", true);
                 }
