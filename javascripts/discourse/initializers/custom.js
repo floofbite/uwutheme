@@ -23,7 +23,7 @@ export default {
                             return;
                         }
                         const statusContent = document.querySelector(".status-content");
-                        statusContent.classList.remove("d-none");
+                        statusContent.classList.remove("default");
                         const searchMenu = document.querySelector(".search-menu");
                         searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
                         statusContent.remove();
