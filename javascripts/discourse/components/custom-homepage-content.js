@@ -22,6 +22,7 @@ export default class CustomHomepageContent extends Component {
         withPluginApi("0.8.18", (api) => {
             this.api = api;
             const applicationController = api.container.lookup("controller:application");
+            console.log("isHomepage", this.isHomepage);
             applicationController.set("showSidebar", !this.isHomepage);
         });
     }
