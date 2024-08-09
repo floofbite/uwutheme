@@ -10,8 +10,6 @@ export default {
         const isHomepage = currentRoute === `discovery.${defaultHomepage()}`;
         const applicationController = api.container.lookup("controller:application");
 
-        console.log("Is homepage:", isHomepage);
-
         if (isHomepage) {
             applicationController.set("showSidebar", false);
         } else {
