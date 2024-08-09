@@ -5,7 +5,7 @@ export default Component.extend({
   didInsertElement() {
     this._super(...arguments);
 
-      const apiUrl = 'https://testing-community.qnap.com.tw/categories.json';
+      const apiUrl = '/categories.json';
 
       ajax(apiUrl, {
         method: 'GET'

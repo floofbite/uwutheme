@@ -4,7 +4,7 @@ import { ajax } from 'discourse/lib/ajax';
 export default Component.extend({
     didInsertElement() {
         this._super(...arguments);
-        const siteApiUrl = 'https://testing-community.qnap.com.tw/site/statistics.json';
+        const siteApiUrl = '/site/statistics.json';
         ajax(siteApiUrl, {
             method: 'GET'
         }).then((data) => {
