@@ -2,7 +2,6 @@ import Component from "@glimmer/component";
 import { inject as service } from "@ember/service";
 import { defaultHomepage } from "discourse/lib/utilities";
 import { withPluginApi } from "discourse/lib/plugin-api";
-// Remove the unused import statement for 'action'
 
 export default class CustomHomepageContent extends Component {
     @service router;
@@ -21,9 +20,14 @@ export default class CustomHomepageContent extends Component {
 
         withPluginApi("0.8.18", (api) => {
             this.api = api;
-            const applicationController = api.container.lookup("controller:application");
-            console.log("isHomepage", this.isHomepage);
-            applicationController.set("showSidebar", !this.isHomepage);
         });
+    }
+
+    didReceiveAttrs() {
+        super.didReceiveAttrs();
+
+        const applicationController = this.api.container.lookup("controller:application");
+        console.log("isHomepage", this.isHomepage);
+        applicationController.set("showSidebar", !this.isHomepage);
     }
 }
