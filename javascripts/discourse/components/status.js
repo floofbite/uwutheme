@@ -12,6 +12,7 @@ export default Component.extend({
             const postsCount = data.posts_count;
             this.set('userCount', userCount);
             this.set('postsCount', postsCount);
+            console.log('Fetched site statistics', data);
         }).catch((error) => {
             console.error('Failed to fetch site statistics', error);
         });
