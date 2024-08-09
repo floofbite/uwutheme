@@ -4,23 +4,25 @@ import { defaultHomepage } from "discourse/lib/utilities";
 import { withPluginApi } from "discourse/lib/plugin-api";
 
 export default class CustomHomepageContent extends Component {
-  @service router;
+    @service router;
 
-  constructor() {
-    super(...arguments);
+    constructor() {
+        super(...arguments);
 
-    // Set up the plugin API to get the current user
-    withPluginApi('0.8.18', (api) => {
-      this.api = api;
-    });
-  }
+        // Set up the plugin API to get the current user
+        withPluginApi('0.8.18', (api) => {
+            this.api = api;
+            const applicationController = api.container.lookup("controller:application");
+            applicationController.set("showSidebar", false);
+        });
+    }
 
-  get isHomepage() {
-    const { currentRouteName } = this.router;
-    return currentRouteName === `discovery.${defaultHomepage()}`;
-  }
+    get isHomepage() {
+        const { currentRouteName } = this.router;
+        return currentRouteName === `discovery.${defaultHomepage()}`;
+    }
 
-  get isUserLoggedIn() {
-    return this.api?.getCurrentUser() !== null;
-  }
+    get isUserLoggedIn() {
+        return this.api?.getCurrentUser() !== null;
+    }
 }
