@@ -3,10 +3,9 @@ import { defaultHomepage } from "discourse/lib/utilities";
 import { ajax } from "discourse/lib/ajax";
 
 export default {
-    name: "custom-sidebar-visibility",
+    name: "custom-settings",
     initialize() {
         withPluginApi("0.8.18", (api) => {
-            //on page load
             api.onPageChange(() => {
                 const currentRoute = api.container.lookup("router:main").currentRouteName;
                 const isHomepage = currentRoute === `discovery.${defaultHomepage()}`;
@@ -15,6 +14,8 @@ export default {
                 if (isHomepage) {
                     applicationController.set("showSidebar", false);
                     const siteApiUrl = '/site/statistics.json';
+                    const mainOutlet = document.getElementById("main-outlet");
+                    mainOutlet.classList.add("isHomepage");
                     ajax(siteApiUrl, {
                         method: 'GET'
                     }).then((data) => {
