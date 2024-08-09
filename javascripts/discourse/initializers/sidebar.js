@@ -2,28 +2,30 @@ import { withPluginApi } from "discourse/lib/plugin-api";
 import { defaultHomepage } from "discourse/lib/utilities";
 
 export default {
-  name: "custom-sidebar-visibility",
-  initialize() {
-    withPluginApi("0.8.18", (api) => {
-      api.onPageChange(() => {
-        const currentRoute = api.container.lookup("router:main").currentRouteName;
-        const isHomepage = currentRoute === `discovery.${defaultHomepage()}`;
-        const applicationController = api.container.lookup("controller:application");
+    name: "custom-sidebar-visibility",
+    initialize() {
+        withPluginApi("0.8.18", (api) => {
+            //on page load
+            api.onPageChange(() => {
+                const currentRoute = api.container.lookup("router:main").currentRouteName;
+                const isHomepage = currentRoute === `discovery.${defaultHomepage()}`;
+                const applicationController = api.container.lookup("controller:application");
 
-        if (isHomepage) {
-            applicationController.set("showSidebar", false);
-
-            //change status position
-            window.addEventListener("load", () => {
-                const statusContent = document.querySelector(".status-content");
-                const searchMenu = document.querySelector(".search-menu");
-                searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
-                statusContent.remove();
+                if (isHomepage) {
+                    applicationController.set("showSidebar", false);
+                    const checkExist = setInterval(() => {
+                        if (document.querySelector('.status-content')) {
+                            clearInterval(checkExist);
+                            const statusContent = document.querySelector(".status-content");
+                            const searchMenu = document.querySelector(".search-menu");
+                            searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
+                            statusContent.remove();
+                        }
+                    }, 100);
+                } else {
+                    applicationController.set("showSidebar", true);
+                }
             });
-        } else {
-            applicationController.set("showSidebar", true);
-        }
-      });
-    });
-  },
+        });
+    },
 };
