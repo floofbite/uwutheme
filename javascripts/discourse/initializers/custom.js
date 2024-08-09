@@ -10,11 +10,11 @@ export default {
                 const currentRoute = api.container.lookup("router:main").currentRouteName;
                 const isHomepage = currentRoute === `discovery.${defaultHomepage()}`;
                 const applicationController = api.container.lookup("controller:application");
+                const mainOutlet = document.getElementById("main-outlet");
 
                 if (isHomepage) {
                     applicationController.set("showSidebar", false);
                     const siteApiUrl = '/site/statistics.json';
-                    const mainOutlet = document.getElementById("main-outlet");
                     mainOutlet.classList.add("isHomepage");
                     ajax(siteApiUrl, {
                         method: 'GET'
@@ -29,6 +29,7 @@ export default {
                     });
                 } else {
                     applicationController.set("showSidebar", true);
+                    mainOutlet.classList.remove("isHomepage");
                 }
             });
         });
