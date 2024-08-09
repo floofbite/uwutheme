@@ -15,6 +15,9 @@ export default class CustomHomepageContent extends Component {
             if (this.isHomepage) {
                 const applicationController = this.api.container.lookup("controller:application");
                 applicationController.set("showSidebar", false);
+            }else{
+                const applicationController = this.api.container.lookup("controller:application");
+                applicationController.set("showSidebar", true);
             }
         });
     }
