@@ -10,7 +10,6 @@ export default class CustomHomepageContent extends Component {
   constructor() {
     super(...arguments);
 
-    // Set up the plugin API to get the current user
     withPluginApi("0.8.18", (api) => {
       this.api = api;
     });
@@ -37,10 +36,11 @@ export default class CustomHomepageContent extends Component {
   @action
   setupSidebarVisibility() {
     const applicationController = this.api.container.lookup("controller:application");
+
+    // Hide sidebar on homepage and show it on other pages
     applicationController.set("showSidebar", !this.isHomepage);
   }
 
-  // Runs after the component is inserted into the DOM
   willRender() {
     this.handleHomepageClass();
     this.setupSidebarVisibility();
