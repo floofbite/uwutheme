@@ -76,7 +76,8 @@ ul.status-content {
   list-style: none;
   color: $search-primary;
   opacity: 1;
-  transition: opacity 0.2s;
+  transition: all 0.2s;
+  visibility: visible;
   li {
     padding: 0 2rem;
     text-align: center;
@@ -90,6 +91,7 @@ ul.status-content {
       visibility: hidden !important;
       max-height: 0 !important;
       opacity: 0;
+      transition: all 0.2s;
   }
 }
 div.adduser-content {
