@@ -19,6 +19,7 @@ export default {
                         method: 'GET'
                     }).then((data) => {
                         const statusContent = document.querySelector(".status-content");
+                        statusContent.classList.remove("d-none");
                         const searchMenu = document.querySelector(".search-menu");
                         searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
                         statusContent.remove();
