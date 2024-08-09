@@ -1,5 +1,6 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import { defaultHomepage } from "discourse/lib/utilities";
+import { ajax } from "discourse/lib/ajax";
 
 export default {
     name: "custom-sidebar-visibility",
@@ -13,15 +14,17 @@ export default {
 
                 if (isHomepage) {
                     applicationController.set("showSidebar", false);
-                    const checkExist = setInterval(() => {
-                        if (document.querySelector('.status-content')) {
-                            clearInterval(checkExist);
-                            const statusContent = document.querySelector(".status-content");
-                            const searchMenu = document.querySelector(".search-menu");
-                            searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
-                            statusContent.remove();
-                        }
-                    }, 1000);
+                    const siteApiUrl = '/site/statistics.json';
+                    ajax(siteApiUrl, {
+                        method: 'GET'
+                    }).then((data) => {
+                        const statusContent = document.querySelector(".status-content");
+                        const searchMenu = document.querySelector(".search-menu");
+                        searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
+                        statusContent.remove();
+                    }).catch((error) => {
+                        console.error('Failed to fetch site statistics', error);
+                    });
                 } else {
                     applicationController.set("showSidebar", true);
                 }
