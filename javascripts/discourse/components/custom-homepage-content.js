@@ -12,13 +12,6 @@ export default class CustomHomepageContent extends Component {
         // Set up the plugin API to get the current user
         withPluginApi('0.8.18', (api) => {
             this.api = api;
-            if (this.isHomepage) {
-                const applicationController = this.api.container.lookup("controller:application");
-                applicationController.set("showSidebar", false);
-            }else{
-                const applicationController = this.api.container.lookup("controller:application");
-                applicationController.set("showSidebar", true);
-            }
         });
     }
 
@@ -29,5 +22,14 @@ export default class CustomHomepageContent extends Component {
 
     get isUserLoggedIn() {
         return this.api?.getCurrentUser() !== null;
+    }
+
+    didInsertElement() {
+        this._super(...arguments);
+        if (this.isHomepage) {
+            document.body.classList.add("homepage");
+            const applicationController = this.api.container.lookup("controller:application");
+            applicationController.set("showSidebar", !isHomepage);
+        }
     }
 }
