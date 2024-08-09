@@ -22,12 +22,4 @@ export default class CustomHomepageContent extends Component {
             this.api = api;
         });
     }
-
-    didReceiveAttrs() {
-        super.didReceiveAttrs();
-
-        const applicationController = this.api.container.lookup("controller:application");
-        console.log("isHomepage", this.isHomepage);
-        applicationController.set("showSidebar", !this.isHomepage);
-    }
 }
