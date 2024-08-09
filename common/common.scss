@@ -48,7 +48,7 @@ div.before-header-panel-outlet{
     margin-left: inherit;
 }
 .d-none{
-    display: none !important;
+    visibility: hidden !important;
 }
 #main-outlet.isHomepage{
     margin-top: 0px;

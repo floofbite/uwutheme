@@ -19,6 +19,9 @@ export default {
                     ajax(siteApiUrl, {
                         method: 'GET'
                     }).then((data) => {
+                        if (!data) {
+                            return;
+                        }
                         const statusContent = document.querySelector(".status-content");
                         statusContent.classList.remove("d-none");
                         const searchMenu = document.querySelector(".search-menu");
