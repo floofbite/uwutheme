@@ -78,6 +78,7 @@ ul.status-content {
   opacity: 1;
   transition: all 0.2s;
   visibility: visible;
+  height: auto;
   li {
     padding: 0 2rem;
     text-align: center;
@@ -90,6 +91,7 @@ ul.status-content {
   &.default {
       visibility: hidden !important;
       max-height: 0 !important;
+      height: 0;
       opacity: 0;
       transition: all 0.2s;
   }
