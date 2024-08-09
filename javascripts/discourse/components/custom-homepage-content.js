@@ -12,6 +12,7 @@ export default class CustomHomepageContent extends Component {
 
     withPluginApi("0.8.18", (api) => {
       this.api = api;
+      this.setupSidebarVisibility();
     });
   }
 
@@ -25,24 +26,17 @@ export default class CustomHomepageContent extends Component {
   }
 
   @action
-  handleHomepageClass() {
-    if (this.isHomepage) {
-      document.body.classList.add("homepage");
-    } else {
-      document.body.classList.remove("homepage");
+  setupSidebarVisibility() {
+    const sidebarElement = document.querySelector('.sidebar'); // Adjust the selector as needed
+
+    if (this.isHomepage && sidebarElement) {
+      sidebarElement.style.display = 'none'; // Hide the sidebar on the homepage
+    } else if (sidebarElement) {
+      sidebarElement.style.display = ''; // Show the sidebar on other pages
     }
   }
 
-  @action
-  setupSidebarVisibility() {
-    const applicationController = this.api.container.lookup("controller:application");
-
-    // Hide sidebar on homepage and show it on other pages
-    applicationController.set("showSidebar", !this.isHomepage);
-  }
-
   willRender() {
-    this.handleHomepageClass();
     this.setupSidebarVisibility();
   }
 }
