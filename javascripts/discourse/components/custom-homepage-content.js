@@ -12,8 +12,10 @@ export default class CustomHomepageContent extends Component {
         // Set up the plugin API to get the current user
         withPluginApi('0.8.18', (api) => {
             this.api = api;
-            const applicationController = api.container.lookup("controller:application");
-            applicationController.set("showSidebar", false);
+            if (this.isHomepage) {
+                const applicationController = this.api.container.lookup("controller:application");
+                applicationController.set("showSidebar", false);
+            }
         });
     }
 
