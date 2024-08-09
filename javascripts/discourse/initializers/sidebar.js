@@ -12,10 +12,14 @@ export default {
 
         if (isHomepage) {
             applicationController.set("showSidebar", false);
-            const statusContent = document.querySelector(".status-content");
-            const searchMenu = document.querySelector(".search-menu");
-            searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
-            statusContent.remove();
+
+            //change status position
+            window.addEventListener("load", () => {
+                const statusContent = document.querySelector(".status-content");
+                const searchMenu = document.querySelector(".search-menu");
+                searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
+                statusContent.remove();
+            });
         } else {
             applicationController.set("showSidebar", true);
         }
