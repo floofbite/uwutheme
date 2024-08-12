@@ -21,7 +21,6 @@ export default Component.extend({
             newStatusContent.querySelector(".postsCount").innerHTML = postsIcon.outerHTML + postsCount + ' posts';
             newStatusContent.querySelector(".usersCount").innerHTML = usersIcon.outerHTML + usersCount + ' users';
             newStatusContent.classList.remove("default");
-            console.log('Site statistics fetched successfully',usersCount,postsCount);
         }).catch((error) => {
             console.error('Failed to fetch site statistics', error);
         });
