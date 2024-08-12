@@ -13,9 +13,9 @@ export default Component.extend({
             this.set('userCount', userCount);
             this.set('postsCount', postsCount);
             const statusContent = document.querySelector(".status-content");
-            statusContent.classList.remove("default");
             const searchMenu = document.querySelector(".search-menu");
             searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
+            statusContent.classList.remove("default");
             statusContent.remove();
             console.log('Site statistics fetched successfully',userCount,postsCount);
         }).catch((error) => {
