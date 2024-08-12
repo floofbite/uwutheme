@@ -12,7 +12,7 @@ export default Component.extend({
             const postsCount = data.posts_count;
             this.set('userCount', userCount);
             this.set('postsCount', postsCount);
-            const statusContent = document.querySelector(".status-content");
+            let statusContent = document.querySelector(".status-content");
             const searchMenu = document.querySelector(".search-menu");
             searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
             statusContent.classList.remove("default");
