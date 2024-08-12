@@ -1,6 +1,5 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import { defaultHomepage } from "discourse/lib/utilities";
-import { ajax } from "discourse/lib/ajax";
 
 export default {
     name: "custom-settings",
@@ -11,22 +10,9 @@ export default {
                 const isHomepage = currentRoute === `discovery.${defaultHomepage()}`;
                 const applicationController = api.container.lookup("controller:application");
                 const mainOutlet = document.getElementById("main-outlet");
-
                 if (isHomepage) {
                     applicationController.set("showSidebar", false);
-                    const siteApiUrl = '/site/statistics.json';
                     mainOutlet.classList.add("isHomepage");
-                    ajax(siteApiUrl, {
-                        method: 'GET'
-                    }).then((data) => {
-                        const statusContent = document.querySelector(".status-content");
-                        statusContent.classList.remove("d-none");
-                        const searchMenu = document.querySelector(".search-menu");
-                        searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
-                        statusContent.remove();
-                    }).catch((error) => {
-                        console.error('Failed to fetch site statistics', error);
-                    });
                 } else {
                     applicationController.set("showSidebar", true);
                     mainOutlet.classList.remove("isHomepage");

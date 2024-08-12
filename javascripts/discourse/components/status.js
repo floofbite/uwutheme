@@ -12,6 +12,11 @@ export default Component.extend({
             const postsCount = data.posts_count;
             this.set('userCount', userCount);
             this.set('postsCount', postsCount);
+            const statusContent = document.querySelector(".status-content");
+            statusContent.classList.remove("default");
+            const searchMenu = document.querySelector(".search-menu");
+            searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
+            statusContent.remove();
         }).catch((error) => {
             console.error('Failed to fetch site statistics', error);
         });
