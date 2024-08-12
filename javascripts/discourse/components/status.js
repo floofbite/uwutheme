@@ -15,8 +15,8 @@ export default Component.extend({
             let statusContent = document.querySelector(".status-content");
             const searchMenu = document.querySelector(".search-menu");
             searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
-            statusContent.classList.remove("default");
-            statusContent.remove();
+            let newStatusContent = document.querySelector(".status-content");
+            newStatusContent.classList.remove("default");
             console.log('Site statistics fetched successfully',userCount,postsCount);
         }).catch((error) => {
             console.error('Failed to fetch site statistics', error);
