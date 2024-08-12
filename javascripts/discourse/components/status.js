@@ -17,7 +17,7 @@ export default Component.extend({
             const searchMenu = document.querySelector(".search-menu");
             searchMenu.insertAdjacentHTML("afterend", statusContent.outerHTML);
             statusContent.remove();
-            console.log('Site statistics fetched successfully');
+            console.log('Site statistics fetched successfully',userCount,postsCount);
         }).catch((error) => {
             console.error('Failed to fetch site statistics', error);
         });
