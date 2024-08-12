@@ -75,6 +75,8 @@ ul.status-content {
   justify-content: center;
   list-style: none;
   color: $search-primary;
+  opacity: 1;
+  transition: opacity 0.2s;
   li {
     padding: 0 2rem;
     text-align: center;
@@ -83,6 +85,11 @@ ul.status-content {
     svg {
       margin-right: 0.5rem;
     }
+  }
+  &.default {
+      visibility: hidden !important;
+      max-height: 0 !important;
+      opacity: 0;
   }
 }
 div.adduser-content {
