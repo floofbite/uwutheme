@@ -18,7 +18,7 @@ export default Component.extend({
             {
                 "url": "https://www.qnap.com/en/release-notes/",
                 "target": "_blank",
-                "title": "Release Note",
+                "title": "Release Notes",
                 "description": "Discover the latest features, improvements, and bug fixes in our most recent releases."
             }
         ];
