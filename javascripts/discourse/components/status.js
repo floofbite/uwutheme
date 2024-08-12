@@ -18,8 +18,8 @@ export default Component.extend({
             let newStatusContent = document.querySelector(".status-content");
             const postsIcon = statusContent.querySelector('.postsIcon');
             const usersIcon = statusContent.querySelector('.usersIcon');
-            newStatusContent.querySelector(".postsCount").textContent = postsIcon + postsCount + ' posts';
-            newStatusContent.querySelector(".usersCount").textContent = usersIcon + usersCount + ' users';
+            newStatusContent.querySelector(".postsCount").innerHTML = postsIcon.outerHTML + postsCount + ' posts';
+            newStatusContent.querySelector(".usersCount").innerHTML = usersIcon.outerHTML + usersCount + ' users';
             newStatusContent.classList.remove("default");
             console.log('Site statistics fetched successfully',usersCount,postsCount);
         }).catch((error) => {
