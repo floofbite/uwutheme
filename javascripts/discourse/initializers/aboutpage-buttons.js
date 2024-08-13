@@ -16,7 +16,6 @@ export default {
     },
 
     changeButtonLinkOnAboutPage() {
-        console.log('About page detected!');
         const tosButton = document.querySelector('a[href="/tos"]');
         const privacyButton = document.querySelector('a[href="/privacy"]');
 
