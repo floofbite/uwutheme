@@ -50,6 +50,7 @@
     "esLogo": "assets/images/flag-es.svg",
     "krLogo": "assets/images/flag-kr.svg",
     "plLogo": "assets/images/flag-pl.svg",
-    "seLogo": "assets/images/flag-se.svg"
+    "seLogo": "assets/images/flag-se.svg",
+    "nlLogo": "assets/images/flag-nl.svg"
   }
 }
