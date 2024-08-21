@@ -84,6 +84,16 @@ sup {
   display: none;
 }
 
+.discourse-theme--q {
+  .topic-list-item,
+  tr {
+    border-bottom: 0;
+  }
+
+  .full-width .contents .topic-list .topic-list-body .topic-list-item.visited {
+    border: 0;
+  }
+}
 @import "custom-search-banner-customizations";
 @import "custom-content";
 @import "custom-footer";

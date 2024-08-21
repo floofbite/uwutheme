@@ -17,6 +17,7 @@ export default {
                     applicationController.set("showSidebar", true);
                     main.classList.remove("isHomepage");
                 }
+                main.classList.add("discourse-theme--q");
             });
         });
     },
