@@ -3,7 +3,7 @@ import { inject as service } from "@ember/service";
 import { defaultHomepage } from "discourse/lib/utilities";
 import { withPluginApi } from "discourse/lib/plugin-api";
 
-export default class AfterTopicListContent extends Component {
+export default class mainOutletBottomContent extends Component {
     @service router;
 
     get isHomepage() {
