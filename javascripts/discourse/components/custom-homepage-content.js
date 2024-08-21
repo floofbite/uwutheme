@@ -28,9 +28,9 @@ export default class CustomHomepageContent extends Component {
         const { blockType } = this.args;
         switch (blockType) {
             case 'block1':
-                return 'Content for Block 1';
+                return 'Before topic list';
             case 'block2':
-                return 'Content for Block 2';
+                return 'After topic list';
             case 'block3':
                 return 'Content for Block 3';
             default:
