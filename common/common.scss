@@ -96,12 +96,12 @@ sup {
   .full-width .contents .topic-list .topic-list-body .topic-list-item {
     background-color: #f2f2f5;
     border: 0px;
-    box-shadow: 0;
+    box-shadow: inherit;
   }
 
   .full-width .contents .topic-list .topic-list-body .topic-list-item:hover {
     background-color: #f8f8fa;
-    box-shadow: 0;
+    box-shadow: inherit;
     border: 0;
   }
 
@@ -121,7 +121,6 @@ sup {
   }
 
   .full-width .contents .topic-list .topic-list-body .topic-list-item:hover {
-    box-shadow: 0px;
     border: 0px;
     background-color: #f8f8fa;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
