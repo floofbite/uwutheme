@@ -3,16 +3,12 @@ import { inject as service } from "@ember/service";
 import { defaultHomepage } from "discourse/lib/utilities";
 import { withPluginApi } from "discourse/lib/plugin-api";
 
-export default class CustomHomepageContent extends Component {
+export default class AfetrTopicListContent extends Component {
     @service router;
 
     get isHomepage() {
         const { currentRouteName } = this.router;
         return currentRouteName === `discovery.${defaultHomepage()}`;
-    }
-
-    get isUserLoggedIn() {
-        return this.api?.getCurrentUser() !== null;
     }
 
     constructor() {
