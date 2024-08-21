@@ -6,7 +6,7 @@ import { withPluginApi } from "discourse/lib/plugin-api";
 export default class AfetrTopicListContent extends Component {
     @service router;
 
-    get isHomepage() {
+    get isCheckHomepage() {
         const { currentRouteName } = this.router;
         return currentRouteName === `discovery.${defaultHomepage()}`;
     }
