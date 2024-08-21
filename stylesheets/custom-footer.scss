@@ -21,6 +21,32 @@
             color: silver;
           }
         }
+        &::before{
+            content: "";
+            width: 24px;
+            height: 24px;
+        }
+        &:nth-child(1){
+            background: url($deLogo);
+        }
+        &:nth-child(2){
+            background: url($esLogo);
+        }
+        &:nth-child(3){
+            background: url($czLogo);
+        }
+        &:nth-child(4){
+            background: url($nlLogo);
+        }
+        &:nth-child(5){
+            background: url($plLogo);
+        }
+        &:nth-child(6){
+            background: url($seLogo);
+        }
+        &:nth-child(7){
+            background: url($krLogo);
+        }
       }
     }
   }
