@@ -22,4 +22,19 @@ export default class CustomHomepageContent extends Component {
             this.api = api;
         });
     }
+
+    // New method to determine which block to display
+    get displayBlock() {
+        const { blockType } = this.args;
+        switch (blockType) {
+            case 'block1':
+                return 'Content for Block 1';
+            case 'block2':
+                return 'Content for Block 2';
+            case 'block3':
+                return 'Content for Block 3';
+            default:
+                return 'Default Content';
+        }
+    }
 }

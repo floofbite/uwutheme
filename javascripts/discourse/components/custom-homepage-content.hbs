@@ -1,12 +1,14 @@
 {{#if this.isHomepage}}
-  {{status}}
-  {{#if this.isUserLoggedIn}}
-    {{cards}}
-    {{news}}
-    {{category-list}}
-  {{else}}
-    {{adduser}}
-    {{cards}}
+  {{#if (eq this.args.blockType "block1")}}
+    {{status}}
+    {{#if this.isUserLoggedIn}}
+      {{cards}}
+    {{else}}
+      {{adduser}}
+      {{cards}}
+    {{/if}}
+  {{/if}}
+  {{#if (eq this.args.blockType "block2")}}
     {{news}}
     {{category-list}}
   {{/if}}
