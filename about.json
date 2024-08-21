@@ -42,8 +42,8 @@
   },
   "learn_more": "https://meta.discourse.org/t/beginners-guide-to-using-discourse-themes/91966",
   "assets": {
-    "images/icon-blog.svg": "images/icon-blog.svg",
-    "images/icon-knowledge.svg": "images/icon-knowledge.svg",
-    "images/icon-release.svg": "images/icon-release.svg"
+    "blogLogo": "assets/images/icon-blog.svg",
+    "knowledgeLogo": "assets/images/icon-knowledge.svg",
+    "releaseLogo": "assets/images/icon-release.svg"
   }
 }

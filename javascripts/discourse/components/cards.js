@@ -1,4 +1,8 @@
 import Component from "@ember/component";
+import releaseLogo from "discourse/assets/images/icon-release.svg";
+import blogLogo from "discourse/assets/images/icon-blog.svg";
+import knowledgeLogo from "discourse/assets/images/icon-knowledge.svg";
+
 
 export default Component.extend({
     didInsertElement() {
@@ -8,21 +12,21 @@ export default Component.extend({
                 "target": "_blank",
                 "title": "Blog",
                 "description": "Stay tuned for blog posts about QNAP's products and technologies.",
-                "icon": "/assets/images/icon-blog.svg"
+                "icon": blogLogo
             },
             {
                 "url": "https://www.qnap.com/en/how-to/search",
                 "target": "_blank",
                 "title": "Knowledge Base",
                 "description": "Explore guides, tutorials, and expert tips to get the most out of your QNAP products.",
-                "icon": "/assets/images/icon-knowledge.svg"
+                "icon": knowledgeLogo
             },
             {
                 "url": "https://www.qnap.com/en/release-notes/",
                 "target": "_blank",
                 "title": "Release Notes",
                 "description": "Discover the latest features, improvements, and bug fixes in our most recent releases.",
-                "icon": "/assets/images/icon-release.svg"
+                "icon": releaseLogo
             }
         ];
 
