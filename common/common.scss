@@ -38,7 +38,7 @@ div.before-header-panel-outlet{
     margin-right: auto;
     margin-left: inherit;
 }
-#main-outlet.isHomepage{
+.isHomepage #main-outlet{
     margin-top: 0px;
 }
 
@@ -67,8 +67,8 @@ sup {
     top: -0.75em;
 }
 
-#main-outlet-wrapper {
-    .sidebar-wrapper.isHomePage {
+.isHomePage #main-outlet-wrapper {
+    .sidebar-wrapper {
         margin: 0px 0 50px;
         background-color: var(--header_background);
     }

@@ -10,12 +10,13 @@ export default {
                 const isHomepage = currentRoute === `discovery.${defaultHomepage()}`;
                 const applicationController = api.container.lookup("controller:application");
                 const mainOutlet = document.getElementById("main-outlet");
+                const main = document.getElementById("main");
                 if (isHomepage) {
                     applicationController.set("showSidebar", false);
-                    mainOutlet.classList.add("isHomepage");
+                    main.classList.add("isHomepage");
                 } else {
                     applicationController.set("showSidebar", true);
-                    mainOutlet.classList.remove("isHomepage");
+                    main.classList.remove("isHomepage");
                 }
             });
         });
