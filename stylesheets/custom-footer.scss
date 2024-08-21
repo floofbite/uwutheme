@@ -14,6 +14,8 @@
 
       li {
         margin: 0.5em 0.5em 0.5em 0;
+        display: flex;
+        align-items: center;
         &:not(:last-child) {
           &::after {
             content: "|";
@@ -25,26 +27,27 @@
             content: "";
             width: 24px;
             height: 24px;
+            display: inline-block;
         }
-        &:nth-child(1){
+        &:nth-child(1)  &::before{
             background: url($deLogo);
         }
-        &:nth-child(2){
+        &:nth-child(2) &::before{
             background: url($esLogo);
         }
-        &:nth-child(3){
+        &:nth-child(3) &::before{
             background: url($czLogo);
         }
-        &:nth-child(4){
+        &:nth-child(4) &::before{
             background: url($nlLogo);
         }
-        &:nth-child(5){
+        &:nth-child(5) &::before{
             background: url($plLogo);
         }
-        &:nth-child(6){
+        &:nth-child(6) &::before{
             background: url($seLogo);
         }
-        &:nth-child(7){
+        &:nth-child(7) &::before{
             background: url($krLogo);
         }
       }
