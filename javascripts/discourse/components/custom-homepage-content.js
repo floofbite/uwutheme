@@ -15,6 +15,10 @@ export default class CustomHomepageContent extends Component {
         return this.api?.getCurrentUser() !== null;
     }
 
+    get isAfterTopicList() {
+        return this.api?.container.lookup("controller:discovery/topics")?.afterTopicList;
+    }
+
     constructor() {
         super(...arguments);
 
