@@ -160,9 +160,17 @@ sup {
     border-radius: 6px;
   }
 
-//   .container.posts {
-//     grid-template-areas: inherit;
-//   }
+  .signup-cta,#topic-footer-buttons,.more-topics__container{
+    max-width: inherit;
+  }
+
+  .container.posts{
+    display: flex;
+    flex-direction: row-reverse;
+    >.row{
+        width: 100%;
+    }
+  }
 }
 @import "custom-search-banner-customizations";
 @import "custom-content";
