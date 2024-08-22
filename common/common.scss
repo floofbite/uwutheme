@@ -43,7 +43,6 @@ div.before-header-panel-outlet {
   #main-outlet-wrapper {
     .sidebar-wrapper {
       margin: 0px 0 50px;
-      background-color: #FFFFFF;
     }
   }
   .list-container #list-area {
@@ -85,6 +84,14 @@ sup {
 }
 
 .discourse-theme--q {
+  #main-outlet-wrapper {
+    .sidebar-wrapper {
+      background-color: #ffffff;
+    }
+  }
+  .sidebar-footer-wrapper{
+    background-color: #ffffff;
+  }
   .topic-list-item,
   tr {
     border-bottom: 0;
@@ -160,15 +167,17 @@ sup {
     border-radius: 6px;
   }
 
-  .signup-cta,#topic-footer-buttons,.more-topics__container{
+  .signup-cta,
+  #topic-footer-buttons,
+  .more-topics__container {
     max-width: inherit;
   }
 
-  .container.posts{
+  .container.posts {
     display: flex;
     flex-direction: row-reverse;
-    >.row{
-        width: 100%;
+    > .row {
+      width: 100%;
     }
   }
 }
