@@ -180,6 +180,14 @@ sup {
       width: 100%;
     }
   }
+
+  .category-heading{
+    display: flex;
+    align-items: center;
+    p{
+        width: calc(100% - 150px - 2em);
+    }
+  }
 }
 @import "custom-search-banner-customizations";
 @import "custom-content";

@@ -244,6 +244,13 @@ ul.news-content {
     }
     .texts {
       padding: 1rem;
+      height: calc(100% -19rem);
+      @media screen and (max-width: 1000px) {
+        height: calc(100% -14rem);
+      }
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     > div > div {
       height: 100%;
@@ -281,9 +288,6 @@ ul.news-content {
       width: 100%;
       object-fit: cover;
       object-position: center;
-      @media screen and (max-width: 1680px) {
-        height: 12rem;
-      }
       @media screen and (max-width: 1000px) {
         height: 12rem;
       }
