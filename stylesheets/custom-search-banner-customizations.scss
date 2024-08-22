@@ -2,7 +2,6 @@ body .custom-search-banner-wrap {
   margin: 0 auto !important;
   max-width: unset;
   color: var(--secondary);
-  padding: 5em 2rem;
   h1 {
     font-size: 2.5rem;
 	color: #ffffff;
@@ -588,4 +587,8 @@ html body #main-outlet {
 .custom-search-banner-wrap .btn.search-icon:not(.has-search-button-text)+.search-menu-container .search-input {
     padding-left: 1.75em;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .05);
+}
+
+body .custom-search-banner-wrap, body.has-sidebar-page .custom-search-banner-wrap.wrap{
+    padding: 5em 2rem;
 }
