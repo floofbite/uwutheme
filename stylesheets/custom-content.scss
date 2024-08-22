@@ -241,6 +241,10 @@ ul.news-content {
     width: 32%;
     .new {
       padding: 0;
+      height: 100%;
+      justify-content: space-between;
+      display: flex;
+      flex-direction: column;
     }
     .texts {
       padding: 1rem 1rem 0rem 1rem;
@@ -248,7 +252,6 @@ ul.news-content {
       flex-direction: column;
       justify-content: space-between;
     }
-
     a {
       color: $custom-primary;
       display: block;
@@ -258,12 +261,6 @@ ul.news-content {
       &:hover {
         color: #00d0ff;
       }
-    }
-    > div > div {
-      height: 100%;
-      justify-content: space-between;
-      display: flex;
-      flex-direction: column;
     }
   }
   h3 {
