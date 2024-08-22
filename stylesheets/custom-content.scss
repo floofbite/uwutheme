@@ -243,22 +243,24 @@ ul.news-content {
       padding: 0;
     }
     .texts {
-      padding: 1rem;
+      padding: 1rem 1rem 0rem 1rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
+
+    a {
+      color: $custom-primary;
+      display: block;
+      text-align: right;
+      margin-top: 2rem;
+      padding: 0rem 1rem 1rem 1rem;
+      &:hover {
+        color: #00d0ff;
+      }
+    }
     > div > div {
       height: 100%;
-    }
-  }
-  a {
-    color: $custom-primary;
-    display: block;
-    text-align: right;
-    margin-top: 2rem;
-    &:hover {
-      color: #00d0ff;
     }
   }
   h3 {
