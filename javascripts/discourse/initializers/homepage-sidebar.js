@@ -18,6 +18,12 @@ export default {
                     main.classList.remove("isHomepage");
                 }
                 main.classList.add("discourse-theme--q");
+                const siteStatus = document.getElementById("siteStatus");
+                if (window.location.href === "https://community.qnap.com/") {
+                    siteStatus.innerText = "Beta";
+                } else {
+                    siteStatus.innerText = "Testing";
+                }
             });
         });
     },
