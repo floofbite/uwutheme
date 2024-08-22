@@ -244,10 +244,6 @@ ul.news-content {
     }
     .texts {
       padding: 1rem;
-      height: calc(100% - 19rem);
-      @media screen and (max-width: 1000px) {
-        height: calc(100% - 14rem);
-      }
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -283,15 +279,11 @@ ul.news-content {
   }
   figure {
     margin: 0;
-    background-color: #3c3c3c;
     img {
-      height: 17rem;
+      height: 100%;
       width: 100%;
       object-fit: contain;
       object-position: center;
-      @media screen and (max-width: 1000px) {
-        height: 12rem;
-      }
     }
   }
 }
