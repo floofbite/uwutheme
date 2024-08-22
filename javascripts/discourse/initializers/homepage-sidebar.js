@@ -13,15 +13,6 @@ export default {
                 if (isHomepage) {
                     applicationController.set("showSidebar", false);
                     main.classList.add("isHomepage");
-                    window.scrollTo(0, document.body.scrollHeight);
-                    const listControls = document.querySelector("a.list-controls");
-                    const listContainer = document.querySelector(".container.list-container");
-                    if (listControls) {
-                        listControls.style.display = "none";
-                    }
-                    if (listContainer) {
-                        listContainer.style.display = "none";
-                    }
                 } else {
                     applicationController.set("showSidebar", true);
                     main.classList.remove("isHomepage");
