@@ -244,9 +244,9 @@ ul.news-content {
     }
     .texts {
       padding: 1rem;
-      height: calc(100% -19rem);
+      height: calc(100% - 19rem);
       @media screen and (max-width: 1000px) {
-        height: calc(100% -14rem);
+        height: calc(100% - 14rem);
       }
       display: flex;
       flex-direction: column;
