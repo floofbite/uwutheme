@@ -261,6 +261,9 @@ ul.news-content {
     }
     > div > div {
       height: 100%;
+      justify-content: space-between;
+      display: flex;
+      flex-direction: column;
     }
   }
   h3 {
