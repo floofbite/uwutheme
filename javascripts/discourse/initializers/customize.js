@@ -14,38 +14,26 @@ export default {
                 if (isHomepage) {
                     applicationController.set("showSidebar", false);
                     main.classList.add("isHomepage");
-
-                    console.log('isHomepage start!');
-                    const featureListWrapper = document.getElementsByClassName("featured-lists__wrapper")[0];
-                    const featureListContainer = document.getElementsByClassName("featured-lists__list-container")[0];
-                    const featureListHeader = document.getElementsByClassName("featured-lists__list-header")[0];
-
-                    if (featureListWrapper) {
-                        featureListWrapper.classList.add("full-width");
-                    }
-
-                    if (featureListContainer) {
-                        featureListContainer.classList.add("contents");
-                    }
-
-                    if (featureListHeader) {
-                        const featureListHeaderButton = featureListHeader.querySelector("button");
-                        const featureListHeaderTitle = featureListHeader.querySelector("h2");
-                        const featureListHeaderLink = featureListHeader.querySelector("a");
-                        if (featureListHeaderTitle) {
+                    const loadLatestTopics = async () => {
+                        const response = await fetch("https://community.qnap.com/latest.json");
+                        const data = await response.json();
+                        const topics = data.topic_list.topics;
+                        if (topics) {
+                            const featureListWrapper = document.getElementsByClassName("featured-lists__wrapper")[0];
+                            const featureListContainer = document.getElementsByClassName("featured-lists__list-container")[0];
+                            const featureListHeader = document.getElementsByClassName("featured-lists__list-header")[0];
+                            featureListWrapper.classList.add("full-width");
+                            featureListContainer.classList.add("contents");
+                            const featureListHeaderButton = featureListHeader.querySelector("button");
+                            const featureListHeaderTitle = featureListHeader.querySelector("h2");
+                            const featureListHeaderLink = featureListHeader.querySelector("a");
                             featureListHeaderTitle.innerText = "Latest";
-                        }
-
-                        if (featureListHeaderLink) {
                             featureListHeaderLink.innerText = "All Topics";
-                        }
-
-                        if (featureListHeaderButton) {
                             featureListHeaderButton.innerHTML = '<svg class="fa d-icon d-icon-plus svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use href="#plus"></use></svg> <span class="d-button-label">New Topic</span>';
                         }
                     }
-                    console.log('isHomepage end!');
 
+                    loadLatestTopics();
                 } else {
                     applicationController.set("showSidebar", true);
                     main.classList.remove("isHomepage");
