@@ -172,6 +172,10 @@ sup {
         width: calc(100% - 150px - 2em);
     }
   }
+
+  ul.navigation-bar li.topic.posted{
+    display: none;
+  }
 }
 @import "custom-search-banner-customizations";
 @import "custom-content";
