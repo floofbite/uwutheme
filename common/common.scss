@@ -184,6 +184,9 @@ sup {
   .featured-lists__list-header h2{
     font-size: 1rem;
     font-weight: normal;
+    color: $custom-primary;
+    padding: .65em .75em;
+    border-bottom: 3px solid $custom-primary;
   }
 }
 @import "custom-search-banner-customizations";
