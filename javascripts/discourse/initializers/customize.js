@@ -10,12 +10,13 @@ export default {
                 const isHomepage = currentRoute === `discovery.${defaultHomepage()}`;
                 const applicationController = api.container.lookup("controller:application");
                 const main = document.getElementById("main");
+                const domain = window.location.origin;
                 main.classList.add("discourse-theme--q");
                 if (isHomepage) {
                     applicationController.set("showSidebar", false);
                     main.classList.add("isHomepage");
                     const loadLatestTopics = async () => {
-                        const response = await fetch("https://community.qnap.com/latest.json");
+                        const response = await fetch(`${domain}/latest.json`);
                         const data = await response.json();
                         const topics = data.topic_list.topics;
                         if (topics) {
@@ -40,7 +41,7 @@ export default {
                 }
 
                 const siteStatus = document.getElementById("siteStatus");
-                if (window.location.origin === "https://community.qnap.com") {
+                if (domain === "https://community.qnap.com") {
                     siteStatus.innerText = "Beta";
                 } else {
                     siteStatus.innerText = "Testing";
