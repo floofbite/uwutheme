@@ -176,6 +176,15 @@ sup {
   ul#navigation-bar li.posted{
     display: none;
   }
+
+  .featured-lists__wrapper.above-main-container{
+    margin-bottom: 0;
+  }
+
+  .featured-lists__list-header h2{
+    font-size: 1rem;
+    font-weight: normal;
+  }
 }
 @import "custom-search-banner-customizations";
 @import "custom-content";
