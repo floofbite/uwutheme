@@ -4,7 +4,7 @@ import { themeUpload } from "discourse/lib/theme-settings";
 export default Component.extend({
     async didInsertElement() {
       const siteLang = document.documentElement.getAttribute("lang").toLowerCase();
-      const jsonFilePath = themeUpload(`/json/${siteLang}.json`);
+      const jsonFilePath = `/theme-javascripts/discourse-theme-custom/assets/json/${siteLang}.json`;
       try {
         const response = await fetch(jsonFilePath);
 
