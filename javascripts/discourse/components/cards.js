@@ -5,7 +5,7 @@ export default Component.extend({
     async didInsertElement() {
         const siteLang = document.documentElement.getAttribute("lang").toLowerCase();
 
-        const langJson = await import(`../../../assets/json/${siteLang}.json`);
+        const langJson = `${$enLang}`;
 
         const cardsData = langJson.cards;
 
