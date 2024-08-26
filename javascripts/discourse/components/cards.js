@@ -1,31 +1,28 @@
 import Component from "@ember/component";
-import { getOwner } from "@ember/application";
 
 export default Component.extend({
-    async didInsertElement() {
-        const siteLang = document.documentElement.getAttribute("lang").toLowerCase();
-
-        const themeSettings = getOwner(this).resolveRegistration('config:theme-settings');
-
-        if (themeSettings) {
-            const themePrefix = themeSettings.theme_uploads_prefix;
-            const jsonFilePath = `${themePrefix}/json/${siteLang}.json`;
-
-            try {
-                const response = await fetch(jsonFilePath);
-
-                if (response.ok) {
-                    const langJson = await response.json();
-                    const cardsData = langJson.cards;
-                    this.set("cards", cardsData);
-                } else {
-                    console.error("error fetching language JSON file", `${themePrefix}/assets/json/${siteLang}.json`);
-                }
-            } catch (error) {
-                console.error("获取语言 JSON 文件时出错:", error);
+    didInsertElement() {
+        const cardsData = [
+            {
+                "url": "https://blog.qnap.com/en/",
+                "target": "_blank",
+                "title": "Blog",
+                "description": "Stay tuned for blog posts about QNAP's products and technologies."
+            },
+            {
+                "url": "https://www.qnap.com/en/how-to/search",
+                "target": "_blank",
+                "title": "Knowledge Base",
+                "description": "Explore guides, tutorials, and expert tips to get the most out of your QNAP products."
+            },
+            {
+                "url": "https://www.qnap.com/en/release-notes/",
+                "target": "_blank",
+                "title": "Release Notes",
+                "description": "Discover the latest features, improvements, and bug fixes in our most recent releases."
             }
-        } else {
-            console.error('Theme settings are not correctly registered.');
-        }
+        ];
+
+        this.set("cards", cardsData);
     }
 });
