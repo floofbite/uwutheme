@@ -1,4 +1,5 @@
 import Component from "@ember/component";
+import themePrefix from "discourse/helpers/theme-prefix";
 
 export default Component.extend({
   async didInsertElement() {
