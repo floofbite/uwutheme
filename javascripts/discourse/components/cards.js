@@ -1,10 +1,12 @@
 import Component from "@ember/component";
+import { getOwner } from "@ember/application";
 
 export default Component.extend({
   async didInsertElement() {
     const siteLang = document.documentElement.getAttribute("lang").toLowerCase();
 
-    const jsonFilePath = `${themePrefix}/assets/${siteLang}.json`;
+    const themePrefix = getOwner(this).resolveRegistration('config:theme-settings')['theme_uploads_prefix'];
+    const jsonFilePath = `${themePrefix}/json/${siteLang}.json`;
 
     try {
       const response = await fetch(jsonFilePath);
