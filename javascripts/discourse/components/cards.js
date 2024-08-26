@@ -1,12 +1,10 @@
 import Component from "@ember/component";
+import { themeUpload } from "discourse/lib/theme-settings";
 
 export default Component.extend({
     async didInsertElement() {
       const siteLang = document.documentElement.getAttribute("lang").toLowerCase();
-
-      // 使用 themeUpload helper 获取正确的 URL
       const jsonFilePath = themeUpload(`/json/${siteLang}.json`);
-
       try {
         const response = await fetch(jsonFilePath);
 
