@@ -14,7 +14,7 @@ export default Component.extend({
         const cardsData = langJson.cards;
         this.set("cards", cardsData);
       } else {
-        console.error("error fetching language JSON file", `${themePrefix}/assets/${siteLang}.json`);
+        console.error("error fetching language JSON file", `${themePrefix}/assets/json/${siteLang}.json`);
       }
     } catch (error) {
       console.error("获取语言 JSON 文件时出错:", error);
