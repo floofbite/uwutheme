@@ -4,15 +4,17 @@ export default Component.extend({
   async didInsertElement() {
     const siteLang = document.documentElement.getAttribute("lang").toLowerCase();
 
+    const jsonFilePath = `${themePrefix}/assets/${siteLang}.json`;
+
     try {
-      const response = await fetch(`/discourse-theme-custom/assets/${siteLang}.json`);
+      const response = await fetch(jsonFilePath);
 
       if (response.ok) {
         const langJson = await response.json();
         const cardsData = langJson.cards;
         this.set("cards", cardsData);
       } else {
-        console.error("error fetching language JSON file", `/discourse-theme-custom/assets/${siteLang}.json`);
+        console.error("error fetching language JSON file", `${themePrefix}/assets/${siteLang}.json`);
       }
     } catch (error) {
       console.error("获取语言 JSON 文件时出错:", error);
