@@ -43,9 +43,9 @@ export default {
                         langUpdate.forEach(({ wrap, selector, order = 0, content }) => {
                             const wrapperElement = document.querySelector(wrap);
                             if (wrapperElement) {
-                                const element = wrapperElement.querySelector(selector)[order];
-                                if (element) {
-                                    element.innerHTML = content;
+                                const elements = wrapperElement.querySelectorAll(selector);
+                                if (elements[order]) {
+                                    elements[order].innerHTML = content;
                                 }
                             }
                         });
