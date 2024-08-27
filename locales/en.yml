@@ -52,3 +52,6 @@ en:
       title: "Security Guide"
       url: "https://view.publitas.com/qnap-1/2022_security_guide_en/page/1"
       target: "_blank"
+  news:
+    title: "What’s New"
+    learn_more: "Learn More"

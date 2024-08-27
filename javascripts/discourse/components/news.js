@@ -4,8 +4,9 @@ import { ajax } from 'discourse/lib/ajax';
 export default Component.extend({
     didInsertElement() {
         this._super(...arguments);
-
-        const apiUrl = 'https://www.qnap.com/api/v1/articles/news?locale=en';
+        const lang = I18n.currentLocale().toLowerCase();
+        if(lang.find('_') !== -1) lang = lang.replace('_', '-');
+        const apiUrl = 'https://www.qnap.com/api/v1/articles/news?locale='+lang;
 
         ajax(apiUrl, {
             method: 'GET'
