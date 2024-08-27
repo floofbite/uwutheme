@@ -1,3 +1,6 @@
 en:
   theme_metadata:
     description: "Discourse Air Theme"
+  theme_translations:
+    discourse-theme-custom:
+      test: "Test"
