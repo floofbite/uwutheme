@@ -23,9 +23,9 @@ export default Component.extend({
                     slug = slug.replace('-', '_');
                 }
                 langsReplaceByI18n.push({
-                    slug: category.slug,
-                    name: I18n.t(themePrefix("category." + category.slug + ".name")),
-                    description:  I18n.t(themePrefix("category." + category.slug + ".description")),
+                    slug: slug,
+                    name: I18n.t(themePrefix("category." + slug + ".name")),
+                    description:  I18n.t(themePrefix("category." + slug + ".description")),
                     uploaded_logo: category.uploaded_logo,
                     id: category.id
                 });
