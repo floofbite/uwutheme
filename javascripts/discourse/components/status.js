@@ -18,8 +18,8 @@ export default Component.extend({
             let newStatusContent = document.querySelector(".status-content");
             const postsIcon = statusContent.querySelector('.postsIcon');
             const usersIcon = statusContent.querySelector('.usersIcon');
-            newStatusContent.querySelector(".postsCount").innerHTML = postsIcon.outerHTML + postsCount + I18n.t(themePrefix("status.posts"));
-            newStatusContent.querySelector(".usersCount").innerHTML = usersIcon.outerHTML + usersCount + I18n.t(themePrefix("status.online_users")) ;
+            newStatusContent.querySelector(".postsCount").innerHTML = postsIcon.outerHTML + postsCount + ' ' +I18n.t(themePrefix("status.posts"));
+            newStatusContent.querySelector(".usersCount").innerHTML = usersIcon.outerHTML + usersCount + ' ' +I18n.t(themePrefix("status.online_users")) ;
             newStatusContent.classList.remove("default");
         }).catch((error) => {
             console.error('Failed to fetch site statistics', error);
