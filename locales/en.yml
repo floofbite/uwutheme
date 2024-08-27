@@ -1,6 +1,13 @@
 en:
   theme_metadata:
     description: "QNAP Community Theme"
+  adduser:
+    intro: "Sign in with your QNAP account (QID) to share and find solutions"
+    sign_in: "Sign In"
+    register: "Register"
+  status:
+    online_users: "online users"
+    posts: "posts"
   cards:
     item1:
       url: "https://blog.qnap.com/en/"
