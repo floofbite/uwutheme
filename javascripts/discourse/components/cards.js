@@ -1,9 +1,9 @@
 import Component from "@ember/component";
-import i18n from 'discourse-common/helpers/i18n';
+import I18n from 'I18n';
 
 export default Component.extend({
     didInsertElement() {
-        const cardsData = i18n.t(themePrefix + 'cards');
+        const cardsData = I18n.t(themePrefix + 'qnap_content.cards');
         console.log(cardsData);
         this.set("cards", cardsData);
     }
