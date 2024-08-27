@@ -33,8 +33,8 @@ export default {
                             { wrap: ".featured-lists__list-header", selector: "h2", content: I18n.t(themePrefix("features_list.latest.status")) },
                             { wrap: ".featured-lists__list-header", selector: "a", content: I18n.t(themePrefix("features_list.latest.all")) },
                             { wrap: ".featured-lists__list-header", selector: "button", content: I18n.t(themePrefix("features_list.latest.new")) },
-                            { wrap: ".custom-search-banner-wrap", selector: "h1", content: I18n.t(themePrefix("search_banner.title")) },
-                            { wrap: ".custom-search-banner-wrap", selector: "p", content: I18n.t(themePrefix("search_banner.subtitle")) },
+                            { wrap: ".custom-search-banner-wrap", selector: "h1", content: I18n.t(themePrefix("search_banner.headline")) },
+                            { wrap: ".custom-search-banner-wrap", selector: "p", content: I18n.t(themePrefix("search_banner.subhead")) },
                         ];
 
                         langUpdate.forEach(({ wrap, selector, content }) => {
@@ -42,7 +42,7 @@ export default {
                             if (wrapperElement) {
                                 const element = wrapperElement.querySelector(selector);
                                 if (element) {
-                                    element.textContent = content; // Use textContent for safer updates if content is plain text
+                                    element.innerHTML = content;
                                 }
                             }
                         });
