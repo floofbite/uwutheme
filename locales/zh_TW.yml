@@ -1,6 +1,6 @@
-zh_TW:
+zh-tw:
   theme_metadata:
-    description: "QNAP Community 主題"
+    description: "QNAP 社群主題"
   cards:
     item1:
       url: "https://blog.qnap.com/en/"
@@ -28,4 +28,27 @@ zh_TW:
     latest:
       status: "最新"
       all: "所有主題"
-      new: "<svg class=\"fa d-icon d-icon-plus svg-icon svg-string\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\"#plus\"></use></svg> <span class=\"d-button-label\">新主題</span>"
+      new: '<svg class="fa d-icon d-icon-plus svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use href="#plus"></use></svg> <span class="d-button-label">新主題</span>'
+  discussion_spaces:
+    title: "討論空間"
+  navs:
+    nav1:
+      title: "部落格"
+      url: "https://blog.qnap.com/en/"
+      target: "_blank"
+    nav2:
+      title: "知識庫"
+      url: "https://www.qnap.com/en/how-to/search"
+      target: "_blank"
+    nav3:
+      title: "版本說明"
+      url: "https://www.qnap.com/en/release-notes/"
+      target: "_blank"
+    nav4:
+      title: "支援"
+      url: "https://service.qnap.com/en/home"
+      target: "_blank"
+    nav5:
+      title: "安全指南"
+      url: "https://view.publitas.com/qnap-1/2022_security_guide_en/page/1"
+      target: "_blank"
