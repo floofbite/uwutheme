@@ -20,7 +20,7 @@ export default Component.extend({
             visibleCategories.forEach(category => {
                 let slug = category.slug;
                 if (slug.indexOf('-') !== -1) {
-                    slug = slug.replace('-', '_');
+                    slug = slug.replace(/-/g, '_');
                 }
                 langsReplaceByI18n.push({
                     slug: slug,
