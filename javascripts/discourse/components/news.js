@@ -4,7 +4,7 @@ import { ajax } from 'discourse/lib/ajax';
 export default Component.extend({
     didInsertElement() {
         this._super(...arguments);
-        const lang = I18n.currentLocale().toLowerCase();
+        let lang = I18n.currentLocale().toLowerCase();
         if (lang.indexOf('_') !== -1) {
             lang = lang.replace('_', '-');
         }
