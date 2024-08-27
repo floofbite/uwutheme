@@ -1,5 +1,6 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import { defaultHomepage } from "discourse/lib/utilities";
+import I18n from "discourse-i18n";
 
 export default {
     name: "custom-settings",
@@ -28,9 +29,9 @@ export default {
                             const featureListHeaderButton = featureListHeader.querySelector("button");
                             const featureListHeaderTitle = featureListHeader.querySelector("h2");
                             const featureListHeaderLink = featureListHeader.querySelector("a");
-                            featureListHeaderTitle.innerText = "Latest";
-                            featureListHeaderLink.innerText = "All Topics";
-                            featureListHeaderButton.innerHTML = '<svg class="fa d-icon d-icon-plus svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use href="#plus"></use></svg> <span class="d-button-label">New Topic</span>';
+                            featureListHeaderTitle.innerText = I18n.t(themePrefix("features_list.latest.status"));
+                            featureListHeaderLink.innerText = I18n.t(themePrefix("features_list.latest.all"));
+                            featureListHeaderButton.innerHTML =  I18n.t(themePrefix("features_list.latest.new"));
                         }
                     }
 
