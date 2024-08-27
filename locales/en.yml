@@ -20,3 +20,7 @@ en:
       title: "Release Notes"
       description: "Discover the latest features, improvements, and bug fixes in our most recent releases."
       icon: "releaseLogo"
+  search_banner:
+    headline: "Test Title"
+    subhead: "Test Subhead"
+    search_button_text: ""
