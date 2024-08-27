@@ -1,9 +1,9 @@
 import Component from "@ember/component";
-import I18n from "I18n";
+import i18n from 'discourse-common/helpers/i18n';
 
 export default Component.extend({
     didInsertElement() {
-        const cardsData = I18n.t(themePrefix + 'cards');
+        const cardsData = i18n.t(themePrefix + 'cards');
         console.log(cardsData);
         this.set("cards", cardsData);
     }
