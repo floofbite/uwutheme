@@ -23,32 +23,25 @@ export default {
                         if (topics) {
                             const featureListWrapper = document.getElementsByClassName("featured-lists__wrapper")[0];
                             const featureListContainer = document.getElementsByClassName("featured-lists__list-container")[0];
-                            const featureListHeader = document.getElementsByClassName("featured-lists__list-header")[0];
                             featureListWrapper.classList.add("full-width");
                             featureListContainer.classList.add("contents");
-                            const featureListHeaderButton = featureListHeader.querySelector("button");
-                            const featureListHeaderTitle = featureListHeader.querySelector("h2");
-                            const featureListHeaderLink = featureListHeader.querySelector("a");
-                            featureListHeaderTitle.innerText = I18n.t(themePrefix("features_list.latest.status"));
-                            featureListHeaderLink.innerText = I18n.t(themePrefix("features_list.latest.all"));
-                            featureListHeaderButton.innerHTML = I18n.t(themePrefix("features_list.latest.new"));
                         }
                     }
                     const updateLangs = () => {
-                        //search block
-                        const searchBannerWrap = document.querySelector(".custom-search-banner-wrap");
-                        if (searchBannerWrap) {
-                            const searchTitle = searchBannerWrap.querySelector("h1");
-                            if (searchTitle) {
-                                searchTitle.innerText = I18n.t(`${themePrefix}.search_banner.title`);
-                            }
+                        const langUpdate = [
+                            { wrap: ".featured-lists__list-header", selector: "h2", content: I18n.t(themePrefix("features_list.latest.status")) },
+                            { wrap: ".featured-lists__list-header", selector: "a", content: I18n.t(themePrefix("features_list.latest.all")) },
+                            { wrap: ".featured-lists__list-header", selector: "button", content: I18n.t(themePrefix("features_list.latest.new")) },
+                            { wrap: ".custom-search-banner-wrap", selector: "h1", content: I18n.t(themePrefix("search_banner.title")) },
+                            { wrap: ".custom-search-banner-wrap", selector: "p", content: I18n.t(themePrefix("search_banner.subtitle")) },
+                        ];
 
-                            const searchSubTitle = searchBannerWrap.querySelector("p");
-                            if (searchSubTitle) {
-                                searchSubTitle.innerText = I18n.t(`${themePrefix}.search_banner.subtitle`);
+                        langUpdate.forEach(({ selector, content }) => {
+                            const element = document.querySelector(wrap).querySelector(selector);
+                            if (element) {
+                                element.innerHTML = content;
                             }
-                        }
-
+                        });
                     }
                     loadLatestTopics();
                     updateLangs();
