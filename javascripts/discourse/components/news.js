@@ -5,10 +5,19 @@ export default Component.extend({
     didInsertElement() {
         this._super(...arguments);
         let lang = I18n.currentLocale().toLowerCase();
+        const qnapLangMapping = () => {
+            switch (lang) {
+                case 'ja':
+                    return 'ja-jp';
+                default:
+                    return lang;
+            }
+        }
         if (lang.indexOf('_') !== -1) {
             lang = lang.replace('_', '-');
         }
-        const apiUrl = 'https://www.qnap.com/api/v1/articles/news?locale='+lang;
+        lang = qnapLangMapping();
+        const apiUrl = 'https://www.qnap.com/api/v1/articles/news?locale=' + lang;
 
         ajax(apiUrl, {
             method: 'GET'
