@@ -11,19 +11,16 @@ zh_TW:
   cards:
     item1:
       url: "https://blog.qnap.com/en/"
-      target: "_blank"
       title: "部落格"
       description: "隨時關注有關 QNAP 產品和技術的部落格文章。"
       icon: "blogLogo"
     item2:
       url: "https://www.qnap.com/en/how-to/search"
-      target: "_blank"
       title: "知識庫"
       description: "探索指南、教程和專家提示，以充分利用您的 QNAP 產品。"
       icon: "knowledgeLogo"
     item3:
       url: "https://www.qnap.com/en/release-notes/"
-      target: "_blank"
       title: "版本說明"
       description: "了解我們最新版本中的最新功能、改進和錯誤修復。"
       icon: "releaseLogo"
@@ -42,23 +39,18 @@ zh_TW:
     nav1:
       title: "部落格"
       url: "https://blog.qnap.com/en/"
-      target: "_blank"
     nav2:
       title: "知識庫"
       url: "https://www.qnap.com/en/how-to/search"
-      target: "_blank"
     nav3:
       title: "版本說明"
       url: "https://www.qnap.com/en/release-notes/"
-      target: "_blank"
     nav4:
       title: "支援"
       url: "https://service.qnap.com/en/home"
-      target: "_blank"
     nav5:
       title: "安全指南"
       url: "https://view.publitas.com/qnap-1/2022_security_guide_en/page/1"
-      target: "_blank"
   news:
     title: "最新消息"
     learn_more: "了解更多"

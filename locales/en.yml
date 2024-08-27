@@ -11,19 +11,16 @@ en:
   cards:
     item1:
       url: "https://blog.qnap.com/en/"
-      target: "_blank"
       title: "Blog"
       description: "Stay tuned for blog posts about QNAP's products and technologies."
       icon: "blogLogo"
     item2:
       url: "https://www.qnap.com/en/how-to/search"
-      target: "_blank"
       title: "Knowledge Base"
       description: "Explore guides, tutorials, and expert tips to get the most out of your QNAP products."
       icon: "knowledgeLogo"
     item3:
       url: "https://www.qnap.com/en/release-notes/"
-      target: "_blank"
       title: "Release Notes"
       description: "Discover the latest features, improvements, and bug fixes in our most recent releases."
       icon: "releaseLogo"
@@ -42,23 +39,18 @@ en:
     nav1:
       title: "Blog"
       url: "https://blog.qnap.com/en/"
-      target: "_blank"
     nav2:
       title: "Knowledge Base"
       url: "https://www.qnap.com/en/how-to/search"
-      target: "_blank"
     nav3:
       title: "Release Note"
       url: "https://www.qnap.com/en/release-notes/"
-      target: "_blank"
     nav4:
       title: "Support"
       url: "https://service.qnap.com/en/home"
-      target: "_blank"
     nav5:
       title: "Security Guide"
       url: "https://view.publitas.com/qnap-1/2022_security_guide_en/page/1"
-      target: "_blank"
   news:
     title: "What’s New"
     learn_more: "Learn More"
