@@ -36,7 +36,7 @@ export default {
                             { wrap: ".custom-search-banner-wrap", selector: "p", content: I18n.t(themePrefix("search_banner.subtitle")) },
                         ];
 
-                        langUpdate.forEach(({ selector, content }) => {
+                        langUpdate.forEach(({ wrap, selector, content }) => {
                             const element = document.querySelector(wrap).querySelector(selector);
                             if (element) {
                                 element.innerHTML = content;
