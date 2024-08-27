@@ -26,6 +26,7 @@ export default {
                             featureListWrapper.classList.add("full-width");
                             featureListContainer.classList.add("contents");
                         }
+                        updateLangs();
                     }
                     const updateLangs = () => {
                         const langUpdate = [
@@ -45,10 +46,8 @@ export default {
                                 }
                             }
                         });
-
                     }
                     loadLatestTopics();
-                    updateLangs();
                 } else {
                     applicationController.set("showSidebar", true);
                     main.classList.remove("isHomepage");
