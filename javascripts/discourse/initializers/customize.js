@@ -30,17 +30,20 @@ export default {
                     }
                     const updateLangs = () => {
                         const langUpdate = [
-                            { wrap: ".featured-lists__list-header", selector: "h2", content: I18n.t(themePrefix("features_list.latest.status")) },
-                            { wrap: ".featured-lists__list-header", selector: "a", content: I18n.t(themePrefix("features_list.latest.all")) },
-                            { wrap: ".featured-lists__list-header", selector: "button", content: I18n.t(themePrefix("features_list.latest.new")) },
-                            { wrap: ".custom-search-banner-wrap", selector: "h1", content: I18n.t(themePrefix("search_banner.headline")) },
-                            { wrap: ".custom-search-banner-wrap", selector: "p", content: I18n.t(themePrefix("search_banner.subhead")) },
+                            { wrap: ".featured-lists__list-header", selector: "h2", order: 0, content: I18n.t(themePrefix("features_list.latest.status")) },
+                            { wrap: ".featured-lists__list-header", selector: "a", order: 0, content: I18n.t(themePrefix("features_list.latest.all")) },
+                            { wrap: ".featured-lists__list-header", selector: "button", order: 0, content: I18n.t(themePrefix("features_list.latest.new")) },
+                            { wrap: ".custom-search-banner-wrap", selector: "h1", order: 0, content: I18n.t(themePrefix("search_banner.headline")) },
+                            { wrap: ".custom-search-banner-wrap", selector: "p", order: 0, content: I18n.t(themePrefix("search_banner.subhead")) },
+                            { wrap: ".footer-links", selector: "a", order: 0, content: I18n.t(themePrefix("footer.privacy_policy")) },
+                            { wrap: ".footer-links", selector: "a", order: 1, content: I18n.t(themePrefix("footer.terms_of_service")) },
+                            { wrap: ".footer-links", selector: "a", order: 2, content: I18n.t(themePrefix("footer.about")) },
                         ];
 
-                        langUpdate.forEach(({ wrap, selector, content }) => {
+                        langUpdate.forEach(({ wrap, selector, order = 0, content }) => {
                             const wrapperElement = document.querySelector(wrap);
                             if (wrapperElement) {
-                                const element = wrapperElement.querySelector(selector);
+                                const element = wrapperElement.querySelector(selector)[order];
                                 if (element) {
                                     element.innerHTML = content;
                                 }

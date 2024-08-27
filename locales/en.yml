@@ -55,3 +55,8 @@ en:
   news:
     title: "What’s New"
     learn_more: "Learn More"
+  footer:
+    third_party_forums: "Third Party Forums"
+    privacy_policy: "Privacy Policy"
+    terms_of_service: "Terms of Service"
+    about: "About"
