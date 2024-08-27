@@ -1,7 +1,7 @@
 <div class="q-container">
   <div>
     <ul class="cards-content card-type">
-      {{#each cards as |card|}}
+      {{#each html-safe this.cardsContent as |card|}}
         <li>
           <div>
             <div>
