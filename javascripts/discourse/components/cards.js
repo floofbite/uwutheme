@@ -1,17 +1,20 @@
 import Component from "@ember/component";
-import I18n from "I18n";
+import I18n from "discourse-i18n";
 
 export default Component.extend({
     didInsertElement() {
-        const item1 = I18n.lookup("theme_translations.discourse_theme_custom.cards.item1");
-        const item2 = I18n.lookup("theme_translations.discourse_theme_custom.cards.item2");
-        const item3 = I18n.lookup("theme_translations.discourse_theme_custom.cards.item3");
+        const themePrefix = 'discourse-theme-custom';
+        const translationKey = `theme_translations.${themePrefix}.qnap_content.cards`;
 
-        const cardsData = [item1, item2, item3];
+        // Ensure translations are loaded
+        if (I18n.translations && I18n.translations.en && I18n.translations.en.theme_translations) {
+            console.log(I18n.translations.en.theme_translations);
+        } else {
+            console.error("Translations not loaded or path is incorrect");
+        }
 
+        const cardsData = I18n.t(translationKey);
         console.log(cardsData);
-        console.log(I18n.translations.en.theme_translations);
-
         this.set("cards", cardsData);
     }
 });
