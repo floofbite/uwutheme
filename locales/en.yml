@@ -1,6 +1,7 @@
 en:
   theme_translations:
     discourse-theme-custom:
+      test: "Test"
       cards:
         - url: "https://blog.qnap.com/en/"
           target: "_blank"
