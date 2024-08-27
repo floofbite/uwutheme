@@ -34,8 +34,16 @@ export default {
                             featureListHeaderButton.innerHTML =  I18n.t(themePrefix("features_list.latest.new"));
                         }
                     }
+                    const updateLangs = () => {
+                        //search block
+                        const searchTitle = document.querySelector(".custom-search-banner-wrap")[0].querySelector("h1");
+                        searchTitle.innerText = I18n.t(themePrefix("search_banner.title"));
+                        const searchSubTitle = document.querySelector(".custom-search-banner-wrap")[0].querySelector("p");
+                        searchSubTitle.innerText = I18n.t(themePrefix("search_banner.subtitle"));
 
+                    }
                     loadLatestTopics();
+                    updateLangs();
                 } else {
                     applicationController.set("showSidebar", true);
                     main.classList.remove("isHomepage");
