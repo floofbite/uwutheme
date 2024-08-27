@@ -52,3 +52,6 @@ zh_TW:
       title: "安全指南"
       url: "https://view.publitas.com/qnap-1/2022_security_guide_en/page/1"
       target: "_blank"
+  news:
+    title: "最新消息"
+    learn_more: "了解更多"
