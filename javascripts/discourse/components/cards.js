@@ -3,7 +3,10 @@ import I18n from "discourse-i18n";
 
 export default Component.extend({
     didInsertElement() {
-        const cardsData = I18n.t(themePrefix("qnap_content.cards"));
+        const themePrefix = 'discourse-theme-custom';
+        const translationKey = `theme_translations.${themePrefix}.qnap_content.cards`;
+        const cardsData = I18n.t(translationKey);
+
         console.log(cardsData);
         this.set("cards", cardsData);
     }
