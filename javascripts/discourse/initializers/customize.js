@@ -38,6 +38,7 @@ export default {
                             { wrap: ".footer-links", selector: "a", order: 0, content: I18n.t(themePrefix("footer.privacy_policy")) },
                             { wrap: ".footer-links", selector: "a", order: 1, content: I18n.t(themePrefix("footer.terms_of_service")) },
                             { wrap: ".footer-links", selector: "a", order: 2, content: I18n.t(themePrefix("footer.about")) },
+                            { wrap: "[data-easyfooter-section=\"third-party-forums\"]", selector: "span", order: 0, content: I18n.t(themePrefix("footer.third_party_forums")) },
                         ];
 
                         langUpdate.forEach(({ wrap, selector, order = 0, content }) => {

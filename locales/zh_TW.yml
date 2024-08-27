@@ -55,3 +55,8 @@ zh_TW:
   news:
     title: "最新消息"
     learn_more: "了解更多"
+  footer:
+    third_party_forums: "第三方論壇"
+    privacy_policy: "隱私政策"
+    terms_of_service: "服務條款"
+    about: "關於"
