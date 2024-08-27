@@ -37,11 +37,15 @@ export default {
                         ];
 
                         langUpdate.forEach(({ wrap, selector, content }) => {
-                            const element = document.querySelector(wrap).querySelector(selector);
-                            if (element) {
-                                element.innerHTML = content;
+                            const wrapperElement = document.querySelector(wrap);
+                            if (wrapperElement) {
+                                const element = wrapperElement.querySelector(selector);
+                                if (element) {
+                                    element.textContent = content; // Use textContent for safer updates if content is plain text
+                                }
                             }
                         });
+
                     }
                     loadLatestTopics();
                     updateLangs();
