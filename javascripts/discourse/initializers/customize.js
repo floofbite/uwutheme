@@ -1,6 +1,5 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import { defaultHomepage } from "discourse/lib/utilities";
-import I18n from "discourse-i18n";
 
 export default {
     name: "custom-settings",

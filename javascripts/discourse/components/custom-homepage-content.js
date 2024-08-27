@@ -23,7 +23,6 @@ export default class CustomHomepageContent extends Component {
         });
     }
 
-    // New method to determine which block to display
     get displayBlock() {
         const { blockType } = this.args;
         switch (blockType) {
