@@ -10,7 +10,6 @@ export default Component.extend({
         const cardsData = [item1, item2, item3];
 
         console.log(cardsData);
-        console.log(I18n.translations.en.theme_translations.discourse_theme_custom);
 
         this.set("cards", cardsData);
     }
