@@ -1,8 +1,6 @@
 en:
-  theme_metadata:
-    description: "Discourse Air Theme"
   theme_translations:
-    discourse-theme-custom:
+    discourse_theme_custom:
       cards:
         item1:
           url: "https://blog.qnap.com/en/"
