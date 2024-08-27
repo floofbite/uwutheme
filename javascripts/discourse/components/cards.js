@@ -1,4 +1,5 @@
 import Component from "@ember/component";
+import I18n from "I18n";
 
 export default Component.extend({
     didInsertElement() {
@@ -25,6 +26,8 @@ export default Component.extend({
                 "icon": "releaseLogo"
             }
         ];
+
+        console.log(I18n.t("theme_translations.discourse-theme-custom.cards"));
 
         this.set("cards", cardsData);
     }
