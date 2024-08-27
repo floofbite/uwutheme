@@ -3,7 +3,7 @@ import I18n from "I18n";
 
 export default Component.extend({
     didInsertElement() {
-        const cardsData = I18n.t('cards');
+        const cardsData = I18n.t(themePrefix + 'cards');
         console.log(cardsData);
         this.set("cards", cardsData);
     }

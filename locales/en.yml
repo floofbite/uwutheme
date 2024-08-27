@@ -1,6 +1,4 @@
 en:
-  theme_metadata:
-    description: "Discourse Air Theme"
   cards:
     - url: "https://blog.qnap.com/en/"
       target: "_blank"
@@ -17,3 +15,5 @@ en:
       title: "Release Notes"
       description: "Discover the latest features, improvements, and bug fixes in our most recent releases."
       icon: "releaseLogo"
+  theme_metadata:
+    description: "Discourse Air Theme"
