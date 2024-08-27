@@ -31,15 +31,23 @@ export default {
                             const featureListHeaderLink = featureListHeader.querySelector("a");
                             featureListHeaderTitle.innerText = I18n.t(themePrefix("features_list.latest.status"));
                             featureListHeaderLink.innerText = I18n.t(themePrefix("features_list.latest.all"));
-                            featureListHeaderButton.innerHTML =  I18n.t(themePrefix("features_list.latest.new"));
+                            featureListHeaderButton.innerHTML = I18n.t(themePrefix("features_list.latest.new"));
                         }
                     }
                     const updateLangs = () => {
                         //search block
-                        const searchTitle = document.querySelector(".custom-search-banner-wrap")[0].querySelector("h1");
-                        searchTitle.innerText = I18n.t(themePrefix("search_banner.title"));
-                        const searchSubTitle = document.querySelector(".custom-search-banner-wrap")[0].querySelector("p");
-                        searchSubTitle.innerText = I18n.t(themePrefix("search_banner.subtitle"));
+                        const searchBannerWrap = document.querySelector(".custom-search-banner-wrap");
+                        if (searchBannerWrap) {
+                            const searchTitle = searchBannerWrap.querySelector("h1");
+                            if (searchTitle) {
+                                searchTitle.innerText = I18n.t(`${themePrefix}.search_banner.title`);
+                            }
+
+                            const searchSubTitle = searchBannerWrap.querySelector("p");
+                            if (searchSubTitle) {
+                                searchSubTitle.innerText = I18n.t(`${themePrefix}.search_banner.subtitle`);
+                            }
+                        }
 
                     }
                     loadLatestTopics();
