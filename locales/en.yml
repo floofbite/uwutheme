@@ -29,3 +29,5 @@ en:
       status: "Latest"
       all: "All Topics"
       new: "<svg class=\"fa d-icon d-icon-plus svg-icon svg-string\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\"#plus\"></use></svg> <span class=\"d-button-label\">New Topic</span>"
+  discussion_spaces:
+    title: "Discussion Spaces"
