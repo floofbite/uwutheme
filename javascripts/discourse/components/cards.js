@@ -1,5 +1,5 @@
 import Component from "@ember/component";
-import I18n from "I18n";
+import I18n from "discourse-i18n";
 
 export default Component.extend({
     didInsertElement() {
@@ -10,7 +10,5 @@ export default Component.extend({
         const cardsData = [item1, item2, item3];
 
         console.log(cardsData);
-
-        this.set("cards", cardsData);
     }
 });
