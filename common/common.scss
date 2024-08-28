@@ -31,6 +31,28 @@ $desc: #626262;
   @media screen and (max-width: 1280px) {
     display: none;
   }
+  @media screen and (max-width: 1440px) {
+    margin: 0 auto;
+  }
+  .headerLink {
+    margin: 0 0.5em;
+    @media screen and (max-width: 1440px) {
+      margin: 0 0.25em;
+    }
+    a {
+      font-size: 1rem;
+      color: #212529;
+      padding: 0.2em;
+      white-space: nowrap;
+      @media screen and (max-width: 1440px) {
+        padding: 0;
+      }
+      &:hover {
+        color: $custom-primary;
+        border-bottom: 3px solid $custom-primary;
+      }
+    }
+  }
 }
 
 div.before-header-panel-outlet {
@@ -50,26 +72,14 @@ div.before-header-panel-outlet {
     margin-bottom: 0px;
   }
 
-  .list-controls,.container.list-container{
-    display:none;
+  .list-controls,
+  .container.list-container {
+    display: none;
   }
 }
 
 body .below-site-header-outlet.search-banner {
   background: #0174e1;
-}
-
-.custom-header-links .headerLink {
-  margin: 0 0.5em;
-  a {
-    font-size: 1rem;
-    color: #212529;
-    padding: 0.2em;
-    &:hover {
-      color: $custom-primary;
-      border-bottom: 3px solid $custom-primary;
-    }
-  }
 }
 
 sub,
@@ -93,7 +103,7 @@ sup {
     .sidebar-wrapper {
       background-color: #ffffff;
     }
-    .sidebar-footer-wrapper{
+    .sidebar-footer-wrapper {
       background: #ffffff;
     }
   }
@@ -166,27 +176,27 @@ sup {
     }
   }
 
-  .category-heading{
+  .category-heading {
     display: flex;
     align-items: center;
-    p{
-        width: calc(100% - 150px - 2em);
+    p {
+      width: calc(100% - 150px - 2em);
     }
   }
 
-  ul#navigation-bar li.posted{
+  ul#navigation-bar li.posted {
     display: none;
   }
 
-  .featured-lists__wrapper.above-main-container{
+  .featured-lists__wrapper.above-main-container {
     margin-bottom: 0;
   }
 
-  .featured-lists__list-header h2{
+  .featured-lists__list-header h2 {
     font-size: 1rem;
     font-weight: normal;
     color: $custom-primary;
-    padding: .65em .75em;
+    padding: 0.65em 0.75em;
     border-bottom: 3px solid $custom-primary;
   }
 }
