@@ -65,6 +65,16 @@
             background: url($krLogo);
           }
         }
+        &:nth-child(8) {
+          &::before {
+            background: url($frLogo);
+          }
+        }
+        &:nth-child(9) {
+          &::before {
+            background: url($huLogo);
+          }
+        }
       }
     }
   }
