@@ -193,6 +193,12 @@ sup {
     padding: 0.65em 0.75em;
     border-bottom: 3px solid $custom-primary;
   }
+
+  .topic-navigation {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
 }
 @import "custom-search-banner-customizations";
 @import "custom-content";

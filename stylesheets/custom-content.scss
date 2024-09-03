@@ -21,6 +21,9 @@ html body #main-outlet {
   background: #ffffff;
   padding: 3em 3em 3%;
   padding-bottom: 3% !important;
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
 }
 .custom-footer .wrap {
   max-width: inherit;
