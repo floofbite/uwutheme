@@ -10,7 +10,7 @@ ja:
     posts: "投稿"
   cards:
     item1:
-      url: "https://blog.qnap.com/en/"
+      url: "https://blog.qnap.com"
       title: "ブログ"
       description: "QNAPの製品や技術に関するブログ投稿をお見逃しなく。"
       icon: "blogLogo"

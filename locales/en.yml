@@ -10,7 +10,7 @@ en:
     posts: "posts"
   cards:
     item1:
-      url: "https://blog.qnap.com/en/"
+      url: "https://blog.qnap.com"
       title: "Blog"
       description: "Stay tuned for blog posts about QNAP's products and technologies."
       icon: "blogLogo"
@@ -38,7 +38,7 @@ en:
   navs:
     nav1:
       title: "Blog"
-      url: "https://blog.qnap.com/en/"
+      url: "https://blog.qnap.com"
     nav2:
       title: "Knowledge Base"
       url: "https://www.qnap.com/go/how-to/search"
