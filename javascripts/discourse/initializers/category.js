@@ -16,7 +16,7 @@ export default {
                         let translatedCategoryName = I18n.t(themePrefix("category." + category + ".name"));
                         let translatedCategoryDesc = I18n.t(themePrefix("category." + category + ".description"));
 
-                        if (translatedCategoryDesc.indexOf('.theme_translations.') === -1) {
+                        if (translatedCategoryDesc.indexOf('.theme_translations.') === -1 && document.querySelector('.category-heading p > span')) {
                             document.querySelector('.category-heading p > span').innerText = translatedCategoryDesc;
                         }
                     }
@@ -27,11 +27,13 @@ export default {
                         let translatedCategoryName = I18n.t(themePrefix("category." + category + ".name"));
                         let translatedCategoryDesc = I18n.t(themePrefix("category." + category + ".description"));
                         if (category) {
-                            if (translatedCategoryName.indexOf('.theme_translations.') === -1) {
+                            if (translatedCategoryName.indexOf('.theme_translations.') === -1 &&
+                                $(this).find('span.category-name span').length) {
                                 $(this).find('span.category-name span')[0].innerHTML = translatedCategoryName;
                             }
 
-                            if (translatedCategoryDesc.indexOf('.theme_translations.') === -1) {
+                            if (translatedCategoryDesc.indexOf('.theme_translations.') === -1 &&
+                                $(this).parent().parent().find('div.category-description span').length) {
                                 $(this).parent().parent().find('div.category-description span')[0].innerHTML = translatedCategoryDesc;
                             }
                         }
