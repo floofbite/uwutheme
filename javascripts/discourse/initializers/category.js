@@ -23,7 +23,7 @@ export default {
 
                         if (translatedCategoryName.indexOf('.theme_translations.') === -1 &&
                             document.querySelector('span.badge-category__name')) {
-                            document.querySelector('span.badge-category__name').innerText = translatedCategoryDesc;
+                            document.querySelector('span.badge-category__name').innerText = translatedCategoryName;
                         }
                     }
                 } else if (document.body.classList.contains('categories-list')) {
