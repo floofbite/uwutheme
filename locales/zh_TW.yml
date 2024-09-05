@@ -10,7 +10,7 @@ zh_TW:
     posts: "貼文"
   cards:
     item1:
-      url: "https://blog.qnap.com/en/"
+      url: "https://blog.qnap.com/"
       title: "部落格"
       description: "隨時關注有關 QNAP 產品和技術的部落格文章。"
       icon: "blogLogo"
@@ -31,7 +31,7 @@ zh_TW:
     storage:
       name: "儲存"
       description: "從個人用戶到企業，QNAP 提供多功能且可擴展的儲存解決方案。深入討論儲存解決方案，包括硬體推薦、檔案管理策略和數據組織技術。"
-    backup_and_data_protection:
+    backup-and-data-protection:
       name: "備份和數據保護"
       description: "QNAP 提供各種備份解決方案、數據保護解決方案和災難恢復計劃，以保護您的寶貴信息。"
     cloud:
@@ -66,7 +66,7 @@ zh_TW:
   navs:
     nav1:
       title: "部落格"
-      url: "https://blog.qnap.com/en/"
+      url: "https://blog.qnap.com"
     nav2:
       title: "知識庫"
       url: "https://www.qnap.com/go/how-to/search"
@@ -75,7 +75,7 @@ zh_TW:
       url: "https://www.qnap.com/go/release-notes/"
     nav4:
       title: "支援"
-      url: "https://service.qnap.com/en/home"
+      url: "https://service.qnap.com"
     nav5:
       title: "安全指南"
       url: "https://view.publitas.com/qnap-1/2022_security_guide_en/page/1"

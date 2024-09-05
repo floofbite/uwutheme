@@ -12,22 +12,22 @@ export default Component.extend({
         }).then((data) => {
             const categories = data.category_list.categories;
             const visibleCategories = categories.filter(category => !category.read_restricted);
-            const langsReplaceByI18n = [];
             visibleCategories.forEach(category => {
-                let slug = category.slug;
-                if (slug.indexOf('-') !== -1) {
-                    slug = slug.replace(/-/g, '_');
+                category.description = category.description;
+                category.name = category.name;
+                if(category.slug) {
+                    let translatedCategoryName = I18n.t(themePrefix("category." + category.slug + ".name"));
+                    let translatedCategoryDesc = I18n.t(themePrefix("category." + category.slug + ".description"));
+                    if (translatedCategoryDesc.indexOf('.theme_translations.') === -1) {
+                        category.description = translatedCategoryDesc;
+                    }
+                    if (translatedCategoryName.indexOf('.theme_translations.') === -1) {
+                        category.name = translatedCategoryName;
+                    }
                 }
-                langsReplaceByI18n.push({
-                    slug: category.slug,
-                    name: I18n.t(themePrefix("category." + slug + ".name")),
-                    description:  I18n.t(themePrefix("category." + slug + ".description")),
-                    uploaded_logo: category.uploaded_logo,
-                    id: category.id
-                });
             });
 
-            this.set('categories', langsReplaceByI18n);
+            this.set('categories', visibleCategories);
         }).catch((error) => {
             console.error('Error fetching categories:', error);
         });

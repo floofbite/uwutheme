@@ -10,7 +10,7 @@ ja:
     posts: "投稿"
   cards:
     item1:
-      url: "https://blog.qnap.com/en/"
+      url: "https://blog.qnap.com"
       title: "ブログ"
       description: "QNAPの製品や技術に関するブログ投稿をお見逃しなく。"
       icon: "blogLogo"
@@ -31,7 +31,7 @@ ja:
     storage:
       name: "ストレージ"
       description: "個人ユーザーから企業まで、QNAPは多機能でスケーラブルなストレージソリューションを提供します。ハードウェアの推奨、ファイル管理戦略、データの整理技術など、ストレージソリューションについてのディスカッションに参加しましょう。"
-    backup_and_data_protection:
+    backup-and-data-protection:
       name: "バックアップとデータ保護"
       description: "QNAPは、貴重な情報を保護するために、さまざまなバックアップソリューション、データ保護ソリューション、および災害復旧計画を提供します。"
     cloud:
@@ -66,7 +66,7 @@ ja:
   navs:
     nav1:
       title: "ブログ"
-      url: "https://blog.qnap.com/en/"
+      url: "https://blog.qnap.com/jp/"
     nav2:
       title: "ナレッジベース"
       url: "https://www.qnap.com/go/how-to/search"
@@ -75,7 +75,7 @@ ja:
       url: "https://www.qnap.com/go/release-notes/"
     nav4:
       title: "サポート"
-      url: "https://service.qnap.com/en/home"
+      url: "https://service.qnap.com/"
     nav5:
       title: "セキュリティガイド"
       url: "https://view.publitas.com/qnap-1/2022_security_guide_en/page/1"

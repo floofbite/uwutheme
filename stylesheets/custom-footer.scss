@@ -29,40 +29,51 @@
           height: 24px;
           display: inline-block;
           margin-right: 8px;
+          background-size: contain;
         }
         &:nth-child(1) {
           &::before {
-            background: url($deLogo);
+            background-image: url($czLogo);
           }
         }
         &:nth-child(2) {
           &::before {
-            background: url($esLogo);
+            background-image: url($nlLogo);
           }
         }
         &:nth-child(3) {
           &::before {
-            background: url($czLogo);
+            background-image: url($frLogo);
           }
         }
         &:nth-child(4) {
           &::before {
-            background: url($nlLogo);
+            background-image: url($deLogo);
           }
         }
         &:nth-child(5) {
           &::before {
-            background: url($plLogo);
+            background-image: url($huLogo);
           }
         }
         &:nth-child(6) {
           &::before {
-            background: url($seLogo);
+            background-image: url($krLogo);
           }
         }
         &:nth-child(7) {
           &::before {
-            background: url($krLogo);
+            background-image: url($plLogo);
+          }
+        }
+        &:nth-child(8) {
+          &::before {
+            background-image: url($esLogo);
+          }
+        }
+        &:nth-child(9) {
+          &::before {
+            background-image: url($seLogo);
           }
         }
       }

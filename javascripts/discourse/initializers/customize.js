@@ -4,7 +4,49 @@ import { defaultHomepage } from "discourse/lib/utilities";
 export default {
     name: "custom-settings",
     initialize() {
+        let sidebarMenuButtonObserverInitialized = false;
         withPluginApi("0.8.18", (api) => {
+            const updateMultilingualCategoryInSidebar = () => {
+                // update multilingual category name in sidebar
+                $('[data-section-name="categories"] li.sidebar-section-link-wrapper').each(function(e){
+                    const match = $(this).find('a.sidebar-section-link').attr('href').match(/\/c\/([^\/]+)/);
+                    const category = match ? match[1] : null;
+                    let translatedCategoryName = I18n.t(themePrefix("category." + category + ".name"));
+                    if (category &&
+                        translatedCategoryName.indexOf('.theme_translations.') === -1 &&
+                        $(this).find('a.sidebar-section-link .sidebar-section-link-content-text').length) {
+                        $(this).find('a.sidebar-section-link .sidebar-section-link-content-text')[0].innerHTML = translatedCategoryName;
+                    }
+                });
+            }
+
+            // Function to monitor changes in aria-expanded attribute
+            const observeSidebarMenuButton = () => {
+                const button = document.querySelector('button[aria-controls="d-sidebar"]');
+
+                if (!button) {
+                    console.warn("Button not found");
+                    return;
+                }
+
+                // Define MutationObserver to listen for attribute changes
+                const observer = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        if (mutation.type === "attributes" && mutation.attributeName === "aria-expanded") {
+                            const isExpanded = button.getAttribute('aria-expanded') === "true";
+                            console.log(`Button aria-expanded changed to: ${isExpanded}`);
+
+                            // Execute updateMultilingualCategoryInSidebar function when aria-expanded changes
+                            updateMultilingualCategoryInSidebar();
+                        }
+                    });
+                });
+
+                // Start observing attribute changes on the button
+                observer.observe(button, { attributes: true });
+            };
+
+
             api.onPageChange(() => {
                 const currentRoute = api.container.lookup("router:main").currentRouteName;
                 const isHomepage = currentRoute === `discovery.${defaultHomepage()}`;
@@ -13,16 +55,6 @@ export default {
                 const domain = window.location.origin;
                 main.classList.add("discourse-theme--q");
 
-                // update multilingual category name in sidebar
-                $('[data-section-name="categories"] li.sidebar-section-link-wrapper').each(function(e){
-                    $('[data-section-name="categories"] li.sidebar-section-link-wrapper').each(function(e){
-                        const match = $(this).find('a.sidebar-section-link').attr('href').match(/\/c\/([^\/]+)/);
-                        const category = match ? match[1] : null;
-                        if (category) {
-                            $(this).find('a.sidebar-section-link .sidebar-section-link-content-text')[0].innerHTML = I18n.t(themePrefix("category." + category + ".name"));
-                        }
-                    });
-                });
 
                 if (isHomepage) {
                     applicationController.set("showSidebar", false);
@@ -69,13 +101,19 @@ export default {
                     main.classList.remove("isHomepage");
                 }
 
+                updateMultilingualCategoryInSidebar();
+                // Only initialize the sidebar menu button observer if it hasn't been done already
+                if (!sidebarMenuButtonObserverInitialized) {
+                    observeSidebarMenuButton();
+                    sidebarMenuButtonObserverInitialized = true;
+                }
+
                 const siteStatus = document.getElementById("siteStatus");
                 if (domain === "https://community.qnap.com") {
                     siteStatus.innerText = "Beta";
                 } else {
                     siteStatus.innerText = "Testing";
                 }
-
             });
         });
     },

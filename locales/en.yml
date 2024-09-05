@@ -10,7 +10,7 @@ en:
     posts: "posts"
   cards:
     item1:
-      url: "https://blog.qnap.com/en/"
+      url: "https://blog.qnap.com"
       title: "Blog"
       description: "Stay tuned for blog posts about QNAP's products and technologies."
       icon: "blogLogo"
@@ -24,31 +24,6 @@ en:
       title: "Release Notes"
       description: "Discover the latest features, improvements, and bug fixes in our most recent releases."
       icon: "releaseLogo"
-  category:
-    general:
-      name: "General"
-      description: "Connect with the community on general topics related to NAS usage and user experiences."
-    storage:
-      name: "Storage"
-      description: "From personal users to enterprises, QNAP offers versatile and scalable storage solutions.  Dive into discussions about storage solutions, including hardware recommendations, file management strategies, and data organization techniques."
-    backup_and_data_protection:
-      name: "Backup and Data Protection"
-      description: "QNAP provides various backup solutions, data protection solutions and disaster recovery plans to safeguard your valuable information."
-    cloud:
-      name: "Cloud"
-      description: "Explore topics related to QNAP cloud storage integration, synchronization, cloud service and more."
-    networking:
-      name: "Networking"
-      description: "Attain cutting-edge network infrastructure including high-speed connectivity and virtualized IT rooms with QNAP’s comprehensive networking and virtualized IT solutions."
-    surveillance:
-      name: "Surveillance"
-      description: "Build a comprehensive surveillance system with QNAP NAS. QNAP’s all-in-one surveillance solution combines software and hardware, and its sole service simplifies maintenance and repair."
-    site-feedback:
-      name: "Site Feedback"
-      description: "Private category for community feature requests, discussion, bug reports, etc. Topics are only visible to admins and moderators."
-    staff:
-      name: "Staff"
-      description: "Private category for staff discussions. Topics are only visible to admins and moderators."
   search_banner:
     headline: "Welcome to QNAP Community"
     subhead: "Join us to share ideas, learn, and connect with QNAP enthusiasts"
@@ -63,7 +38,7 @@ en:
   navs:
     nav1:
       title: "Blog"
-      url: "https://blog.qnap.com/en/"
+      url: "https://blog.qnap.com"
     nav2:
       title: "Knowledge Base"
       url: "https://www.qnap.com/go/how-to/search"
