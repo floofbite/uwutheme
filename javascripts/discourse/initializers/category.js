@@ -2,12 +2,12 @@ import {withPluginApi} from "discourse/lib/plugin-api";
 import {defaultHomepage} from "discourse/lib/utilities";
 
 export default {
-    name: "custom-settings",
+    name: "category-pages",
     initialize() {
         withPluginApi("0.8.18", (api) => {
             api.onPageChange(() => {
                 // it's in category page
-                if (document.body.classList.contains('category-general')) {
+                if (document.body.classList.contains('category')) {
                     const match = window.location.pathname.match(/\/c\/([^\/]+)/);
                     const category = match ? match[1] : null;
 
