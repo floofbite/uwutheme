@@ -18,8 +18,9 @@ export default {
                     $('[data-section-name="categories"] li.sidebar-section-link-wrapper').each(function(e){
                         const match = $(this).find('a.sidebar-section-link').attr('href').match(/\/c\/([^\/]+)/);
                         const category = match ? match[1] : null;
-                        if (category) {
-                            $(this).find('a.sidebar-section-link .sidebar-section-link-content-text')[0].innerHTML = I18n.t(themePrefix("category." + category + ".name"));
+                        let translatedName = I18n.t(themePrefix("category." + category + ".name"));
+                        if (category && translatedName.indexOf('.theme_translations.') === -1) {
+                            $(this).find('a.sidebar-section-link .sidebar-section-link-content-text')[0].innerHTML = translatedName;
                         }
                     });
                 });
