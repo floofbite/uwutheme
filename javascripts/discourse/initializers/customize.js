@@ -5,6 +5,40 @@ export default {
     name: "custom-settings",
     initialize() {
         withPluginApi("0.8.18", (api) => {
+            const updateMultilingualCategoryInSidebar = () => {
+                // update multilingual category name in sidebar
+                $('[data-section-name="categories"] li.sidebar-section-link-wrapper').each(function(e){
+                    const match = $(this).find('a.sidebar-section-link').attr('href').match(/\/c\/([^\/]+)/);
+                    const category = match ? match[1] : null;
+                    let translatedCategoryName = I18n.t(themePrefix("category." + category + ".name"));
+                    if (category &&
+                        translatedCategoryName.indexOf('.theme_translations.') === -1 &&
+                        $(this).find('a.sidebar-section-link .sidebar-section-link-content-text').length) {
+                        $(this).find('a.sidebar-section-link .sidebar-section-link-content-text')[0].innerHTML = translatedCategoryName;
+                    }
+                });
+            }
+
+            // Function to start observing changes in the DOM
+            const observeSidebar = () => {
+                const observer = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        if (mutation.type === 'childList') {
+                            // Check if #d-sidebar is in the DOM
+                            if (document.querySelector('#d-sidebar')) {
+                                updateMultilingualCategoryInSidebar();
+                            }
+                        }
+                    });
+                });
+
+                // Start observing the body for changes in the DOM
+                observer.observe(document.body, {
+                    childList: true,
+                    subtree: true
+                });
+            };
+
             api.onPageChange(() => {
                 const currentRoute = api.container.lookup("router:main").currentRouteName;
                 const isHomepage = currentRoute === `discovery.${defaultHomepage()}`;
@@ -12,19 +46,7 @@ export default {
                 const main = document.getElementById("main");
                 const domain = window.location.origin;
                 main.classList.add("discourse-theme--q");
-                const updateMultilingualCategoryInSidebar = () => {
-                    // update multilingual category name in sidebar
-                    $('[data-section-name="categories"] li.sidebar-section-link-wrapper').each(function(e){
-                        const match = $(this).find('a.sidebar-section-link').attr('href').match(/\/c\/([^\/]+)/);
-                        const category = match ? match[1] : null;
-                        let translatedCategoryName = I18n.t(themePrefix("category." + category + ".name"));
-                        if (category &&
-                            translatedCategoryName.indexOf('.theme_translations.') === -1 &&
-                            $(this).find('a.sidebar-section-link .sidebar-section-link-content-text').length) {
-                            $(this).find('a.sidebar-section-link .sidebar-section-link-content-text')[0].innerHTML = translatedCategoryName;
-                        }
-                    });
-                }
+
 
                 if (isHomepage) {
                     applicationController.set("showSidebar", false);
@@ -66,13 +88,16 @@ export default {
                     }
 
                     loadLatestTopics();
-                    setTimeout(() => {
-                        updateMultilingualCategoryInSidebar();
-                    }, 1000);
                 } else {
                     applicationController.set("showSidebar", true);
                     main.classList.remove("isHomepage");
+                }
+
+                // Wait for #d-sidebar to appear before running the function
+                if (document.querySelector('#d-sidebar')) {
                     updateMultilingualCategoryInSidebar();
+                } else {
+                    observeSidebar();
                 }
 
                 const siteStatus = document.getElementById("siteStatus");
