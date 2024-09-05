@@ -19,24 +19,30 @@ export default {
                 });
             }
 
-            // Function to start observing changes in the DOM
-            const observeSidebar = () => {
+            // 监控 aria-expanded 属性变化的函数
+            const observeButton = () => {
+                const button = document.querySelector('button[aria-controls="d-sidebar"]');
+
+                if (!button) {
+                    console.warn("Button not found");
+                    return;
+                }
+
+                // 定义 MutationObserver 以监听属性变化
                 const observer = new MutationObserver((mutations) => {
                     mutations.forEach((mutation) => {
-                        if (mutation.type === 'childList') {
-                            // Check if #d-sidebar is in the DOM
-                            if (document.querySelector('#d-sidebar')) {
-                                updateMultilingualCategoryInSidebar();
-                            }
+                        if (mutation.type === "attributes" && mutation.attributeName === "aria-expanded") {
+                            const isExpanded = button.getAttribute('aria-expanded') === "true";
+                            console.log(`Button aria-expanded changed to: ${isExpanded}`);
+
+                            // 当 aria-expanded 变化时，执行 updateMultilingualCategoryInSidebar 函数
+                            updateMultilingualCategoryInSidebar();
                         }
                     });
                 });
 
-                // Start observing the body for changes in the DOM
-                observer.observe(document.body, {
-                    childList: true,
-                    subtree: true
-                });
+                // 开始监听按钮的属性变化
+                observer.observe(button, { attributes: true });
             };
 
             api.onPageChange(() => {
@@ -93,12 +99,8 @@ export default {
                     main.classList.remove("isHomepage");
                 }
 
-                // Wait for #d-sidebar to appear before running the function
-                if (document.querySelector('#d-sidebar')) {
-                    updateMultilingualCategoryInSidebar();
-                } else {
-                    observeSidebar();
-                }
+                updateMultilingualCategoryInSidebar();
+                observeButton();
 
                 const siteStatus = document.getElementById("siteStatus");
                 if (domain === "https://community.qnap.com") {
