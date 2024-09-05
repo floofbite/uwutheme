@@ -8,7 +8,7 @@ export default {
         withPluginApi("0.8.18", (api) => {
             api.onPageChange(() => {
                 const currentRoute = api.container.lookup("router:main").currentRouteName;
-                const aboutPage = currentRoute === 'about';
+                const aboutPage = currentRoute === 'about' || currentRoute === 'faq';
                 if (aboutPage && !aboutButtonListenerInitialized) {
                     this.changeButtonLinkOnAboutPage();
                     aboutButtonListenerInitialized = true;
