@@ -5,19 +5,36 @@ export default Component.extend({
     didInsertElement() {
         this._super(...arguments);
         let lang = I18n.currentLocale().toLowerCase();
-        const qnapLangMapping = () => {
-            switch (lang) {
-                case 'ja':
-                    return 'ja-jp';
-                default:
-                    return lang;
-            }
+        const qnapLangMapping = (lang) => {
+            let langMapping = {
+                "da": "da-dk",
+                "de": "de-de",
+                "en": "en",
+                "es": "es-es",
+                "fr": "fr-fr",
+                "hu": "hu-hu",
+                "it": "it-it",
+                "ja": "ja-jp",
+                "ko": "ko-kr",
+                "nl": "nl-nl",
+                "pl_PL": "pl-pl",
+                "pt": "pt-pt",
+                "pt-BR": "pt-br",
+                "sv": "sv-se",
+                "th": "th-th",
+                "tr": "tr-tr",
+                "vi": "vi-vn",
+                "zh-CN": "zh-cn",
+                "zh-TW": "zh-tw"
+            };
+
+            return langMapping[lang] || 'en';
         }
         if (lang.indexOf('_') !== -1) {
             lang = lang.replace('_', '-');
         }
-        lang = qnapLangMapping();
-        const apiUrl = 'https://www.qnap.com/api/v1/articles/news?locale=' + lang;
+        lang = qnapLangMapping(lang);
+        let apiUrl = 'https://www.qnap.com/api/v1/articles/news?locale=' + lang;
 
         ajax(apiUrl, {
             method: 'GET'
