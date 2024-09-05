@@ -12,19 +12,6 @@ export default {
                 const main = document.getElementById("main");
                 const domain = window.location.origin;
                 main.classList.add("discourse-theme--q");
-
-                // update multilingual category name in sidebar
-                $('[data-section-name="categories"] li.sidebar-section-link-wrapper').each(function(e){
-                    const match = $(this).find('a.sidebar-section-link').attr('href').match(/\/c\/([^\/]+)/);
-                    const category = match ? match[1] : null;
-                    let translatedCategoryName = I18n.t(themePrefix("category." + category + ".name"));
-                    if (category &&
-                        translatedCategoryName.indexOf('.theme_translations.') === -1 &&
-                        $(this).find('a.sidebar-section-link .sidebar-section-link-content-text').length) {
-                        $(this).find('a.sidebar-section-link .sidebar-section-link-content-text')[0].innerHTML = translatedCategoryName;
-                    }
-                });
-
                 if (isHomepage) {
                     applicationController.set("showSidebar", false);
                     main.classList.add("isHomepage");
@@ -77,6 +64,18 @@ export default {
                     siteStatus.innerText = "Testing";
                 }
 
+
+                // update multilingual category name in sidebar
+                $('[data-section-name="categories"] li.sidebar-section-link-wrapper').each(function(e){
+                    const match = $(this).find('a.sidebar-section-link').attr('href').match(/\/c\/([^\/]+)/);
+                    const category = match ? match[1] : null;
+                    let translatedCategoryName = I18n.t(themePrefix("category." + category + ".name"));
+                    if (category &&
+                        translatedCategoryName.indexOf('.theme_translations.') === -1 &&
+                        $(this).find('a.sidebar-section-link .sidebar-section-link-content-text').length) {
+                        $(this).find('a.sidebar-section-link .sidebar-section-link-content-text')[0].innerHTML = translatedCategoryName;
+                    }
+                });
             });
         });
     },
