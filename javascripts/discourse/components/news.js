@@ -40,6 +40,8 @@ export default Component.extend({
         if (lang.indexOf('_') !== -1) {
             lang = lang.replace('_', '-');
         }
+
+        console.log('lang:', lang);
         lang = qnapLangMapping(lang);
         let apiUrl = 'https://www.qnap.com/api/v1/articles/news?locale=' + lang;
         console.log('apiUrl:', apiUrl);
