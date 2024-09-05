@@ -16,8 +16,14 @@ export default {
                         let translatedCategoryName = I18n.t(themePrefix("category." + category + ".name"));
                         let translatedCategoryDesc = I18n.t(themePrefix("category." + category + ".description"));
 
-                        if (translatedCategoryDesc.indexOf('.theme_translations.') === -1 && document.querySelector('.category-heading p > span')) {
+                        if (translatedCategoryDesc.indexOf('.theme_translations.') === -1 &&
+                            document.querySelector('.category-heading p > span')) {
                             document.querySelector('.category-heading p > span').innerText = translatedCategoryDesc;
+                        }
+
+                        if (translatedCategoryName.indexOf('.theme_translations.') === -1 &&
+                            document.querySelector('span.badge-category__name')) {
+                            document.querySelector('span.badge-category__name').innerText = translatedCategoryDesc;
                         }
                     }
                 } else if (document.body.classList.contains('categories-list')) {
