@@ -12,6 +12,18 @@ export default {
                 const main = document.getElementById("main");
                 const domain = window.location.origin;
                 main.classList.add("discourse-theme--q");
+
+                // update multilingual category name in sidebar
+                $('[data-section-name="categories"] li.sidebar-section-link-wrapper').each(function(e){
+                    $('[data-section-name="categories"] li.sidebar-section-link-wrapper').each(function(e){
+                        const match = $(this).find('a.sidebar-section-link').attr('href').match(/\/c\/([^\/]+)/);
+                        const category = match ? match[1] : null;
+                        if (category) {
+                            $(this).find('a.sidebar-section-link .sidebar-section-link-content-text')[0].innerHTML = I18n.t(themePrefix("category." + category + ".name"));
+                        }
+                    });
+                });
+
                 if (isHomepage) {
                     applicationController.set("showSidebar", false);
                     main.classList.add("isHomepage");
@@ -50,6 +62,7 @@ export default {
                             }
                         });
                     }
+
                     loadLatestTopics();
                 } else {
                     applicationController.set("showSidebar", true);
