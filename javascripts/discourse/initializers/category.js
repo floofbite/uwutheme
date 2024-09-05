@@ -32,7 +32,7 @@ export default {
                             }
 
                             if (translatedCategoryDesc.indexOf('.theme_translations.') === -1) {
-                                $(this).parent().find('div.category-description span')[0].innerHTML = translatedCategoryDesc;
+                                $(this).parent().parent().find('div.category-description span')[0].innerHTML = translatedCategoryDesc;
                             }
                         }
                     });
