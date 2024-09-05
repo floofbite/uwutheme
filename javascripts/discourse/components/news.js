@@ -6,6 +6,7 @@ export default Component.extend({
         this._super(...arguments);
         let lang = I18n.currentLocale().toLowerCase();
         const qnapLangMapping = (lang) => {
+            let tmpLang ='';
             let langMapping = {
                 "da": "da-dk",
                 "de": "de-de",
@@ -28,7 +29,13 @@ export default Component.extend({
                 "zh-TW": "zh-tw"
             };
 
-            return langMapping[lang] || 'en';
+            if (langMapping[lang] === undefined) {
+                tmpLang = 'en';
+            } else{
+                tmpLang = langMapping[lang];
+            }
+
+            return tmpLang;
         }
         if (lang.indexOf('_') !== -1) {
             lang = lang.replace('_', '-');
