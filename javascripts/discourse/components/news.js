@@ -20,13 +20,13 @@ export default Component.extend({
                 "nl": "nl-nl",
                 "pl_PL": "pl-pl",
                 "pt": "pt-pt",
-                "pt-BR": "pt-br",
+                "pt-br": "pt-br",
                 "sv": "sv-se",
                 "th": "th-th",
                 "tr": "tr-tr",
                 "vi": "vi-vn",
-                "zh-CN": "zh-cn",
-                "zh-TW": "zh-tw"
+                "zh-cn": "zh-cn",
+                "zh-tw": "zh-tw"
             };
 
             if (langMapping[lang] === undefined) {
@@ -41,10 +41,10 @@ export default Component.extend({
             lang = lang.replace('_', '-');
         }
 
-        console.log('lang:', lang);
+        // console.log('lang:', lang);
         lang = qnapLangMapping(lang);
         let apiUrl = 'https://www.qnap.com/api/v1/articles/news?locale=' + lang;
-        console.log('apiUrl:', apiUrl);
+        // console.log('apiUrl:', apiUrl);
 
         ajax(apiUrl, {
             method: 'GET'
