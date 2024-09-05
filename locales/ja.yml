@@ -24,8 +24,6 @@ ja:
       title: "リリースノート"
       description: "最新のリリースでの新機能、改善点、バグ修正を発見しましょう。"
       icon: "releaseLogo"
-<<<<<<< HEAD
-=======
   category:
     general:
       name: "一般"
@@ -54,7 +52,6 @@ ja:
     staff:
       name: "スタッフ"
       description: "スタッフディスカッションのためのプライベートカテゴリ。トピックは管理者とモデレーターのみが閲覧できます。"
->>>>>>> f5c1027 (updated multilingual category name in sidebar)
   search_banner:
     headline: "QNAPコミュニティへようこそ"
     subhead: "アイデアを共有し、学び、QNAP愛好者とつながりましょう"
