@@ -15,6 +15,16 @@ export default Component.extend({
             visibleCategories.forEach(category => {
                 category.description = category.description;
                 category.name = category.name;
+                if(category.slug) {
+                    let translatedCategoryName = I18n.t(themePrefix("category." + category.slug + ".name"));
+                    let translatedCategoryDesc = I18n.t(themePrefix("category." + category.slug + ".description"));
+                    if (translatedCategoryDesc.indexOf('.theme_translations.') === -1) {
+                        category.description = translatedCategoryDesc;
+                    }
+                    if (translatedCategoryName.indexOf('.theme_translations.') === -1) {
+                        category.name = translatedCategoryName;
+                    }
+                }
             });
 
             this.set('categories', visibleCategories);
