@@ -4,12 +4,14 @@ export default {
     name: 'aboutPageButtonLinkChange',
 
     initialize() {
+        let aboutButtonListenerInitialized = false;
         withPluginApi("0.8.18", (api) => {
             api.onPageChange(() => {
                 const currentRoute = api.container.lookup("router:main").currentRouteName;
                 const aboutPage = currentRoute === 'about';
-                if (aboutPage) {
+                if (aboutPage && !aboutButtonListenerInitialized) {
                     this.changeButtonLinkOnAboutPage();
+                    aboutButtonListenerInitialized = true;
                 }
             });
         });

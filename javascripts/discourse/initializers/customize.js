@@ -20,7 +20,7 @@ export default {
                 });
             }
 
-            // 监控 aria-expanded 属性变化的函数
+            // Function to monitor changes in aria-expanded attribute
             const observeSidebarMenuButton = () => {
                 const button = document.querySelector('button[aria-controls="d-sidebar"]');
 
@@ -29,22 +29,23 @@ export default {
                     return;
                 }
 
-                // 定义 MutationObserver 以监听属性变化
+                // Define MutationObserver to listen for attribute changes
                 const observer = new MutationObserver((mutations) => {
                     mutations.forEach((mutation) => {
                         if (mutation.type === "attributes" && mutation.attributeName === "aria-expanded") {
                             const isExpanded = button.getAttribute('aria-expanded') === "true";
                             console.log(`Button aria-expanded changed to: ${isExpanded}`);
 
-                            // 当 aria-expanded 变化时，执行 updateMultilingualCategoryInSidebar 函数
+                            // Execute updateMultilingualCategoryInSidebar function when aria-expanded changes
                             updateMultilingualCategoryInSidebar();
                         }
                     });
                 });
 
-                // 开始监听按钮的属性变化
+                // Start observing attribute changes on the button
                 observer.observe(button, { attributes: true });
             };
+
 
             api.onPageChange(() => {
                 const currentRoute = api.container.lookup("router:main").currentRouteName;
@@ -101,7 +102,7 @@ export default {
                 }
 
                 updateMultilingualCategoryInSidebar();
-                // Only initialize the button observer if it hasn't been done already
+                // Only initialize the sidebar menu button observer if it hasn't been done already
                 if (!sidebarMenuButtonObserverInitialized) {
                     observeSidebarMenuButton();
                     sidebarMenuButtonObserverInitialized = true;

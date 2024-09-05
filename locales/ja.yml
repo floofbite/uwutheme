@@ -66,7 +66,7 @@ ja:
   navs:
     nav1:
       title: "ブログ"
-      url: "https://blog.qnap.com/en/"
+      url: "https://blog.qnap.com/jp/"
     nav2:
       title: "ナレッジベース"
       url: "https://www.qnap.com/go/how-to/search"
@@ -75,7 +75,7 @@ ja:
       url: "https://www.qnap.com/go/release-notes/"
     nav4:
       title: "サポート"
-      url: "https://service.qnap.com/en/home"
+      url: "https://service.qnap.com/"
     nav5:
       title: "セキュリティガイド"
       url: "https://view.publitas.com/qnap-1/2022_security_guide_en/page/1"

@@ -10,7 +10,7 @@ zh_TW:
     posts: "貼文"
   cards:
     item1:
-      url: "https://blog.qnap.com/en/"
+      url: "https://blog.qnap.com/"
       title: "部落格"
       description: "隨時關注有關 QNAP 產品和技術的部落格文章。"
       icon: "blogLogo"
@@ -75,7 +75,7 @@ zh_TW:
       url: "https://www.qnap.com/go/release-notes/"
     nav4:
       title: "支援"
-      url: "https://service.qnap.com/en/home"
+      url: "https://service.qnap.com"
     nav5:
       title: "安全指南"
       url: "https://view.publitas.com/qnap-1/2022_security_guide_en/page/1"
