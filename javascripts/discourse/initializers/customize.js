@@ -4,6 +4,7 @@ import { defaultHomepage } from "discourse/lib/utilities";
 export default {
     name: "custom-settings",
     initialize() {
+        let sidebarMenuButtonObserverInitialized = false;
         withPluginApi("0.8.18", (api) => {
             const updateMultilingualCategoryInSidebar = () => {
                 // update multilingual category name in sidebar
@@ -20,7 +21,7 @@ export default {
             }
 
             // 监控 aria-expanded 属性变化的函数
-            const observeButton = () => {
+            const observeSidebarMenuButton = () => {
                 const button = document.querySelector('button[aria-controls="d-sidebar"]');
 
                 if (!button) {
@@ -100,7 +101,11 @@ export default {
                 }
 
                 updateMultilingualCategoryInSidebar();
-                observeButton();
+                // Only initialize the button observer if it hasn't been done already
+                if (!sidebarMenuButtonObserverInitialized) {
+                    observeSidebarMenuButton();
+                    sidebarMenuButtonObserverInitialized = true;
+                }
 
                 const siteStatus = document.getElementById("siteStatus");
                 if (domain === "https://community.qnap.com") {
