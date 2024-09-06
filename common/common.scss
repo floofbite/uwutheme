@@ -237,10 +237,11 @@ sup {
     }
     &.active {
         h1{
-            animation: fadeInDown 0.2s ease-in-out 0.2s forwards;
+            animation-name: fadeInDown;
         }
         p{
-            animation: fadeInDown 0.2s ease-in-out 0.4s forwards;
+            animation-name: fadeInDown;
+            animation-delay: .2s;
         }
     }
   }
