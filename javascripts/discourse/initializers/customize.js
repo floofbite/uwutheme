@@ -99,6 +99,14 @@ export default {
                 } else {
                     applicationController.set("showSidebar", true);
                     main.classList.remove("isHomepage");
+                    if (document.querySelector(".footer-links")) {
+                        updateLangs([
+                            { wrap: ".footer-links", selector: "a", order: 0, content: I18n.t(themePrefix("footer.privacy_policy")) },
+                            { wrap: ".footer-links", selector: "a", order: 1, content: I18n.t(themePrefix("footer.terms_of_service")) },
+                            { wrap: ".footer-links", selector: "a", order: 2, content: I18n.t(themePrefix("footer.about")) },
+                            { wrap: "[data-easyfooter-section=\"third-party-forums\"]", selector: "span", order: 0, content: I18n.t(themePrefix("footer.third_party_forums")) },
+                        ]);
+                    }
                 }
 
                 updateMultilingualCategoryInSidebar();
