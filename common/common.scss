@@ -212,6 +212,12 @@ sup {
   .two-rows.extra-info-wrapper+.before-header-panel-outlet+.panel .header-locale-selector-widget{
     display: none;
   }
+
+  .header-locale-selector{
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
 }
 @import "custom-search-banner-customizations";
 @import "custom-content";
