@@ -219,14 +219,25 @@ sup {
     }
   }
 
+  //animation fadeInDown
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   .custom-search-banner-wrap{
     h1,p {
         opacity: 0;
     }
     &.active {
         h1,p {
-            transition: opacity 0.5s;
-            opacity: 1;
+            animation: fadeInDown 0.2s ease-in-out 0.2s forwards;
         }
     }
   }
