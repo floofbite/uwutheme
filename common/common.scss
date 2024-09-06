@@ -250,6 +250,10 @@ sup {
         }
     }
   }
+
+  .user-preferences .form-vertical .control-group.home{
+    display: none;
+  }
 }
 @import "custom-search-banner-customizations";
 @import "custom-content";
