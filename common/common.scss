@@ -218,6 +218,18 @@ sup {
       display: none;
     }
   }
+
+  .custom-search-banner-wrap{
+    h1,p {
+        opacity: 0;
+    }
+    &.active {
+        h1,p {
+            transition: opacity 0.5s;
+            opacity: 1;
+        }
+    }
+  }
 }
 @import "custom-search-banner-customizations";
 @import "custom-content";
