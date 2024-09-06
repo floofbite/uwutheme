@@ -238,9 +238,15 @@ sup {
     &.active {
         h1{
             animation-name: fadeInDown;
+            animation-duration: .4s;
+            animation-direction: normal;
+            animation-timing-function: ease-in;
         }
         p{
             animation-name: fadeInDown;
+            animation-duration: .4s;
+            animation-direction: normal;
+            animation-timing-function: ease-in;
             animation-delay: .2s;
         }
     }
