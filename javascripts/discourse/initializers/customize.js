@@ -8,7 +8,7 @@ export default {
         withPluginApi("0.8.18", (api) => {
             const updateMultilingualCategoryInSidebar = () => {
                 // update multilingual category name in sidebar
-                $('[data-section-name="categories"] li.sidebar-section-link-wrapper').each(function(e){
+                $('[data-section-name="categories"] li.sidebar-section-link-wrapper').each(function (e) {
                     const match = $(this).find('a.sidebar-section-link').attr('href').match(/\/c\/([^\/]+)/);
                     const category = match ? match[1] : null;
                     let translatedCategoryName = I18n.t(themePrefix("category." + category + ".name"));
@@ -46,6 +46,17 @@ export default {
                 observer.observe(button, { attributes: true });
             };
 
+            const updateLangs = (langs = []) => {
+                langs.forEach(({ wrap, selector, order = 0, content }) => {
+                    const wrapperElement = document.querySelector(wrap);
+                    if (wrapperElement) {
+                        const elements = wrapperElement.querySelectorAll(selector);
+                        if (elements[order]) {
+                            elements[order].innerHTML = content;
+                        }
+                    }
+                });
+            };
 
             api.onPageChange(() => {
                 const currentRoute = api.container.lookup("router:main").currentRouteName;
@@ -54,7 +65,6 @@ export default {
                 const main = document.getElementById("main");
                 const domain = window.location.origin;
                 main.classList.add("discourse-theme--q");
-
 
                 if (isHomepage) {
                     applicationController.set("showSidebar", false);
@@ -69,10 +79,7 @@ export default {
                             featureListWrapper.classList.add("full-width");
                             featureListContainer.classList.add("contents");
                         }
-                        updateLangs();
-                    }
-                    const updateLangs = () => {
-                        const langUpdate = [
+                        updateLangs([
                             { wrap: ".featured-lists__list-header", selector: "h2", order: 0, content: I18n.t(themePrefix("features_list.latest.status")) },
                             { wrap: ".featured-lists__list-header", selector: "a", order: 0, content: I18n.t(themePrefix("features_list.latest.all")) },
                             { wrap: ".featured-lists__list-header", selector: "button", order: 0, content: I18n.t(themePrefix("features_list.latest.new")) },
@@ -82,17 +89,10 @@ export default {
                             { wrap: ".footer-links", selector: "a", order: 1, content: I18n.t(themePrefix("footer.terms_of_service")) },
                             { wrap: ".footer-links", selector: "a", order: 2, content: I18n.t(themePrefix("footer.about")) },
                             { wrap: "[data-easyfooter-section=\"third-party-forums\"]", selector: "span", order: 0, content: I18n.t(themePrefix("footer.third_party_forums")) },
-                        ];
+                        ]);
 
-                        langUpdate.forEach(({ wrap, selector, order = 0, content }) => {
-                            const wrapperElement = document.querySelector(wrap);
-                            if (wrapperElement) {
-                                const elements = wrapperElement.querySelectorAll(selector);
-                                if (elements[order]) {
-                                    elements[order].innerHTML = content;
-                                }
-                            }
-                        });
+                        const searchBanner = document.querySelector(".custom-search-banner-wrap");
+                        searchBanner.classList.add("active");
                     }
 
                     loadLatestTopics();

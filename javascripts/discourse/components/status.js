@@ -8,8 +8,8 @@ export default Component.extend({
         ajax(siteApiUrl, {
             method: 'GET'
         }).then((data) => {
-            const usersCount = data.users_count;
-            const postsCount = data.posts_count;
+            const usersCount = data.active_users_last_day;
+            const postsCount = data.topics_count;
             this.set('userCount', usersCount);
             this.set('postsCount', postsCount);
             const statusContent = document.querySelector(".status-content");
