@@ -204,6 +204,14 @@ sup {
         position: relative;
     }
   }
+
+  .two-rows.extra-info-wrapper+.before-header-panel-outlet{
+    display: none;
+  }
+
+  .two-rows.extra-info-wrapper+.before-header-panel-outlet+.panel .header-locale-selector-widget{
+    display: none;
+  }
 }
 @import "custom-search-banner-customizations";
 @import "custom-content";
