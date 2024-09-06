@@ -232,7 +232,7 @@ sup {
   }
 
   .custom-search-banner-wrap{
-    h1,p {
+    h1,p,.search-menu,.status-content {
         opacity: 0;
     }
     &.active {
@@ -241,6 +241,12 @@ sup {
         }
         p{
             animation: fadeInDown .4s ease-in .4s forwards;
+        }
+        .search-menu {
+            animation: fadeInDown .4s ease-in .6s forwards;
+        }
+        .status-content {
+            animation: fadeInDown .4s ease-in .8s forwards;
         }
     }
   }
