@@ -199,6 +199,11 @@ sup {
       display: none;
     }
   }
+  .post-attribution{
+    .lightbox-wrapper{
+        position: relative;
+    }
+  }
 }
 @import "custom-search-banner-customizations";
 @import "custom-content";
