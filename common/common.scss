@@ -236,8 +236,11 @@ sup {
         opacity: 0;
     }
     &.active {
-        h1,p {
+        h1{
             animation: fadeInDown 0.2s ease-in-out 0.2s forwards;
+        }
+        p{
+            animation: fadeInDown 0.2s ease-in-out 0.4s forwards;
         }
     }
   }
