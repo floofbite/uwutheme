@@ -8,6 +8,8 @@ export default {
         withPluginApi("0.8.18", (api) => {
             const updateMultilingualCategoryInSidebar = () => {
                 // update multilingual category name in sidebar
+                console.log($('[data-section-name="categories"] li.sidebar-section-link-wrapper').length);
+                
                 $('[data-section-name="categories"] li.sidebar-section-link-wrapper').each(function (e) {
                     const match = $(this).find('a.sidebar-section-link').attr('href').match(/\/c\/([^\/]+)/);
                     const category = match ? match[1] : null;
