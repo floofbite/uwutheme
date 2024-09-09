@@ -12,6 +12,7 @@ export default {
                     const match = $(this).find('a.sidebar-section-link').attr('href').match(/\/c\/([^\/]+)/);
                     const category = match ? match[1] : null;
                     let translatedCategoryName = I18n.t(themePrefix("category." + category + ".name"));
+                    console.log(translatedCategoryName);
                     if (category &&
                         translatedCategoryName.indexOf('.theme_translations.') === -1 &&
                         $(this).find('a.sidebar-section-link .sidebar-section-link-content-text').length) {
