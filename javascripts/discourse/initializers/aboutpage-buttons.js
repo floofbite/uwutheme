@@ -1,4 +1,4 @@
-import { withPluginApi } from "discourse/lib/plugin-api";
+import {withPluginApi} from "discourse/lib/plugin-api";
 
 export default {
     name: 'aboutPageButtonLinkChange',
@@ -18,19 +18,19 @@ export default {
     },
 
     changeButtonLinkOnAboutPage() {
-        const tosButton = document.querySelector('a[href="/tos"]');
-        const privacyButton = document.querySelector('a[href="/privacy"]');
+        window.addEventListener('click', (event) => {
+            const target = event.target;
 
-        if (tosButton) {
-            tosButton.addEventListener('click', () => {
+            if (target.matches('a[href="/tos"]')) {
+                event.preventDefault();
                 window.location.href = 'https://www.qnap.com/go/legal/qnap-website-terms-of-use';
-            });
-        }
+            }
 
-        if (privacyButton) {
-            privacyButton.addEventListener('click', () => {
+            if (target.matches('a[href="/privacy"]')) {
+                event.preventDefault();
                 window.location.href = 'https://www.qnap.com/go/legal/qnap-privacy-policy';
-            });
-        }
+            }
+        });
+
     }
 };
