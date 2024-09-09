@@ -56,7 +56,7 @@ export default {
                             if ($('#toggle-hamburger-menu').length) {
                                 setTimeout(function () {
                                     updateMultilingualCategoryInSidebar();
-                                }, 500);
+                                }, 100);
                             } else {
                                 // Execute updateMultilingualCategoryInSidebar function when aria-expanded changes
                                 updateMultilingualCategoryInSidebar();
