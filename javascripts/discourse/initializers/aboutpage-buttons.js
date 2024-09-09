@@ -1,4 +1,4 @@
-import { withPluginApi } from "discourse/lib/plugin-api";
+import {withPluginApi} from "discourse/lib/plugin-api";
 
 export default {
     name: 'aboutPageButtonLinkChange',
@@ -7,9 +7,9 @@ export default {
         let aboutButtonListenerInitialized = false;
         withPluginApi("0.8.18", (api) => {
             api.onPageChange(() => {
-                const currentRoute = api.container.lookup("router:main").currentRouteName;
-                const aboutPage = currentRoute === 'about' || currentRoute === 'faq';
-                if (aboutPage && !aboutButtonListenerInitialized) {
+                // const currentRoute = api.container.lookup("router:main").currentRouteName;
+                // const aboutPage = currentRoute === 'about' || currentRoute === 'faq';
+                if (!aboutButtonListenerInitialized) {
                     this.changeButtonLinkOnAboutPage();
                     aboutButtonListenerInitialized = true;
                 }
@@ -18,19 +18,19 @@ export default {
     },
 
     changeButtonLinkOnAboutPage() {
-        const tosButton = document.querySelector('a[href="/tos"]');
-        const privacyButton = document.querySelector('a[href="/privacy"]');
+        window.addEventListener('click', (event) => {
+            const target = event.target;
 
-        if (tosButton) {
-            tosButton.addEventListener('click', () => {
+            if (target.matches('a[href="/tos"]')) {
+                event.preventDefault();
                 window.location.href = 'https://www.qnap.com/go/legal/qnap-website-terms-of-use';
-            });
-        }
+            }
 
-        if (privacyButton) {
-            privacyButton.addEventListener('click', () => {
+            if (target.matches('a[href="/privacy"]')) {
+                event.preventDefault();
                 window.location.href = 'https://www.qnap.com/go/legal/qnap-privacy-policy';
-            });
-        }
+            }
+        });
+
     }
 };
