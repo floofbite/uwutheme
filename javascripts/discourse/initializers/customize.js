@@ -22,10 +22,14 @@ export default {
 
             // Function to monitor changes in aria-expanded attribute
             const observeSidebarMenuButton = () => {
-                const button = document.querySelector('button[aria-controls="d-sidebar"]');
+                if ($('#toggle-hamburger-menu').length) {
+                    const button = document.getElementById('toggle-hamburger-menu');
+                } else {
+                    const button = document.querySelector('button[aria-controls="d-sidebar"]');
+                }
 
                 if (!button) {
-                    console.warn("Button not found");
+                    // console.warn("Button not found");
                     return;
                 }
 
@@ -33,7 +37,12 @@ export default {
                 const observer = new MutationObserver((mutations) => {
                     mutations.forEach((mutation) => {
                         if (mutation.type === "attributes" && mutation.attributeName === "aria-expanded") {
-                            const isExpanded = button.getAttribute('aria-expanded') === "true";
+                            if ($('#toggle-hamburger-menu').length) {
+                                const isExpanded = button.getAttribute('aria-expanded') !== null;
+                            } else {
+                                const isExpanded = button.getAttribute('aria-expanded') === "true";
+                            }
+
                             console.log(`Button aria-expanded changed to: ${isExpanded}`);
 
                             // Execute updateMultilingualCategoryInSidebar function when aria-expanded changes
