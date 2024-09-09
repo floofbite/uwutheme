@@ -6,7 +6,12 @@ export default {
     initialize() {
         withPluginApi("0.8.18", (api) => {
             api.onPageChange(() => {
-                I18n.translations[I18n.currentLocale()].js.login.oauth2_basic.name = 'QNAP ID';
+                const locale = I18n.currentLocale();
+                I18n.translations[locale] = I18n.translations[locale] || {};
+                I18n.translations[locale].js = I18n.translations[locale].js || {};
+                I18n.translations[locale].js.login = I18n.translations[locale].js.login || {};
+                I18n.translations[locale].js.login.oauth2_basic = I18n.translations[locale].js.login.oauth2_basic || {};
+                I18n.translations[locale].js.login.oauth2_basic.name = 'QNAP ID';
             });
         });
     },
