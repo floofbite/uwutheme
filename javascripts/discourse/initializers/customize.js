@@ -15,6 +15,7 @@ export default {
                     if (category &&
                         translatedCategoryName.indexOf('.theme_translations.') === -1 &&
                         $(this).find('a.sidebar-section-link .sidebar-section-link-content-text').length) {
+                        console.log(translatedCategoryName);
                         $(this).find('a.sidebar-section-link .sidebar-section-link-content-text')[0].innerHTML = translatedCategoryName;
                     }
                 });
