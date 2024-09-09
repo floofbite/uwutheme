@@ -1,5 +1,5 @@
-import { withPluginApi } from "discourse/lib/plugin-api";
-import { defaultHomepage } from "discourse/lib/utilities";
+import {withPluginApi} from "discourse/lib/plugin-api";
+import {defaultHomepage} from "discourse/lib/utilities";
 
 export default {
     name: "custom-settings",
@@ -22,10 +22,12 @@ export default {
 
             // Function to monitor changes in aria-expanded attribute
             const observeSidebarMenuButton = () => {
+                let button;
+
                 if ($('#toggle-hamburger-menu').length) {
-                    const button = document.getElementById('toggle-hamburger-menu');
+                    button = document.getElementById('toggle-hamburger-menu');
                 } else {
-                    const button = document.querySelector('button[aria-controls="d-sidebar"]');
+                    button = document.querySelector('button[aria-controls="d-sidebar"]');
                 }
 
                 if (!button) {
@@ -33,14 +35,16 @@ export default {
                     return;
                 }
 
+
                 // Define MutationObserver to listen for attribute changes
                 const observer = new MutationObserver((mutations) => {
                     mutations.forEach((mutation) => {
                         if (mutation.type === "attributes" && mutation.attributeName === "aria-expanded") {
+                            let isExpanded;
                             if ($('#toggle-hamburger-menu').length) {
-                                const isExpanded = button.getAttribute('aria-expanded') !== null;
+                                isExpanded = button.getAttribute('aria-expanded') !== null;
                             } else {
-                                const isExpanded = button.getAttribute('aria-expanded') === "true";
+                                isExpanded = button.getAttribute('aria-expanded') === "true";
                             }
 
                             console.log(`Button aria-expanded changed to: ${isExpanded}`);
@@ -52,11 +56,11 @@ export default {
                 });
 
                 // Start observing attribute changes on the button
-                observer.observe(button, { attributes: true });
+                observer.observe(button, {attributes: true});
             };
 
             const updateLangs = (langs = []) => {
-                langs.forEach(({ wrap, selector, order = 0, content }) => {
+                langs.forEach(({wrap, selector, order = 0, content}) => {
                     const wrapperElement = document.querySelector(wrap);
                     if (wrapperElement) {
                         const elements = wrapperElement.querySelectorAll(selector);
@@ -89,15 +93,60 @@ export default {
                             featureListContainer.classList.add("contents");
                         }
                         updateLangs([
-                            { wrap: ".featured-lists__list-header", selector: "h2", order: 0, content: I18n.t(themePrefix("features_list.latest.status")) },
-                            { wrap: ".featured-lists__list-header", selector: "a", order: 0, content: I18n.t(themePrefix("features_list.latest.all")) },
-                            { wrap: ".featured-lists__list-header", selector: "button", order: 0, content: I18n.t(themePrefix("features_list.latest.new")) },
-                            { wrap: ".custom-search-banner-wrap", selector: "h1", order: 0, content: I18n.t(themePrefix("search_banner.headline")) },
-                            { wrap: ".custom-search-banner-wrap", selector: "p", order: 0, content: I18n.t(themePrefix("search_banner.subhead")) },
-                            { wrap: ".footer-links", selector: "a", order: 0, content: I18n.t(themePrefix("footer.privacy_policy")) },
-                            { wrap: ".footer-links", selector: "a", order: 1, content: I18n.t(themePrefix("footer.terms_of_service")) },
-                            { wrap: ".footer-links", selector: "a", order: 2, content: I18n.t(themePrefix("footer.about")) },
-                            { wrap: "[data-easyfooter-section=\"third-party-forums\"]", selector: "span", order: 0, content: I18n.t(themePrefix("footer.third_party_forums")) },
+                            {
+                                wrap: ".featured-lists__list-header",
+                                selector: "h2",
+                                order: 0,
+                                content: I18n.t(themePrefix("features_list.latest.status"))
+                            },
+                            {
+                                wrap: ".featured-lists__list-header",
+                                selector: "a",
+                                order: 0,
+                                content: I18n.t(themePrefix("features_list.latest.all"))
+                            },
+                            {
+                                wrap: ".featured-lists__list-header",
+                                selector: "button",
+                                order: 0,
+                                content: I18n.t(themePrefix("features_list.latest.new"))
+                            },
+                            {
+                                wrap: ".custom-search-banner-wrap",
+                                selector: "h1",
+                                order: 0,
+                                content: I18n.t(themePrefix("search_banner.headline"))
+                            },
+                            {
+                                wrap: ".custom-search-banner-wrap",
+                                selector: "p",
+                                order: 0,
+                                content: I18n.t(themePrefix("search_banner.subhead"))
+                            },
+                            {
+                                wrap: ".footer-links",
+                                selector: "a",
+                                order: 0,
+                                content: I18n.t(themePrefix("footer.privacy_policy"))
+                            },
+                            {
+                                wrap: ".footer-links",
+                                selector: "a",
+                                order: 1,
+                                content: I18n.t(themePrefix("footer.terms_of_service"))
+                            },
+                            {
+                                wrap: ".footer-links",
+                                selector: "a",
+                                order: 2,
+                                content: I18n.t(themePrefix("footer.about"))
+                            },
+                            {
+                                wrap: "[data-easyfooter-section=\"third-party-forums\"]",
+                                selector: "span",
+                                order: 0,
+                                content: I18n.t(themePrefix("footer.third_party_forums"))
+                            },
                         ]);
 
                         const searchBanner = document.querySelector(".custom-search-banner-wrap");
@@ -110,10 +159,30 @@ export default {
                     main.classList.remove("isHomepage");
                     if (document.querySelector(".footer-links")) {
                         updateLangs([
-                            { wrap: ".footer-links", selector: "a", order: 0, content: I18n.t(themePrefix("footer.privacy_policy")) },
-                            { wrap: ".footer-links", selector: "a", order: 1, content: I18n.t(themePrefix("footer.terms_of_service")) },
-                            { wrap: ".footer-links", selector: "a", order: 2, content: I18n.t(themePrefix("footer.about")) },
-                            { wrap: "[data-easyfooter-section=\"third-party-forums\"]", selector: "span", order: 0, content: I18n.t(themePrefix("footer.third_party_forums")) },
+                            {
+                                wrap: ".footer-links",
+                                selector: "a",
+                                order: 0,
+                                content: I18n.t(themePrefix("footer.privacy_policy"))
+                            },
+                            {
+                                wrap: ".footer-links",
+                                selector: "a",
+                                order: 1,
+                                content: I18n.t(themePrefix("footer.terms_of_service"))
+                            },
+                            {
+                                wrap: ".footer-links",
+                                selector: "a",
+                                order: 2,
+                                content: I18n.t(themePrefix("footer.about"))
+                            },
+                            {
+                                wrap: "[data-easyfooter-section=\"third-party-forums\"]",
+                                selector: "span",
+                                order: 0,
+                                content: I18n.t(themePrefix("footer.third_party_forums"))
+                            },
                         ]);
                     }
                 }
