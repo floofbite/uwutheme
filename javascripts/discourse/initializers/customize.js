@@ -74,7 +74,7 @@ export default {
                     if (order === true) {
                         const elements = document.querySelector(wrap);
                         for (let i = 0; i < elements.length; i++) {
-                            const element = elements[i].querySelector(selector);
+                            const element = elements[i].querySelectorAll(selector);
                             if (element) {
                                 element.innerHTML = content;
                             }
