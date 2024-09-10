@@ -74,16 +74,15 @@ export default {
                     if (order === 'all') {
                         const elements = document.querySelectorAll(wrap);
                         for (let i = 0; i < elements.length; i++) {
-                            const element = elements[i].querySelectorAll(selector);
+                            const element = elements[i].querySelector(selector);
                             if (element) {
                                 element.innerHTML = content;
                             }
                         }
-                        console.log(elements);
                      } else {
                         const wrapperElement = document.querySelector(wrap);
                         if (wrapperElement) {
-                            const elements = wrapperElement.querySelectorAll(selector);
+                            const elements = wrapperElement.querySelector(selector);
                             if (elements[order]) {
                                 elements[order].innerHTML = content;
                             }
