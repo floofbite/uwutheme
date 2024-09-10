@@ -105,7 +105,7 @@ export default {
                         const rows = document.querySelectorAll('.feature-list-latest--all tr');
 
                         rows.forEach((row, index) => {
-                            if (index >= 10) {
+                            if (index > 10) {
                                 row.remove();
                             }
                         });
