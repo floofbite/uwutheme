@@ -97,10 +97,14 @@ export default {
                         const data = await response.json();
                         const topics = data.topic_list.topics;
                         if (topics) {
-                            const featureListWrapper = document.getElementsByClassName("featured-lists__wrapper")[0];
-                            const featureListContainer = document.getElementsByClassName("featured-lists__list-container")[0];
-                            featureListWrapper.classList.add("full-width");
-                            featureListContainer.classList.add("contents");
+                            const featureListWrapper = document.getElementsByClassName("featured-lists__wrapper");
+                            const featureListContainer = document.getElementsByClassName("featured-lists__list-container");
+                            for (let i = 0; i < featureListWrapper.length; i++) {
+                                featureListWrapper[i].classList.add("full-width");
+                            }
+                            for (let i = 0; i < featureListContainer.length; i++) {
+                                featureListContainer[i].classList.add("contents");
+                            }
                         }
                         updateLangs([
                             {
