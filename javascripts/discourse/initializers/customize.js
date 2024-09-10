@@ -79,7 +79,7 @@ export default {
                                 element.innerHTML = content;
                             }
                         }
-                     } else {
+                    } else {
                         const wrapperElement = document.querySelector(wrap);
                         if (wrapperElement) {
                             const elements = wrapperElement.querySelector(selector);
@@ -91,12 +91,35 @@ export default {
                 });
             };
 
+            const showFeatureListLatest = (language) => {
+                console.log("language: ", language);
+                switch (language) {
+                    case "zh_TW":
+                        document.querySelector(".feature-list-latest--zh-tw").style.display = "block";
+                        break;
+                    case "ja":
+                        document.querySelector(".feature-list-latest--ja").style.display = "block";
+                        break;
+                    default:
+                        document.querySelector(".feature-list-latest--all").style.display = "block";
+                        const rows = document.querySelectorAll('.feature-list-latest--all tr');
+
+                        rows.forEach((row, index) => {
+                            if (index >= 10) {
+                                row.remove();
+                            }
+                        });
+                        break;
+                }
+            }
+
             api.onPageChange(() => {
                 const currentRoute = api.container.lookup("router:main").currentRouteName;
                 const isHomepage = currentRoute === `discovery.${defaultHomepage()}`;
                 const applicationController = api.container.lookup("controller:application");
                 const main = document.getElementById("main");
                 const domain = window.location.origin;
+                const language = I18n.locale;
                 main.classList.add("discourse-theme--q");
 
                 if (isHomepage) {
@@ -178,6 +201,10 @@ export default {
                     }
 
                     loadLatestTopics();
+
+                    const featureListLatest = document.querySelector(".feature-list-latest");
+                    featureListLatest.style.display = "none";
+                    showFeatureListLatest(language);
                 } else {
                     applicationController.set("showSidebar", true);
                     main.classList.remove("isHomepage");
