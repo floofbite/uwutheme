@@ -53,6 +53,7 @@
     "seLogo": "assets/images/flag-se.svg",
     "nlLogo": "assets/images/flag-nl.svg",
     "frLogo": "assets/images/flag-fr.svg",
-    "huLogo": "assets/images/flag-hu.svg"
+    "huLogo": "assets/images/flag-hu.svg",
+    "kvBackGround": "assets/images/QNAP-Community-kv.png"
   }
 }

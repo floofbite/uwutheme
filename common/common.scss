@@ -254,6 +254,13 @@ sup {
   .user-preferences .form-vertical .control-group.home{
     display: none;
   }
+
+  .custom-search-banner{
+    background-image:url($kvBackGround);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
 @import "custom-search-banner-customizations";
 @import "custom-content";
