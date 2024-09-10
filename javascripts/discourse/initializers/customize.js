@@ -1,5 +1,5 @@
-import {withPluginApi} from "discourse/lib/plugin-api";
-import {defaultHomepage} from "discourse/lib/utilities";
+import { withPluginApi } from "discourse/lib/plugin-api";
+import { defaultHomepage } from "discourse/lib/utilities";
 
 export default {
     name: "custom-settings",
@@ -66,20 +66,26 @@ export default {
                 });
 
                 // Start observing attribute changes on the button
-                observer.observe(button, {attributes: true});
+                observer.observe(button, { attributes: true });
             };
 
             const updateLangs = (langs = []) => {
-                langs.forEach(({wrap, selector, order , content}) => {
-                    const wrapperElement = document.querySelector(wrap);
-                    if (wrapperElement) {
-                        const elements = wrapperElement.querySelectorAll(selector);
-                        if (order === true) {
-                            elements.forEach((element, index) => {
+                langs.forEach(({ wrap, selector, order, content }) => {
+                    if (order === true) {
+                        const elements = document.querySelector(wrap);
+                        for (let i = 0; i < elements.length; i++) {
+                            const element = elements[i].querySelector(selector);
+                            if (element) {
                                 element.innerHTML = content;
-                            });
-                        } else if (elements[order]) {
-                            elements[order].innerHTML = content;
+                            }
+                        }
+                     } else {
+                        const wrapperElement = document.querySelector(wrap);
+                        if (wrapperElement) {
+                            const elements = wrapperElement.querySelectorAll(selector);
+                            if (elements[order]) {
+                                elements[order].innerHTML = content;
+                            }
                         }
                     }
                 });
