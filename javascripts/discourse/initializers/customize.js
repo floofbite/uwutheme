@@ -111,7 +111,7 @@ export default {
                         });
                         break;
                 }
-            }
+            };
 
             api.onPageChange(() => {
                 const currentRoute = api.container.lookup("router:main").currentRouteName;
@@ -119,7 +119,6 @@ export default {
                 const applicationController = api.container.lookup("controller:application");
                 const main = document.getElementById("main");
                 const domain = window.location.origin;
-                const language = I18n.locale;
                 main.classList.add("discourse-theme--q");
 
                 if (isHomepage) {
@@ -129,6 +128,7 @@ export default {
                         const response = await fetch(`${domain}/latest.json`);
                         const data = await response.json();
                         const topics = data.topic_list.topics;
+                        const locale = I18n.currentLocale();
                         if (topics) {
                             const featureListWrapper = document.getElementsByClassName("featured-lists__wrapper");
                             const featureListContainer = document.getElementsByClassName("featured-lists__list-container");
@@ -198,13 +198,16 @@ export default {
 
                         const searchBanner = document.querySelector(".custom-search-banner-wrap");
                         searchBanner.classList.add("active");
+
+                        const featureListLatest = document.querySelectorAll(".feature-list-latest");
+                        featureListLatest.forEach((featureList) => {
+                            featureList.style.display = "none";
+                        });
+
+                        showFeatureListLatest(locale);
                     }
 
                     loadLatestTopics();
-
-                    const featureListLatest = document.querySelector(".feature-list-latest");
-                    featureListLatest.style.display = "none";
-                    showFeatureListLatest(language);
                 } else {
                     applicationController.set("showSidebar", true);
                     main.classList.remove("isHomepage");
