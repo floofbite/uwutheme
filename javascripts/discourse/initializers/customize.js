@@ -71,8 +71,8 @@ export default {
 
             const updateLangs = (langs = []) => {
                 langs.forEach(({ wrap, selector, order, content }) => {
-                    if (order === true) {
-                        const elements = document.querySelector(wrap);
+                    if (order === 'all') {
+                        const elements = document.querySelectorAll(wrap);
                         for (let i = 0; i < elements.length; i++) {
                             const element = elements[i].querySelectorAll(selector);
                             if (element) {
@@ -120,19 +120,19 @@ export default {
                             {
                                 wrap: ".featured-lists__list-header",
                                 selector: "h2",
-                                order: true,
+                                order: 'all',
                                 content: I18n.t(themePrefix("features_list.latest.status"))
                             },
                             {
                                 wrap: ".featured-lists__list-header",
                                 selector: "a",
-                                order: true,
+                                order: 'all',
                                 content: I18n.t(themePrefix("features_list.latest.all"))
                             },
                             {
                                 wrap: ".featured-lists__list-header",
                                 selector: "button",
-                                order: true,
+                                order: 'all',
                                 content: I18n.t(themePrefix("features_list.latest.new"))
                             },
                             {
