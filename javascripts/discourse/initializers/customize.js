@@ -70,11 +70,15 @@ export default {
             };
 
             const updateLangs = (langs = []) => {
-                langs.forEach(({wrap, selector, order = 0, content}) => {
+                langs.forEach(({wrap, selector, order , content}) => {
                     const wrapperElement = document.querySelector(wrap);
                     if (wrapperElement) {
                         const elements = wrapperElement.querySelectorAll(selector);
-                        if (elements[order]) {
+                        if (order === true) {
+                            elements.forEach((element, index) => {
+                                element.innerHTML = content;
+                            });
+                        } else if (elements[order]) {
                             elements[order].innerHTML = content;
                         }
                     }
@@ -110,19 +114,19 @@ export default {
                             {
                                 wrap: ".featured-lists__list-header",
                                 selector: "h2",
-                                order: 0,
+                                order: true,
                                 content: I18n.t(themePrefix("features_list.latest.status"))
                             },
                             {
                                 wrap: ".featured-lists__list-header",
                                 selector: "a",
-                                order: 0,
+                                order: true,
                                 content: I18n.t(themePrefix("features_list.latest.all"))
                             },
                             {
                                 wrap: ".featured-lists__list-header",
                                 selector: "button",
-                                order: 0,
+                                order: true,
                                 content: I18n.t(themePrefix("features_list.latest.new"))
                             },
                             {
