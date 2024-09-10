@@ -105,6 +105,14 @@ export default {
                         const rows = document.querySelectorAll('.feature-list-latest--all tr');
 
                         rows.forEach((row, index) => {
+                            let tags = [18, 30];
+                            const badgeCategoryWrapper = row.querySelector('.badge-category__wrapper');
+                            if (badgeCategoryWrapper) {
+                                const categoryId = badgeCategoryWrapper.querySelector('span[data-category-id]').getAttribute('data-category-id');
+                                if (tags.includes(parseInt(categoryId))) {
+                                    row.remove();
+                                }
+                            }
                             if (index > 10) {
                                 row.remove();
                             }
