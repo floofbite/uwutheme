@@ -82,9 +82,11 @@ export default {
                     } else {
                         const wrapperElement = document.querySelector(wrap);
                         if (wrapperElement) {
-                            const elements = wrapperElement.querySelectorAll(selector);
+                            const elements = wrapperElement.querySelector(selector);
                             if (elements[order]) {
                                 elements[order].innerHTML = content;
+                            }else{
+                                elements.innerHTML = content;
                             }
                         }
                     }
