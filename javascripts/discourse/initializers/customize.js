@@ -91,8 +91,7 @@ export default {
                 });
             };
 
-            const showFeatureListLatest = (language) => {
-                console.log("language: ", language);
+            const showFeatureListLatest = (domain, language) => {
                 switch (language) {
                     case "zh_TW":
                         document.querySelector(".feature-list-latest--zh-tw").style.display = "block";
@@ -105,7 +104,8 @@ export default {
                         const rows = document.querySelectorAll('.feature-list-latest--all tr');
 
                         rows.forEach((row, index) => {
-                            let tags = [18, 30];
+                            let tags = [];
+                            domain === "https://community.qnap.com" ? tags = [51, 52] : tags = [18, 30];
                             const badgeCategoryWrapper = row.querySelector('.badge-category__wrapper');
                             if (badgeCategoryWrapper) {
                                 const categoryId = badgeCategoryWrapper.querySelector('span[data-category-id]').getAttribute('data-category-id');
@@ -212,7 +212,7 @@ export default {
                             featureList.style.display = "none";
                         });
 
-                        showFeatureListLatest(locale);
+                        showFeatureListLatest(domain, locale);
                     }
 
                     loadLatestTopics();
