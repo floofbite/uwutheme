@@ -22,6 +22,7 @@ body {
 $custom-primary: #1b72e7;
 $search-primary: #3c4043;
 $desc: #626262;
+$homepageBlockBg: #ffffff;
 
 .custom-header-links {
   list-style: none;
@@ -56,6 +57,8 @@ div.before-header-panel-outlet {
 .isHomepage {
   #main-outlet {
     margin-top: 0px;
+    background: inherit;
+    box-shadow: inherit;
   }
   #main-outlet-wrapper {
     .sidebar-wrapper {
@@ -110,7 +113,7 @@ sup {
     border: 0;
   }
   .full-width .contents .topic-list .topic-list-body .topic-list-item {
-    background-color: #f5f5f8;
+    background-color: $homepageBlockBg;
     border: 0px;
     box-shadow: inherit;
     margin-bottom: 0.75rem;
