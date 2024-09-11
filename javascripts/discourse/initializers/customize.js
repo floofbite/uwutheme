@@ -1,5 +1,5 @@
-import {withPluginApi} from "discourse/lib/plugin-api";
-import {defaultHomepage} from "discourse/lib/utilities";
+import { withPluginApi } from "discourse/lib/plugin-api";
+import { defaultHomepage } from "discourse/lib/utilities";
 
 export default {
     name: "custom-settings",
@@ -14,7 +14,7 @@ export default {
                     const match = $(this).find('a.sidebar-section-link').attr('href').match(/\/c\/([^\/]+)/);
                     const category = match ? match[1] : null;
                     let translatedCategoryName = I18n.t(themePrefix("category." + category + ".name"));
-                    console.log(translatedCategoryName);
+                    // console.log(translatedCategoryName);
                     if (category &&
                         translatedCategoryName.indexOf('.theme_translations.') === -1 &&
                         $(this).find('a.sidebar-section-link .sidebar-section-link-content-text').length) {
@@ -66,19 +66,59 @@ export default {
                 });
 
                 // Start observing attribute changes on the button
-                observer.observe(button, {attributes: true});
+                observer.observe(button, { attributes: true });
             };
 
             const updateLangs = (langs = []) => {
-                langs.forEach(({wrap, selector, order = 0, content}) => {
-                    const wrapperElement = document.querySelector(wrap);
-                    if (wrapperElement) {
-                        const elements = wrapperElement.querySelectorAll(selector);
-                        if (elements[order]) {
-                            elements[order].innerHTML = content;
+                langs.forEach(({ wrap, selector, order, content }) => {
+                    if (order === 'all') {
+                        const elements = document.querySelectorAll(wrap);
+                        for (let i = 0; i < elements.length; i++) {
+                            const element = elements[i].querySelector(selector);
+                            if (element) {
+                                element.innerHTML = content;
+                            }
+                        }
+                    } else {
+                        const wrapperElement = document.querySelector(wrap);
+                        if (wrapperElement) {
+                            const elements = wrapperElement.querySelector(selector);
+                            if (elements[order]) {
+                                elements[order].innerHTML = content;
+                            }
                         }
                     }
                 });
+            };
+
+            const showFeatureListLatest = (domain, language) => {
+                switch (language) {
+                    case "zh_TW":
+                        document.querySelector(".feature-list-latest--zh-tw").style.display = "block";
+                        break;
+                    case "ja":
+                        document.querySelector(".feature-list-latest--ja").style.display = "block";
+                        break;
+                    default:
+                        document.querySelector(".feature-list-latest--all").style.display = "block";
+                        const rows = document.querySelectorAll('.feature-list-latest--all tr');
+
+                        rows.forEach((row, index) => {
+                            let tags = [];
+                            domain === "https://community.qnap.com" ? tags = [51, 52] : tags = [18, 30];
+                            const badgeCategoryWrapper = row.querySelector('.badge-category__wrapper');
+                            if (badgeCategoryWrapper) {
+                                const categoryId = badgeCategoryWrapper.querySelector('span[data-category-id]').getAttribute('data-category-id');
+                                if (tags.includes(parseInt(categoryId))) {
+                                    row.remove();
+                                }
+                            }
+                            if (index > 10) {
+                                row.remove();
+                            }
+                        });
+                        break;
+                }
             };
 
             api.onPageChange(() => {
@@ -96,29 +136,34 @@ export default {
                         const response = await fetch(`${domain}/latest.json`);
                         const data = await response.json();
                         const topics = data.topic_list.topics;
+                        const locale = I18n.currentLocale();
                         if (topics) {
-                            const featureListWrapper = document.getElementsByClassName("featured-lists__wrapper")[0];
-                            const featureListContainer = document.getElementsByClassName("featured-lists__list-container")[0];
-                            featureListWrapper.classList.add("full-width");
-                            featureListContainer.classList.add("contents");
+                            const featureListWrapper = document.getElementsByClassName("featured-lists__wrapper");
+                            const featureListContainer = document.getElementsByClassName("featured-lists__list-container");
+                            for (let i = 0; i < featureListWrapper.length; i++) {
+                                featureListWrapper[i].classList.add("full-width");
+                            }
+                            for (let i = 0; i < featureListContainer.length; i++) {
+                                featureListContainer[i].classList.add("contents");
+                            }
                         }
                         updateLangs([
                             {
                                 wrap: ".featured-lists__list-header",
                                 selector: "h2",
-                                order: 0,
+                                order: 'all',
                                 content: I18n.t(themePrefix("features_list.latest.status"))
                             },
                             {
                                 wrap: ".featured-lists__list-header",
                                 selector: "a",
-                                order: 0,
+                                order: 'all',
                                 content: I18n.t(themePrefix("features_list.latest.all"))
                             },
                             {
                                 wrap: ".featured-lists__list-header",
                                 selector: "button",
-                                order: 0,
+                                order: 'all',
                                 content: I18n.t(themePrefix("features_list.latest.new"))
                             },
                             {
@@ -161,6 +206,13 @@ export default {
 
                         const searchBanner = document.querySelector(".custom-search-banner-wrap");
                         searchBanner.classList.add("active");
+
+                        const featureListLatest = document.querySelectorAll(".feature-list-latest");
+                        featureListLatest.forEach((featureList) => {
+                            featureList.style.display = "none";
+                        });
+
+                        showFeatureListLatest(domain, locale);
                     }
 
                     loadLatestTopics();
