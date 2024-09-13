@@ -1,5 +1,11 @@
 {{#if this.filteredTopics}}
 <div class='featured-lists__wrapper above-main-container full-width'>
+    <div class='featured-lists__list-header'>
+                <h2>{{ i18n(themePrefix 'latest') }}</h2>
+              <a href='/latest' class='feed-link'>{{i18n
+                  (themePrefix 'more_link')
+                }}</a>
+            </div>
     <div class='featured-lists__list-container {{@list.classname}}'>
          <TopicList
                 @topics={{filteredTopics}}
