@@ -1,11 +1,9 @@
 {{#if this.filteredTopics}}
-<div class="q-container">
-  <div>
+<div class='featured-lists__list-container {{@list.classname}}'>
     <TopicList
                 @topics={{filteredTopics}}
                 @showPosters='true'
                 class='featured-lists__list-body'
               />
-  </div>
 </div>
 {{/if}}
