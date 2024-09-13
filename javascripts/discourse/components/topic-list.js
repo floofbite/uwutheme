@@ -9,7 +9,7 @@ export default Component.extend({
             // filter: this.args.list.filter,
             params: {
                 order: 'activity',
-                category: 31,
+                category: 30,
                 // tags: this.args.list.tag,
                 // solved: solvedFilter,
             },
