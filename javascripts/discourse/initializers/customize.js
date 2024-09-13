@@ -93,35 +93,35 @@ export default {
                 });
             };
 
-            const showFeatureListLatest = (domain, language) => {
-                switch (language) {
-                    case "zh_TW":
-                        document.querySelector(".feature-list-latest--zh-tw").style.display = "block";
-                        break;
-                    case "ja":
-                        document.querySelector(".feature-list-latest--ja").style.display = "block";
-                        break;
-                    default:
-                        document.querySelector(".feature-list-latest--all").style.display = "block";
-                        const rows = document.querySelectorAll('.feature-list-latest--all tr');
-
-                        rows.forEach((row, index) => {
-                            let tags = [];
-                            domain === "https://community.qnap.com" ? tags = [51, 52] : tags = [18, 30];
-                            const badgeCategoryWrapper = row.querySelector('.badge-category__wrapper');
-                            if (badgeCategoryWrapper) {
-                                const categoryId = badgeCategoryWrapper.querySelector('span[data-category-id]').getAttribute('data-category-id');
-                                if (tags.includes(parseInt(categoryId))) {
-                                    row.remove();
-                                }
-                            }
-                            if (index > 10) {
-                                row.remove();
-                            }
-                        });
-                        break;
-                }
-            };
+            // const showFeatureListLatest = (domain, language) => {
+            //     switch (language) {
+            //         case "zh_TW":
+            //             document.querySelector(".feature-list-latest--zh-tw").style.display = "block";
+            //             break;
+            //         case "ja":
+            //             document.querySelector(".feature-list-latest--ja").style.display = "block";
+            //             break;
+            //         default:
+            //             document.querySelector(".feature-list-latest--all").style.display = "block";
+            //             const rows = document.querySelectorAll('.feature-list-latest--all tr');
+            //
+            //             rows.forEach((row, index) => {
+            //                 let tags = [];
+            //                 domain === "https://community.qnap.com" ? tags = [51, 52] : tags = [18, 30];
+            //                 const badgeCategoryWrapper = row.querySelector('.badge-category__wrapper');
+            //                 if (badgeCategoryWrapper) {
+            //                     const categoryId = badgeCategoryWrapper.querySelector('span[data-category-id]').getAttribute('data-category-id');
+            //                     if (tags.includes(parseInt(categoryId))) {
+            //                         row.remove();
+            //                     }
+            //                 }
+            //                 if (index > 10) {
+            //                     row.remove();
+            //                 }
+            //             });
+            //             break;
+            //     }
+            // };
 
             api.onPageChange(() => {
                 const currentRoute = api.container.lookup("router:main").currentRouteName;
@@ -209,10 +209,10 @@ export default {
                         const searchBanner = document.querySelector(".custom-search-banner-wrap");
                         searchBanner.classList.add("active");
 
-                        const featureListLatest = document.querySelectorAll(".feature-list-latest");
-                        featureListLatest.forEach((featureList) => {
-                            featureList.style.display = "none";
-                        });
+                        // const featureListLatest = document.querySelectorAll(".feature-list-latest");
+                        // featureListLatest.forEach((featureList) => {
+                        //     featureList.style.display = "none";
+                        // });
 
                         // showFeatureListLatest(domain, locale);
                     }
