@@ -1,10 +1,10 @@
 import Component from '@ember/component';
-// import { ajax } from 'discourse/lib/ajax';
 import TopicList from 'discourse/components/topic-list';
 export default Component.extend({
     didInsertElement() {
         this._super(...arguments);
         let filteredTopics = [];
+        let listLength = 10;
         const topicList = this.store.findFiltered('topicList', {
             filter: 'latest',
             params: {
@@ -14,15 +14,15 @@ export default Component.extend({
                 // solved: solvedFilter,
             },
         });
-
         console.log(topicList);
         if (topicList.topics) {
+            console.log(topicList);
             filteredTopics = (topicList.topics.slice(
                 0,
-                this.args.list.length,
+                listLength,
             ));
         }
-
+        console.log(1111);
         this.set('filteredTopics', filteredTopics);
     }
 });
