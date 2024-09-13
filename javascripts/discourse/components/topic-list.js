@@ -5,7 +5,7 @@ export default Component.extend({
     didInsertElement() {
         this._super(...arguments);
         let filteredTopics = [];
-        const topicList = await this.store.findFiltered('topicList', {
+        const topicList = this.store.findFiltered('topicList', {
             // filter: this.args.list.filter,
             params: {
                 order: 'activity',
