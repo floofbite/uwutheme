@@ -214,7 +214,7 @@ export default {
                             featureList.style.display = "none";
                         });
 
-                        showFeatureListLatest(domain, locale);
+                        // showFeatureListLatest(domain, locale);
                     }
 
                     loadLatestTopics();
