@@ -5,6 +5,8 @@ export default Component.extend({
     store: service(),  // 确保能使用 store 服务
     async didInsertElement() {
         this._super(...arguments);
+        console.log("didInsertElement is called");
+
         let filteredTopics = [];
         let listLength = 10;
 
