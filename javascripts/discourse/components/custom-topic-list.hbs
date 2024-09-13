@@ -1,9 +1,11 @@
 {{#if this.filteredTopics}}
-<div class='featured-lists__list-container {{@list.classname}}'>
-    <TopicList
+<div class='featured-lists__wrapper above-main-container full-width'>
+    <div class='featured-lists__list-container {{@list.classname}}'>
+         <TopicList
                 @topics={{filteredTopics}}
                 @showPosters='true'
                 class='featured-lists__list-body'
               />
+    </div>
 </div>
 {{/if}}
