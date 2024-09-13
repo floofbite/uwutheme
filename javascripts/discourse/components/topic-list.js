@@ -6,7 +6,7 @@ export default Component.extend({
         this._super(...arguments);
         let filteredTopics = [];
         const topicList = this.store.findFiltered('topicList', {
-            // filter: this.args.list.filter,
+            filter: 'latest',
             params: {
                 order: 'activity',
                 category: 30,
@@ -15,6 +15,7 @@ export default Component.extend({
             },
         });
 
+        console.log(topicList);
         if (topicList.topics) {
             filteredTopics = (topicList.topics.slice(
                 0,
