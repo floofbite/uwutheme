@@ -58,20 +58,25 @@
         }
         &:nth-child(6) {
           &::before {
-            background-image: url($krLogo);
+            background-image: url($itLogo);
           }
         }
         &:nth-child(7) {
           &::before {
-            background-image: url($plLogo);
+            background-image: url($krLogo);
           }
         }
         &:nth-child(8) {
           &::before {
-            background-image: url($esLogo);
+            background-image: url($plLogo);
           }
         }
         &:nth-child(9) {
+          &::before {
+            background-image: url($esLogo);
+          }
+        }
+        &:nth-child(10) {
           &::before {
             background-image: url($seLogo);
           }
