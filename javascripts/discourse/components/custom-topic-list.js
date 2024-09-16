@@ -56,5 +56,13 @@ export default Component.extend({
         }
 
         this.set("filteredTopics", filteredTopics);
+
+        const newTopics = await this.store.find("topic", {
+            order: "created",
+            limit: listLength,
+            category_id: category_id,
+        });
+
+        this.set("newTopics", newTopics);
     }
 });
