@@ -4,7 +4,7 @@
         <div class='featured-lists__list-header'>
           <h2>{{theme-i18n "features_list.latest.status"}}</h2>
           <a href='{{@list.link}}' class='feed-link'>{{theme-i18n "features_list.latest.all"}}</a>
-          <DButton @click={{ on 'click' this.newTopics }}
+          <DButton @click={{this.newTopic}}
           class='btn btn-default'>{{theme-i18n "features_list.latest.new"}}</DButton>
         </div>
          <TopicList
