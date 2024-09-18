@@ -117,7 +117,8 @@ export default {
                                 }
                             }
                             if (index > 10) {
-                                row.remove();
+                                // row.remove();
+                                row.style.display = "none";
                             }
                         });
                         break;
