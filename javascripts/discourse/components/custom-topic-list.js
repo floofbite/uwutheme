@@ -53,7 +53,7 @@ export default class CustomTopicList extends Component {
             }
 
             this.set('categoryId', categorySettings[locale]);
-            console.log('categoryId:', categorySettings[locale]);
+            console.log('categoryId:', this.get('categoryId'),'category find by id', Category.findById(this.get('categoryId')));
         } catch (error) {
             console.error("Error fetching topics:", error);
         }
