@@ -6,7 +6,7 @@
         <a href="/latest" class="feed-link">{{theme-i18n "features_list.latest.all"}}</a>
         <DButton
           class="btn btn-default"
-          {{on "click" (if this.currentUser createTopic(categoryId) this.showLogin)}}
+          {{on "click" (if this.currentUser this.createTopic this.showLogin)}}
         >{{theme-i18n "features_list.latest.new"}}</DButton>
       </div>
       <TopicList
