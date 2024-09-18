@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import Category from 'discourse/models/category';
 
 export default class CustomTopicList extends Component {
     @service store;
@@ -64,8 +65,13 @@ export default class CustomTopicList extends Component {
     @action
     createTopic() {
         if (this.currentUser) {
-            this.composer.open({
-                action: 'createTopic'
+            this.composer.openNewTopic({
+                categoryId: Category.findById(this.args.list.category).id,
+                tags: this.args.list.tag,
+                draftKey: `composer_${this.currentUser.id}`,
+                draftSequence: 0,
+                title: '',
+                raw: ''
             });
         } else {
             this.showLogin();
