@@ -56,13 +56,12 @@ export default Component.extend({
         }
 
         this.set("filteredTopics", filteredTopics);
-
-        const newTopics = await this.store.find("topic", {
-            order: "created",
-            limit: listLength,
-            category_id: category_id,
+    },
+    createTopic() {
+        this.composer.openNewTopic({
+            category: Category.findById(this.args.list.category),
+            tags: this.args.list.tag,
+            preferDraft: 'true'
         });
-
-        this.set("newTopics", newTopics);
     }
 });
