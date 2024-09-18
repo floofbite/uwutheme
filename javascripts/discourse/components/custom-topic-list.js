@@ -57,14 +57,14 @@ export default class CustomTopicList extends Component {
         }
 
         this.filteredTopics = filteredTopics;
-        this.set('category_id', category_id);
+        this.set('categoryId', category_id);
     }
 
     @action
     createTopic() {
         if (this.currentUser) {
             this.composer.openNewTopic({
-                categoryId: this.category_id,
+                categoryId: this.get('categoryId'),
                 label: 'topic.create',
                 preferDraft: 'true',
             });
