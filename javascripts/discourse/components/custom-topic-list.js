@@ -54,9 +54,8 @@ export default class CustomTopicList extends Component {
             console.error("Error fetching topics:", error);
         }
 
-        this.filteredTopics = filteredTopics;
+        this.set('filteredTopics', filteredTopics);
         this.set('categoryId', category_id);
-        console.log('filteredTopics:', filteredTopics);
     }
 
     @action
