@@ -62,29 +62,16 @@ export default class CustomTopicList extends Component {
     }
 
     @action
-    async createTopic() {
-        try {
-            if (this.currentUser) {
-                const category = await this.store.findRecord('category', this.get('categoryId'));
-                const composerModel = this.composer.newTopic(category);
-                this.composer.show({
-                    title: '',
-                    draftKey: 'new_topic',
-                    draftSequence: 1,
-                    model: composerModel
-                });
-                // .then((category) => {
-                //     this.composer.openNewTopic({
-                //         categoryId: category.id,
-                //         label: 'topic.create',
-                //         preferDraft: 'true',
-                //     });
-                // });
-            } else {
-                this.showLogin();
-            }
-        } catch (error) {
-            console.error('Failed to fetch category:', error);
+    createTopic() {
+        if (this.currentUser) {
+            this.composer.openNewTopic({
+                category: Category.findBySlug(this.get('categoryId')),
+                categoryId: this.get('categoryId'),
+                label: 'topic.create',
+                preferDraft: 'true',
+            });
+        } else {
+            this.showLogin();
         }
     }
 
