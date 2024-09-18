@@ -112,7 +112,8 @@ export default {
                             if (badgeCategoryWrapper) {
                                 const categoryId = badgeCategoryWrapper.querySelector('span[data-category-id]').getAttribute('data-category-id');
                                 if (tags.includes(parseInt(categoryId))) {
-                                    row.remove();
+                                    // row.remove();
+                                    row.style.display = "none";
                                 }
                             }
                             if (index > 10) {
