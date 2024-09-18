@@ -10,7 +10,7 @@ export default class CustomTopicList extends Component {
 
     async didInsertElement() {
         super.didInsertElement(...arguments);
-
+        this.store = service('store');
         const locale = I18n.currentLocale();
         const isProd = window.location.origin === "https://community.qnap.com";
         const listLength = 10;
