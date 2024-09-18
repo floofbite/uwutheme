@@ -65,13 +65,21 @@ export default class CustomTopicList extends Component {
     async createTopic() {
         try {
             if (this.currentUser) {
-                await this.store.findRecord('category', this.get('categoryId')).then((category) => {
-                    this.composer.openNewTopic({
-                        categoryId: category.id,
-                        label: 'topic.create',
-                        preferDraft: 'true',
-                    });
+                const category = await this.store.findRecord('category', this.get('categoryId'));
+                const composerModel = this.composer.newTopic(category);
+                this.composer.show({
+                    title: '',
+                    draftKey: 'new_topic',
+                    draftSequence: 1,
+                    model: composerModel
                 });
+                // .then((category) => {
+                //     this.composer.openNewTopic({
+                //         categoryId: category.id,
+                //         label: 'topic.create',
+                //         preferDraft: 'true',
+                //     });
+                // });
             } else {
                 this.showLogin();
             }
