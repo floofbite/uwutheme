@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import Category from 'discourse/models/category';
 export default class CustomTopicList extends Component {
     @service store;
     @service router;
@@ -64,7 +65,7 @@ export default class CustomTopicList extends Component {
     createTopic() {
         if (this.currentUser) {
             this.composer.openNewTopic({
-                categoryId: this.get('categoryId'),
+                category: Category.findById(this.get('categoryId')),
                 label: 'topic.create',
                 preferDraft: 'true',
             });
