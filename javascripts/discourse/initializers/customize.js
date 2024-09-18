@@ -163,12 +163,6 @@ export default {
                                 content: I18n.t(themePrefix("features_list.latest.all"))
                             },
                             {
-                                wrap: ".featured-lists__list-header",
-                                selector: "button",
-                                order: 'all',
-                                content: I18n.t(themePrefix("features_list.latest.new"))
-                            },
-                            {
                                 wrap: ".custom-search-banner-wrap",
                                 selector: "h1",
                                 order: 0,
