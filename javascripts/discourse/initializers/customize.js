@@ -112,15 +112,11 @@ export default {
                             if (badgeCategoryWrapper) {
                                 const categoryId = badgeCategoryWrapper.querySelector('span[data-category-id]').getAttribute('data-category-id');
                                 if (tags.includes(parseInt(categoryId))) {
-                                    // row.remove();
-                                    row.style.display = "none";
+                                    row.remove();
                                 }
                             }
-                            if (index > 10) {
-                                // row.remove();
-                                row.style.display = "none";
-                            }
                         });
+                        rows.slice(10).forEach(row => row.remove());
                         break;
                 }
             };
