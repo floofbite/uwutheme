@@ -60,21 +60,21 @@ export default class CustomTopicList extends Component {
         this.set('categoryId', category_id);
     }
 
-    @action
-    createTopic() {
-        if (this.currentUser) {
-            this.composer.openNewTopic({
-                categoryId: this.get('categoryId'),
-                label: 'topic.create',
-                preferDraft: 'true',
-            });
-        } else {
-            this.showLogin();
-        }
-    }
+    // @action
+    // createTopic() {
+    //     if (this.currentUser) {
+    //         this.composer.openNewTopic({
+    //             categoryId: this.get('categoryId'),
+    //             label: 'topic.create',
+    //             preferDraft: 'true',
+    //         });
+    //     } else {
+    //         this.showLogin();
+    //     }
+    // }
 
-    @action
-    showLogin() {
-        this.router.transitionTo('login');
-    }
+    // @action
+    // showLogin() {
+    //     this.router.transitionTo('login');
+    // }
 }
