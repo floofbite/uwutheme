@@ -6,7 +6,10 @@
         <a href="/latest" class="feed-link">{{theme-i18n
             "features_list.latest.all"
           }}</a>
-        <DButton id="create-topic" class='btn btn-default' {{on "click" (if this.currentUser this.createTopic this.showLogin)}}><i class='fa fa-plus'></i>{{i18n 'topic.create'}}</DButton>
+        <DButton id="create-topic" class='btn btn-default' {{on "click" (if this.currentUser this.createTopic this.showLogin)}}>
+            <svg class="fa d-icon d-icon-plus svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use href="#plus"></use></svg>
+            <span class="d-button-label">{{i18n 'topic.create'}}</span>
+        </DButton>
       </div>
       <TopicList
         @topics={{filteredTopics}}
