@@ -65,7 +65,7 @@ export default class CustomTopicList extends Component {
     createTopic() {
         if (this.currentUser) {
             this.composer.openNewTopic({
-                category: Category.findById(this.get('categoryId')),
+                categoryId: this.get('categoryId'),
                 label: 'topic.create',
                 preferDraft: 'true',
             });
