@@ -24,7 +24,7 @@ export default class CustomTopicList extends Component {
                 excludeCategories: []
             },
             "default": {
-                category_id: 0,
+                category_id: isProd ? 4 : 16, //set general
                 excludeCategories: isProd ? [51, 52] : [18, 30]
             }
         };
@@ -52,8 +52,8 @@ export default class CustomTopicList extends Component {
                 filteredTopics = filteredTopics.slice(0, listLength);
             }
 
-            this.set('categoryId', categorySettings[locale]);
-            console.log('categoryId:', this.get('categoryId'),'category find by id', Category.findById(this.get('categoryId')));
+            this.set('categoryId', categorySettings[locale] ? category_id : categorySettings["default"].category_id);
+
         } catch (error) {
             console.error("Error fetching topics:", error);
         }
@@ -64,10 +64,12 @@ export default class CustomTopicList extends Component {
     @action
     createTopic() {
         if (this.currentUser) {
-            this.composer.openNewTopic({
-                categoryId: this.get('categoryId'),
-                label: 'topic.create',
-                preferDraft: 'true',
+            this.store.findRecord('category', this.get('categoryId')).then((category) => {
+                this.composer.openNewTopic({
+                    categoryId: category.id,
+                    label: 'topic.create',
+                    preferDraft: 'true',
+                });
             });
         } else {
             this.showLogin();
