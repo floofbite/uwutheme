@@ -1,22 +1,21 @@
 {{#if this.filteredTopics}}
-<div class='featured-lists__wrapper above-main-container full-width'>
-    <div class='featured-lists__list-container {{@list.classname}}'>
-        <div class='featured-lists__list-header'>
-          <h2>{{theme-i18n "features_list.latest.status"}}</h2>
-          <a href='/latest' class='feed-link'>{{theme-i18n "features_list.latest.all"}}</a>
-          <DButton
-            @label={{theme-i18n "features_list.latest.new"}}
-            @icon='plus'
-            @iconPosition='left'
-            @onClick={{actions.createTopic}}
-            class='btn btn-default'
-            />
-        </div>
-         <TopicList
-                @topics={{filteredTopics}}
-                @showPosters='true'
-                class='featured-lists__list-body'
-              />
+  <div class="featured-lists__wrapper above-main-container full-width">
+    <div class="featured-lists__list-container {{@list.classname}}">
+      <div class="featured-lists__list-header">
+        <h2>{{theme-i18n "features_list.latest.status"}}</h2>
+        <a href="/latest" class="feed-link">{{theme-i18n
+            "features_list.latest.all"
+          }}</a>
+        <DButton
+          class="btn btn-default"
+          {{on "click" (if this.currentUser this.createTopic this.showLogin)}}
+        >{{theme-i18n "features_list.latest.new"}}</DButton>
+      </div>
+      <TopicList
+        @topics={{filteredTopics}}
+        @showPosters="true"
+        class="featured-lists__list-body"
+      />
     </div>
-</div>
+  </div>
 {{/if}}

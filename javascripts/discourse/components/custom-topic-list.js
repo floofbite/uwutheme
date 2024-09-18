@@ -1,16 +1,22 @@
 import Component from '@ember/component';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
-export default Component.extend({
-    store: service(), // 确保能使用 store 服务
+export default class CustomTopicList extends Component {
+    @service store;
+    @service router;
+    @service composer;
+    @service currentUser;
+    @tracked filteredTopics = null;
+
     async didInsertElement() {
-        this._super(...arguments);
+        super.didInsertElement(...arguments);
 
         const locale = I18n.currentLocale();
         const isProd = window.location.origin === "https://community.qnap.com";
         const listLength = 10;
 
-        // 定义 category 相关的设置，包括 category_id 和要排除的类别
         const categorySettings = {
             "ja": {
                 category_id: isProd ? 51 : 18,
@@ -26,13 +32,11 @@ export default Component.extend({
             }
         };
 
-        // 根据 locale 获取当前的设置
         const { category_id, excludeCategories } = categorySettings[locale] || categorySettings["default"];
 
         let filteredTopics = [];
 
         try {
-            // 等待异步请求返回数据
             const topicList = await this.store.findFiltered("topicList", {
                 filter: "latest",
                 params: {
@@ -44,7 +48,6 @@ export default Component.extend({
             if (topicList && topicList.topics) {
                 filteredTopics = topicList.topics;
 
-                // 如果有需要排除的 category_id，执行过滤
                 if (excludeCategories.length > 0) {
                     filteredTopics = filteredTopics.filter(topic => !excludeCategories.includes(topic.category_id));
                 }
@@ -55,16 +58,22 @@ export default Component.extend({
             console.error("Error fetching topics:", error);
         }
 
-        this.set("filteredTopics", filteredTopics);
-    },
-    actions: {
-        createTopic() {
-            console.log("Create a new topic");
-            this.composer.openNewTopic({
-                category: Category.findById(this.args.list.category),
-                tags: this.args.list.tag,
-                preferDraft: 'true'
+        this.filteredTopics = filteredTopics;
+    }
+
+    @action
+    createTopic() {
+        if (this.currentUser) {
+            this.composer.open({
+                action: 'createTopic'
             });
+        } else {
+            this.showLogin();
         }
     }
-});
+
+    @action
+    showLogin() {
+        this.router.transitionTo('login');
+    }
+}
