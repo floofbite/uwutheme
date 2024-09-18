@@ -50,13 +50,14 @@ export default class CustomTopicList extends Component {
 
                 filteredTopics = filteredTopics.slice(0, listLength);
             }
+
+            this.set('categoryId', categorySettings[locale]);
+            console.log('categoryId:', categorySettings[locale]);
         } catch (error) {
             console.error("Error fetching topics:", error);
         }
 
         this.set('filteredTopics', filteredTopics);
-        this.set('categoryId', categorySettings[locale]);
-        console.log('categoryId:', categorySettings[locale]);
     }
 
     @action
