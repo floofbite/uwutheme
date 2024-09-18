@@ -67,6 +67,7 @@ export default class CustomTopicList extends Component {
             this.composer.openNewTopic({
                 category: Category.findBySlug(this.get('categoryId')),
                 label: 'topic.create',
+                icon: 'plus',
                 preferDraft: 'true',
             });
         } else {
