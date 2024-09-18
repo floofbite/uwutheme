@@ -7,7 +7,7 @@
         <DButton
           class="btn btn-default"
           {{on "click" (if this.currentUser this.createTopic this.showLogin)}}
-        >{{theme-i18n "features_list.latest.new"}}</DButton>
+        >{{i18n 'topic.create'}}</DButton>
       </div>
       <TopicList
         @topics={{filteredTopics}}
