@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-
 export default class CustomTopicList extends Component {
     @service store;
     @service router;
@@ -10,7 +9,6 @@ export default class CustomTopicList extends Component {
 
     async didInsertElement() {
         super.didInsertElement(...arguments);
-        this.store = service('store');
         const locale = I18n.currentLocale();
         const isProd = window.location.origin === "https://community.qnap.com";
         const listLength = 10;
@@ -58,23 +56,24 @@ export default class CustomTopicList extends Component {
 
         this.filteredTopics = filteredTopics;
         this.set('categoryId', category_id);
+        console.log('filteredTopics:', filteredTopics);
     }
 
-    // @action
-    // createTopic() {
-    //     if (this.currentUser) {
-    //         this.composer.openNewTopic({
-    //             categoryId: this.get('categoryId'),
-    //             label: 'topic.create',
-    //             preferDraft: 'true',
-    //         });
-    //     } else {
-    //         this.showLogin();
-    //     }
-    // }
+    @action
+    createTopic() {
+        if (this.currentUser) {
+            this.composer.openNewTopic({
+                categoryId: this.get('categoryId'),
+                label: 'topic.create',
+                preferDraft: 'true',
+            });
+        } else {
+            this.showLogin();
+        }
+    }
 
-    // @action
-    // showLogin() {
-    //     this.router.transitionTo('login');
-    // }
+    @action
+    showLogin() {
+        this.router.transitionTo('login');
+    }
 }
