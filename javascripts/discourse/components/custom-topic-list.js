@@ -1,15 +1,12 @@
 import Component from '@ember/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { tracked } from '@glimmer/tracking';
-import Category from 'discourse/models/category';
 
 export default class CustomTopicList extends Component {
     @service store;
     @service router;
     @service composer;
     @service currentUser;
-    @tracked filteredTopics = null;
 
     async didInsertElement() {
         super.didInsertElement(...arguments);
@@ -60,26 +57,27 @@ export default class CustomTopicList extends Component {
         }
 
         this.filteredTopics = filteredTopics;
-    }
 
-    @action
-    createTopic() {
-        if (this.currentUser) {
-            this.composer.open({
-                draftKey: 'new_topic',
-                draftSequence: 1,
-                categoryId: Category.defaultCategoryId(),
-                tags: [],
-                label: 'topic.create',
-                preferDraft: 'true',
-            });
-        } else {
-            this.showLogin();
+        const createTopic = () => {
+            if (this.currentUser) {
+                this.composer.open({
+                    draftKey: 'new_topic',
+                    draftSequence: 1,
+                    categoryId: category_id,
+                    tags: [],
+                    label: 'topic.create',
+                    preferDraft: 'true',
+                });
+            } else {
+                showLogin();
+            }
         }
-    }
 
-    @action
-    showLogin() {
-        this.router.transitionTo('login');
+        const showLogin = () => {
+            this.router.transitionTo('login');
+        }
+
+        this.createTopic = createTopic;
+
     }
 }
