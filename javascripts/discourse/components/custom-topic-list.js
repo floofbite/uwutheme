@@ -24,7 +24,7 @@ export default class CustomTopicList extends Component {
                 excludeCategories: []
             },
             "default": {
-                category_id: isProd ? 4 : 16, //set general
+                category_id: 0,
                 excludeCategories: isProd ? [51, 52] : [18, 30]
             }
         };
@@ -52,7 +52,7 @@ export default class CustomTopicList extends Component {
                 filteredTopics = filteredTopics.slice(0, listLength);
             }
 
-            this.set('categoryId', categorySettings[locale] ? category_id : categorySettings["default"].category_id);
+            this.set('categoryId', categorySettings[locale] ? category_id : isProd ? 4 : 16);
 
         } catch (error) {
             console.error("Error fetching topics:", error);
