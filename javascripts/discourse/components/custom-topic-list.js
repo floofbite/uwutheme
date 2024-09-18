@@ -1,5 +1,4 @@
 import Component from '@ember/component';
-import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class CustomTopicList extends Component {
@@ -57,27 +56,25 @@ export default class CustomTopicList extends Component {
         }
 
         this.filteredTopics = filteredTopics;
+        this.set('createTopic', this.createTopic(category_id));
+    }
 
-        const createTopic = () => {
-            if (this.currentUser) {
-                this.composer.open({
-                    draftKey: 'new_topic',
-                    draftSequence: 1,
-                    categoryId: category_id,
-                    tags: [],
-                    label: 'topic.create',
-                    preferDraft: 'true',
-                });
-            } else {
-                showLogin();
-            }
+    createTopic = (category_id) => {
+        if (this.currentUser) {
+            this.composer.open({
+                draftKey: 'new_topic',
+                draftSequence: 1,
+                categoryId: category_id,
+                tags: [],
+                label: 'topic.create',
+                preferDraft: 'true',
+            });
+        } else {
+            showLogin();
         }
+    }
 
-        const showLogin = () => {
-            this.router.transitionTo('login');
-        }
-
-        this.createTopic = createTopic;
-
+    showLogin = () => {
+        this.router.transitionTo('login');
     }
 }
