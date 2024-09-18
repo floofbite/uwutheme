@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 
 export default Component.extend({
     store: service(), // 确保能使用 store 服务
@@ -57,11 +58,14 @@ export default Component.extend({
 
         this.set("filteredTopics", filteredTopics);
     },
-    createTopic() {
-        this.composer.openNewTopic({
-            category: Category.findById(this.args.list.category),
-            tags: this.args.list.tag,
-            preferDraft: 'true'
-        });
+    action: {
+        createTopic() {
+            console.log("Create a new topic");
+            this.composer.openNewTopic({
+                category: Category.findById(this.args.list.category),
+                tags: this.args.list.tag,
+                preferDraft: 'true'
+            });
+        }
     }
 });
