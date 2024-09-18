@@ -8,7 +8,6 @@ export default class CustomTopicList extends Component {
     @service composer;
     @service currentUser;
 
-
     async didInsertElement() {
         super.didInsertElement(...arguments);
 
@@ -58,14 +57,14 @@ export default class CustomTopicList extends Component {
         }
 
         this.filteredTopics = filteredTopics;
-        this.set('categoryId', category_id);
+        this.set('category_id', category_id);
     }
 
     @action
-    createTopic(category_id) {
+    createTopic() {
         if (this.currentUser) {
             this.composer.openNewTopic({
-                categoryId: category_id,
+                categoryId: this.category_id,
                 label: 'topic.create',
                 preferDraft: 'true',
             });
