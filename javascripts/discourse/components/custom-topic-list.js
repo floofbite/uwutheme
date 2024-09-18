@@ -58,10 +58,7 @@ export default class CustomTopicList extends Component {
         }
 
         this.filteredTopics = filteredTopics;
-
-        this.createTopic(category_id);
-
-
+        this.set('categoryId', category_id);
     }
 
     @action
