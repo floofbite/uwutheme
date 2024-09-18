@@ -55,7 +55,8 @@ export default class CustomTopicList extends Component {
         }
 
         this.set('filteredTopics', filteredTopics);
-        this.set('categoryId', category_id);
+        this.set('categoryId', categorySettings[locale]);
+        console.log('categoryId:', categorySettings[locale]);
     }
 
     @action
