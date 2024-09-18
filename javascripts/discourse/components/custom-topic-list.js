@@ -66,9 +66,12 @@ export default class CustomTopicList extends Component {
     createTopic() {
         if (this.currentUser) {
             this.composer.open({
-                draftKey: "new_topic",
+                draftKey: 'new_topic',
                 draftSequence: 1,
-                category: Category.create({ id: 0 }),
+                categoryId: Category.defaultCategoryId(),
+                tags: [],
+                label: 'topic.create',
+                preferDraft: 'true',
             });
         } else {
             this.showLogin();
