@@ -65,13 +65,10 @@ export default class CustomTopicList extends Component {
     @action
     createTopic() {
         if (this.currentUser) {
-            const categoryId = this.args.list?.category ? Category.findById(this.args.list.category).id : null;
-            const tags = this.args.list?.tag || [];
-
-            this.composer.openNewTopic({
-                categoryId,
-                tags,
-                preferDraft: 'true'
+            this.composer.open({
+                draftKey: "new_topic",
+                draftSequence: 1,
+                category: Category.create({ id: 0 }),
             });
         } else {
             this.showLogin();
