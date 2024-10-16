@@ -16,16 +16,16 @@ export default class CustomTopicList extends Component {
 
         const categorySettings = {
             "ja": {
-                category_id: isProd ? 51 : 18,
+                category_id: isProd ? 56 : 18,
                 excludeCategories: []
             },
             "zh_TW": {
-                category_id: isProd ? 52 : 30,
+                category_id: isProd ? 55 : 30,
                 excludeCategories: []
             },
             "default": {
                 category_id: 0,
-                excludeCategories: isProd ? [51, 52] : [18, 30]
+                excludeCategories: isProd ? [55, 56] : [18, 30]
             }
         };
 
