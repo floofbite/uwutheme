@@ -24,7 +24,7 @@ export default class CustomTopicList extends Component {
                 excludeCategories: []
             },
             "default": {
-                category_id: 0,
+                category_id: isProd ? 54 : 0,
                 excludeCategories: isProd ? [55, 56] : [18, 30]
             }
         };
