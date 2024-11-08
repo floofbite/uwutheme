@@ -174,7 +174,6 @@ div.ac-wrap {
   border-radius: 4px;
 }
 .d-header {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
   background-color: #ffffff;
 }
 
@@ -244,12 +243,6 @@ div.ac-wrap {
 }
 
 // graceful ish style
-@mixin box-shadow($value: 0px) {
-  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.07),
-    0 10.8529px 24.1177px rgba(0, 0, 0, 0.0456112),
-    0 4.50776px 10.0172px rgba(0, 0, 0, 0.035),
-    0 1.63037px 3.62304px rgba(0, 0, 0, 0.0243888);
-}
 
 html {
   body:not(.no-ember) {
@@ -288,7 +281,6 @@ html body #main-outlet {
     margin-top: 0;
   }
   padding-bottom: 5% !important; //overriding inline style
-  @include box-shadow;
   @media screen and (max-width: 1120px) {
     width: 80%;
   }
@@ -372,8 +364,7 @@ html body #main-outlet {
     //   border: 1px solid rgba(var(--primary-rgb), 0.2);
       border-radius: 1em;
       position: relative;
-      transition: box-shadow 100ms ease-in-out;
-    //   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05);
+      transition: 100ms ease-in-out;
       overflow: hidden;
       &.visited {
         border: 1px solid rgba(var(--primary-rgb), 0.1);
@@ -389,7 +380,6 @@ html body #main-outlet {
       }
       &:hover {
         background-color: var(--secondary);
-        // box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
         // border: 1px solid rgba(var(--primary-rgb), 0.3);
         a.title:not(.badge-notification),
         a.topic-excerpt {
@@ -525,10 +515,6 @@ html body #main-outlet {
   background: var(--secondary);
   border-radius: 1em;
   padding: 3em 3em 5%;
-  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.07),
-    0 10.8529px 24.1177px rgba(0, 0, 0, 0.0456112),
-    0 4.50776px 10.0172px rgba(0, 0, 0, 0.035),
-    0 1.63037px 3.62304px rgba(0, 0, 0, 0.0243888);
   z-index: 1;
   position: relative;
 }
@@ -561,7 +547,6 @@ html body #main-outlet {
 .topic-list-item.selected td:nth-child(2),
 .latest-topic-list-item.selected,
 .search-results .fps-result.selected {
-  box-shadow: inset 3px 0 0 var(--danger);
 }
 
 .topic-list tr.selected td:first-child,
@@ -572,7 +557,6 @@ html body #main-outlet {
 }
 
 .topic-list .main-link.focused + .posters {
-  box-shadow: inset 3px 0 0 var(--tertiary);
 }
 
 .topic-list .main-link.focused {
@@ -585,7 +569,6 @@ html body #main-outlet {
 
 .custom-search-banner-wrap .btn.search-icon:not(.has-search-button-text)+.search-menu-container .search-input {
     padding-left: 1.75em;
-    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .05);
 }
 
 body .custom-search-banner-wrap, body.has-sidebar-page .custom-search-banner-wrap.wrap{

@@ -58,7 +58,7 @@ div.before-header-panel-outlet {
   #main-outlet {
     margin-top: 0px;
     background: inherit;
-    box-shadow: inherit;
+    box-shadow: none;
   }
   #main-outlet-wrapper {
     .sidebar-wrapper {
@@ -115,15 +115,14 @@ sup {
   .full-width .contents .topic-list .topic-list-body .topic-list-item {
     background-color: $homepageBlockBg;
     border: 0px;
-    box-shadow: inherit;
+    box-shadow: none;
     margin-bottom: 0.75rem;
   }
 
   .full-width .contents .topic-list .topic-list-body .topic-list-item:hover {
     background-color: #f8f8fa;
-    box-shadow: inherit;
+    box-shadow: none;
     border: 0;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
   }
 
   .list-controls .combo-box .combo-box-header {
