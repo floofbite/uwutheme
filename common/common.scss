@@ -289,6 +289,16 @@ sup {
   border-radius: 16px;
 }
 
+.nav-pills .action-list  .main-nav .nav .user-nav li {
+  border: none;
+  background-color: $search-primary;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 16px;
+  margin-left: 16px;
+  border-radius: 16px !important;
+}
+
 @import "custom-search-banner-customizations";
 @import "custom-content";
 @import "custom-footer";
