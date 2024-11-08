@@ -198,7 +198,7 @@ sup {
     margin-bottom: 8px;
     margin-right: 16px;
     margin-left: 16px;
-    border-radius: 16px;
+    border-radius: 16px !important;
   }
 
   .topic-navigation {
@@ -282,7 +282,7 @@ sup {
 }
 
 .sidebar-section-content li {
-  border-radius: 16px;
+  border-radius: 16px !important;
 }
 
 @import "custom-search-banner-customizations";
