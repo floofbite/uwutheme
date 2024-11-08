@@ -42,9 +42,14 @@ $homepageBlockBg: #ffffff;
       color: #212529;
       padding: 0.2em;
       white-space: nowrap;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      margin-right: 16px;
+      margin-left: 16px;
+      border-radius: 16px;
       &:hover {
         color: $custom-primary;
-        border-bottom: 3px solid $custom-primary;
+        background-color: $custom-primary;
       }
     }
   }
