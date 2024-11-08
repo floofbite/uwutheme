@@ -192,8 +192,12 @@ sup {
     font-size: 1rem;
     font-weight: normal;
     color: $custom-primary;
+    background-color: $custom-secondary;
     padding: 0.65em 0.75em;
-    border-bottom: 3px solid $custom-primary;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-right: 16px;
+    margin-left: 16px;
   }
 
   .topic-navigation {
