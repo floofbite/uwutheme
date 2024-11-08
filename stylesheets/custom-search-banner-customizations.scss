@@ -220,13 +220,13 @@ div.ac-wrap {
 
 .btn:not(.themes-tab):not(.components-tab),
 .select-kit.dropdown-select-box .dropdown-select-box-header {
-  border-radius: 8px;
+  border-radius: 16px;
   border: 1px solid transparent;
 }
 
 .post-admin-menu.popup-menu {
   .btn.widget-button {
-    border-radius: 0px;
+    border-radius: 16px;
   }
 }
 
@@ -465,7 +465,7 @@ html body #main-outlet {
       .avatar {
         width: 40px;
         height: 40px;
-        border-radius: 8px;
+        border-radius: 16px;
       }
       a.latest {
         .avatar {
