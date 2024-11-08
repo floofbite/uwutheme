@@ -39,17 +39,17 @@ $homepageBlockBg: #ffffff;
     margin: 0 0.5em;
     a {
       font-size: 1rem;
-      color: #212529;
+      color: #ffffff;
       padding: 0.2em;
       white-space: nowrap;
       padding-top: 8px;
       padding-bottom: 8px;
       padding-right: 16px;
       padding-left: 16px;
-      border-radius: 16px;
+      border-radius: 8px;
       &:hover {
-        color: $custom-primary;
-        background-color: $custom-primary;
+        color: #2F76DB;
+        background-color: #010409;
       }
     }
   }
